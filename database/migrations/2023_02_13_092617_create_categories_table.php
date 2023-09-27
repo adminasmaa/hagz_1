@@ -17,7 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('name_ar')->nullable();
             $table->string('name_en')->nullable();
-            $table->string('description')->nullable();
+            $table->string('description_ar')->nullable();
+            $table->string('description_en')->nullable();
             $table->string('image')->nullable();
             $table->string('icon')->nullable();
             $table->boolean('active')->default(1);

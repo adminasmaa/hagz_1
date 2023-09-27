@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('aqars', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name_ar')->required();
+            $table->string('name_ar')->nullable();
             $table->string('name_en')->nullable();
-            $table->boolean('status')->required()->default (0);
+            $table->boolean('status')->nullable()->default (0);
             $table->float('fixed_price')->nullable();
             $table->json('changed_price')->nullable();
             $table->string('main_image')->nullable();
@@ -29,7 +29,7 @@ return new class extends Migration
             $table->time('time_to')->nullable();
             $table->time('time_from')->nullable();
             $table->string('description')->nullable();
-            $table->string('comision')->required();
+            $table->string('comision')->nullable();
 
             $table->string('area_id')->nullable( );
             $table->string('floor_id')->nullable( );
@@ -53,9 +53,9 @@ return new class extends Migration
             $table->integer('ads_id')->nullable( )->unsigned();
             $table->foreign('ads_id')->references('id')->on('ads');
 
-            $table->foreignId('category_id')->required()->unsigned()->references('id')->on('categories')->onDelete('cascade');
+            $table->foreignId('category_id')->nullable()->unsigned()->references('id')->on('categories')->onDelete('cascade');
 
-            $table->foreignId('user_id')->required( )->references('id')->on('users')->onDelete('cascade');
+            $table->foreignId('user_id')->nullable( )->references('id')->on('users')->onDelete('cascade');
 
             $table->timestamps();
             $table->softDeletes();

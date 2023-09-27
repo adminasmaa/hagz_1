@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name_ar')->required();
+            $table->string('name_ar')->nullable();
             $table->string('name_en')->nullable();
-            $table->boolean('active')->required()->default(1);
+            $table->boolean('active')->nullable()->default(1);
             $table->timestamps();
             $table->softDeletes();
         });

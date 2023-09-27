@@ -17,7 +17,7 @@ class Category extends Model
         'name_ar',
         'name_en',
         'active',
-        'description',
+        'description_ar', 'description_en',
         'image',
         'icon',
         'parent_id',
@@ -30,6 +30,12 @@ class Category extends Model
     public function getNameAttribute()
     {
         return (app()->getLocale() === 'ar') ? $this->name_ar : $this->name_en;
+    }
+
+
+        public function getDescriptionAttribute()
+    {
+        return (app()->getLocale() === 'ar') ? $this->description_ar : $this->description_en;
     }
     // relations
 

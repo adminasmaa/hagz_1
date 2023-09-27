@@ -10,6 +10,7 @@ use App\Http\Controllers\Dashboard\ProblemController;
 use App\Http\Controllers\Dashboard\MediatorController;
 use App\Http\Controllers\Dashboard\SettingController;
 use App\Http\Controllers\Dashboard\AdvertisingController;
+use App\Http\Controllers\Dashboard\SliderController;
 
 use App\Http\Controllers\Dashboard\AreaController;
 use App\Http\Controllers\Dashboard\ServiceAqarController;
@@ -22,7 +23,6 @@ use App\Http\Controllers\Dashboard\CommissionController;
 
 use App\Http\Controllers\Dashboard\BalanceController;
 
-use App\Http\Controllers\Dashboard\DepositController;
 
 use App\Http\Controllers\Dashboard\UserController;
 use App\Http\Controllers\Dashboard\ContactController;
@@ -44,6 +44,7 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
 
         //countries
         Route::resource('countries', CountryController::class);
+        Route::resource('sliders', SliderController::class);
 
         //cities
         Route::get('addCity', 'App\Http\Controllers\Dashboard\CountryController@AddCity')->name('addCity');
@@ -110,7 +111,7 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
 
 
         //deposits
-        Route::resource('deposits', DepositController::class);
+        Route::resource('deposits', SliderController::class);
 
 
 

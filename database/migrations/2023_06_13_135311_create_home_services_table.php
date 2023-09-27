@@ -15,16 +15,16 @@ return new class extends Migration
     {
         Schema::create('home_services', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title_ar')->required();
+            $table->string('title_ar')->nullable();
             $table->string('title_en')->nullable();
-            $table->string('description_ar')->required();
+            $table->string('description_ar')->nullable();
             $table->string('description_en')->nullable();
-            $table->string('image')->required()->unique();
+            $table->string('image')->nullable()->unique();
             $table->timestamps();
             $table->softDeletes();
         });
     }
- 
+
     /**
      * Reverse the migrations.
      *

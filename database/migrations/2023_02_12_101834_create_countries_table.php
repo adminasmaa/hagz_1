@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name_ar')->nullable();
             $table->string('name_en')->nullable();
-            $table->string('code')->required();
+            $table->string('code')->nullable();
             $table->string('image')->nullable();
             $table->string('currency')->nullable();
             $table->string('flag_image')->nullable();

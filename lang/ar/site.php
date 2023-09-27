@@ -3,6 +3,7 @@
 return [
     'Aqar Booking' => 'حجز عقار',
     'Car Booking' => 'حجز سيارة',
+    'sliders'=>'السليدر',
     'contactmessage' => 'يمكنك التواصل معنا من خلال الارقام الاتيه',
     'home' => 'الرئيسية',
     'inquires' => 'للحجز والاستفسار',
@@ -147,6 +148,9 @@ return [
     'Service available from the hour' => 'خدمة متاحه من الساعه',
     'pools' => 'حمامات سباحة',
     'Download the application now' => 'حمل التطبيق الان',
+    'Professional excellence'=>'التميز المهنى',
+    'slidertitle'=>'يصنع لحظاتك السعيدة ابحث عن شاليهات استراحات، مزارع و أكثر',
+    'You can now add your ad at any time you want'=>'يمكنك الان اضافة اعلانك فى اى وقت تريده',
     'delivery_date' => 'تاريخ التسليم او الوصول',
     'visit_count' => 'الزوار',
     'cancle_reason' => 'إلغاء السبب',
@@ -155,6 +159,8 @@ return [
     'terms_conditions' => 'الشروط والاحكام',
     'website_address' => 'عنوان الموقع ',
     'brands' => 'ماركات العربيات',
+    'Add your ad'=>'اضف اعلانك',
+    'What do we provide for you?'=>'ماذا نوفر لك ؟',
 
     'Welcome to Saeeh' => ' اهلا بك في سائح',
     'Book what suits you from our services' => 'قم بحجز ما يناسبك من خدماتنا',
@@ -292,6 +298,7 @@ return [
     'Confirm Password' => 'تأكيد كلمة المرور',
     'back' => 'رجوع',
     'code' => 'الكود',
+    'You can download the application now from us on'=>'يمكنك تحميل التطبيق الان منا على',
     'Submit your data'=>'ارسل بياناتك',
     'You can send your message by entering all data in the input fields'=>'يمكنك ارسال رسالتك من خلال ادخال كافه بيانات فى حقول الادخال',
     //contacts
@@ -381,7 +388,8 @@ return [
     'print' => 'طباعة',
     'price' => 'السعر',
     'unit' => 'الوحدات',
-    'title' => 'العنوان',
+    'title' => 'حجز',
+    'Explore now'=>'أستكشف الان',
 
     'copyrights' => 'لدى نواة الربط لتقنية المعلومات@كافه الحقوق محفوظه',
     'confirm_update' => 'تأكيد التعديل ؟',
@@ -532,6 +540,7 @@ return [
     'icon' => 'الايقونه',
     'pages' => ' الصفحات',
     'addss' => 'اضف مدن جديدة',
+    'Choose the category that suits you'=>'اختر التصنيف المناسب لك',
 
     'massages' => 'الرسائل',
     'user_type' => 'نوع المستخدم',

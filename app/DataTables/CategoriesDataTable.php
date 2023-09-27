@@ -116,7 +116,7 @@ class CategoriesDataTable extends DataTable
             Column::make('DT_RowIndex')->data('DT_RowIndex')->name('id')->title('#'),
 
             Column::make('name_'.$lan)->title(trans('site.name')),
-            Column::make('description')->title(trans('site.description')),
+//            Column::make('description')->title(trans('site.description')),
             Column::make('created_at')->title(trans('site.created_at')),
             Column::computed('action')
                 ->exportable(false)

@@ -17,6 +17,12 @@ use Illuminate\Support\Facades\URL;
 
 Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedirect', 'localizationRedirect', 'localeViewPath')->group(function () {
     Auth::routes();
+
+    Route::get('/', 'App\Http\Controllers\Frontend\HomeController@index')->name('Home');
+    Route::get('/aquars/{id}', 'App\Http\Controllers\Frontend\AqarController@index')->name('aquars');
+
+
+
 });
 
 //Route::get('/', function () {
@@ -24,7 +30,7 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
 //});
 
 define('MAINASSETS', URL::asset('assets'));
-define('FRONTASSETS', URL::asset('frontend/assets'));
+define('FRONTASSETS', URL::asset('stylefrontend/'));
 define('MAINUPLOADS', URL::asset('uploads'));
 define('MAINDIST', URL::asset('dist/frontend/img'));
 define('MAINDASHBOARD', URL::asset('dashboard_files'));

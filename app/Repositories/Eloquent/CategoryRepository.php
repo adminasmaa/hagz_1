@@ -68,14 +68,16 @@ class CategoryRepository implements CategoryRepositoryInterfaceAlias
         // To Make  Active
         $request_data['active'] = 1;
 
-        $request_data['parent_id'] = 2;
+        $request_data['parent_id'] =null;
 
+
+//
+//        return $request_data;
 
         $category = Category::create($request_data);
 
 
-//        $category->city_id = $request_data['city_id'];
-//        $category->save();
+
 
         if ($request->hasFile('image')) {
 

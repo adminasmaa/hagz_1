@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('messages')->required();
-            
-            $table->foreignId('user_id')->required( )->references('id')->on('users')->onDelete('cascade');
+            $table->string('messages')->nullable();
+
+            $table->foreignId('user_id')->nullable( )->references('id')->on('users')->onDelete('cascade');
 
             $table->timestamps();
             $table->softDeletes();

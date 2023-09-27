@@ -161,13 +161,13 @@
                                 <div class="col-md-6 form-group col-12 p-2">
                                     <label>@lang('site.ar.name')<span class="text-danger">*</span></label>
                                     <input type="text" name="name_ar" class="form-control"
-                                           value="{{ $category->name_ar }}"
+                                           value="{{ $category->name_ar  ?? ''}}"
                                            required>
                                 </div>
                                 <div class="col-md-6 form-group col-12 p-2">
                                     <label>@lang('site.en.name')<span class="text-danger">*</span></label>
                                     <input type="text" name="name_en" class="form-control"
-                                           value="{{ $category->name_en }}"
+                                           value="{{ $category->name_en ?? '' }}"
                                     >
                                 </div>
 
@@ -204,11 +204,23 @@
                                 <!--<div class="col-md-6">-->
 
                                 <div class="col-md-6 form-group col-12 p-2 ">
-                                    <label>@lang('site.description')<span class="text-danger">*</span></label>
-                                    <textarea class="form-control" id="editor1"  cols="15" rows="5" name="description">
-                                    {{ $category->description }}
+                                    <label>@lang('site.ar.description')<span class="text-danger">*</span></label>
+                                    <textarea class="form-control" id="editor1"  cols="15" rows="5" name="description_ar">
+                                    {{ $category->description_ar ?? '' }}
                                         </textarea>
                                 </div>
+
+
+                                <div class="col-md-6 form-group col-12 p-2 ">
+                                    <label>@lang('site.en.description')<span class="text-danger">*</span></label>
+                                    <textarea class="form-control" id="editor1"  cols="15" rows="5" name="description_en">
+                                    {{ $category->description_en  ?? ''}}
+                                        </textarea>
+                                </div>
+
+
+
+
                             </div>
 
                             <div class="row">

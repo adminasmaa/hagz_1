@@ -28,7 +28,7 @@ use App\Repositories\Eloquent\CommissionRepository;
 use App\Repositories\Eloquent\BalanceRepository;
 
 use App\Repositories\Eloquent\SectionRepository;
-use App\Repositories\Eloquent\DepositRepository;
+use App\Repositories\Eloquent\SliderRepository;
 
 use App\Repositories\Eloquent\AdsStatusRepository;
 
@@ -52,7 +52,7 @@ use App\Repositories\Interfaces\NotificationRepositoryInterface;
 use App\Repositories\Interfaces\BalanceRepositoryInterface;
 
 use App\Repositories\Interfaces\SectionRepositoryInterface;
-use App\Repositories\Interfaces\DepositRepositoryInterface;
+use App\Repositories\Interfaces\SliderRepositoryInterface;
 
 
 use App\Repositories\Interfaces\CommissionRepositoryInterface;
@@ -101,7 +101,6 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(BalanceRepositoryInterface::class, BalanceRepository::class);
 
         $this->app->bind(SectionRepositoryInterface::class, SectionRepository::class);
-        $this->app->bind(DepositRepositoryInterface::class, DepositRepository::class);
 
         $this->app->bind(ContactRepositoryInterface::class, ContactRepository::class);
 
@@ -111,6 +110,7 @@ class RepositoryServiceProvider extends ServiceProvider
 
 
         $this->app->bind(AdsStatusRepositoryInterface::class, AdsStatusRepository::class);
+        $this->app->bind(SliderRepositoryInterface::class, SliderRepository::class);
 
     }
 

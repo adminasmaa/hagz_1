@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('terms_conditions')->required();
-            $table->string('website_address')->required();
-            $table->string('email')->required()->unique();
-            $table->string('website_link')->required();
+            $table->string('terms_conditions')->nullable();
+            $table->string('website_address')->nullable();
+            $table->string('email')->nullable()->unique();
+            $table->string('website_link')->nullable();
             $table->string('logo')->nullable();
             $table->string('availability_time_from')->nullable();
             $table->string('availability_time_to')->nullable();
@@ -27,9 +27,9 @@ return new class extends Migration
             $table->string('phone_two')->nullable();
             $table->string('play_store')->nullable();
             $table->string('google_play')->nullable();
-            $table->string('theme')->required();
-            $table->string('closing_message')->required();
-            $table->string('description')->required();
+            $table->string('theme')->nullable();
+            $table->string('closing_message')->nullable();
+            $table->string('description')->nullable();
             $table->json('key_words')->nullable();
             $table->string('ads_top')->nullable();
             $table->string('ads_bottom')->nullable();
@@ -38,7 +38,7 @@ return new class extends Migration
             $table->string('instagram')->nullable();
             $table->string('youtube')->nullable();
             $table->string('snapchat')->nullable();
-            $table->time('time_difference')->required();
+            $table->time('time_difference')->nullable();
             $table->enum('closing',['open','closed']);
             $table->timestamps();
             $table->softDeletes();

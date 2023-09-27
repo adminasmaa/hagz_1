@@ -14,7 +14,7 @@ return new class extends Migration {
     {
         Schema::create('mediators', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->required();
+            $table->string('name')->nullable();
             $table->string('phone')->nullable()->unique();
             $table->timestamps();
             $table->softDeletes();

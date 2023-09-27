@@ -306,9 +306,9 @@
 
                             @if (auth()->user()->hasPermission('read_categories'))
                                 <li class="sidebar-list">
-                                    <a class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.categories.index')?'activee':'' }}"
-                                       href="{{route('dashboard.categories.index')}}">
-                                        <i data-feather="list"></i><span>@lang('site.categories')</span></a>
+                                    <a class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.sliders.index')?'activee':'' }}"
+                                       href="{{route('dashboard.sliders.index')}}">
+                                        <i data-feather="list"></i><span>@lang('site.sliders')</span></a>
                                 </li>
                             @endif
 
