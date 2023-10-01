@@ -20,9 +20,14 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
 
     Route::get('/', 'App\Http\Controllers\Frontend\HomeController@index')->name('Home');
     Route::get('/faqs', 'App\Http\Controllers\Frontend\HomeController@faq')->name('faqs');
+    Route::get('/terms', 'App\Http\Controllers\Frontend\HomeController@terms')->name('terms');
+    Route::get('/contact', 'App\Http\Controllers\Frontend\HomeController@contact')->name('contact');
+    Route::post('/addContacts', 'App\Http\Controllers\Frontend\HomeController@addContacts')->name('addContacts');
+
     Route::get('/aquars/{id}', 'App\Http\Controllers\Frontend\AqarController@index')->name('aquars');
     Route::get('/aquars/favouritAqar/{id}', 'App\Http\Controllers\Frontend\AqarController@favouritAqar')->name('aquars.favouritAqar');
     Route::get('/detailAqar/{id}', 'App\Http\Controllers\Frontend\AqarController@detailAqar')->name('detailAqar');
+
 
 
 

@@ -318,7 +318,11 @@ p {
   line-height: 36px;
   color: var(--m-light-main);
 }
-
+.form-control:focus {
+  color: var(--m-light-main);
+  border-color: var(--m-light-gray);
+  box-shadow: none;
+}
 /********************** header css style ************************/
 .header-web {
   box-shadow: 0px 4px 14px 0px #0000001a;
@@ -770,6 +774,12 @@ p {
   justify-content: center;
   align-items: center;
 }
+.main-btn button {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 150%;
+  color: var(--m-second);
+}
 
 .main-btn:hover {
   background-color: var(--m-second);
@@ -783,7 +793,8 @@ p {
   color: var(--m-second);
 }
 
-.main-btn:hover a {
+.main-btn:hover a,
+.main-btn:hover button {
   color: var(--m-main);
 }
 
@@ -1550,7 +1561,7 @@ tr {
   z-index: 10000;
   right: 12rem;
   top: 85px;
-  box-shadow: 0px -4px 14px 0px #0000001a;
+  box-shadow: 0px -4px 14px 4px #0000001a;
   border: 0;
   border-radius: 8px;
   cursor: context-menu;
@@ -1746,6 +1757,31 @@ tr {
   height: 7px;
   background-color: var(--m-main);
 }
+.card-terms {
+  box-shadow: 0px -4px 14px 4px #0000001a;
+  border-radius: var(--rounded-main);
+  background-color: #fff;
+}
+.terms-title {
+  position: relative;
+  padding-right: 30px;
+  padding-bottom: 14px;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 150%;
+  color: var(--m-second);
+}
+
+.terms-title::before {
+  content: "";
+  position: absolute;
+  right: 10px;
+  top: 12px;
+  width: 7px;
+  height: 7px;
+  background-color: var(--m-second);
+  border-radius: 50%;
+}
 .padding-right {
   padding-right: 30px;
 }
@@ -1763,7 +1799,12 @@ tr {
   line-height: 90px;
   color: var(--m-second);
 }
-
+.static-header-txt {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 34px;
+  color: var(--m-second);
+}
 .static-header-page {
   box-shadow: 0px 4px 14px 0px #0000001a;
 }
@@ -1772,14 +1813,14 @@ tr {
 }
 .faq-item {
   background: #ffffff;
-  box-shadow: 0px -4px 14px 0px #0000001a;
+  box-shadow: 0px -4px 14px 4px #0000001a;
 
   border-radius: var(--rounded-main);
   border: none;
 }
 .faq-item .accordion-button {
   padding: 20px;
-  transition: transform .2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
 }
 .faq-item .accordion-button,
 .faq-item:first-of-type {
@@ -1789,10 +1830,9 @@ tr {
   border-bottom-right-radius: var(--rounded-main) !important;
 }
 
-.faq-item .accordion-button:not(.collapsed) i{
+.faq-item .accordion-button:not(.collapsed) i {
   transform: rotate(180deg);
 }
-
 
 .faq-title {
   font-weight: 700;
@@ -1810,6 +1850,100 @@ tr {
 .faq-arrow-down i {
   font-size: 20px;
   color: var(--m-light-main);
+}
+.contact-card {
+  box-shadow: 0px -4px 14px 4px #0000001a;
+  border-radius: var(--rounded-main);
+  position: relative;
+  padding: 60px 42px 42px 42px;
+  background-color: #fff;
+}
+.contact-ic {
+  position: absolute;
+  right: 35px;
+  top: -35px;
+  width: 85px;
+  height: 84px;
+  color: #fff;
+  font-size: 26px;
+  background-color: var(--m-main);
+  border-radius: var(--rounded-main);
+}
+.contact-card .fa-phone-plus {
+  transform: rotate(90deg);
+}
+.contact-lbl {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 27px;
+  color: var(--m-gray-2);
+  padding-bottom: 16px;
+}
+.contact-input {
+  text-align: right;
+  height: 60px;
+  border-radius: var(--rounded-main);
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid var(--m-light-gray);
+  padding-right: 16px;
+}
+.contact-input::placeholder,
+.txtarea-7agz::placeholder {
+  color: var(--m-light-main);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+.txtarea-7agz {
+  background-color: #fff;
+  border-radius: var(--rounded-main);
+  border: 1px solid var(--m-light-gray);
+}
+
+.contact-page,
+.terms-page {
+  background-color: #f3f3f3;
+}
+.modal-custom {
+  padding-left: 0 !important;
+}
+
+.modal-custom .modal-content {
+  width: 75%;
+  border-radius: var(--rounded-main);
+}
+.modal-custom .modal-body {
+  padding: 0;
+}
+.modal-custom .modal-dialog {
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 4% auto;
+  /* height: 100%; */
+}
+
+.close-modal {
+  position: absolute;
+  top: -25px;
+  right: -25px;
+  width: 60px;
+  height: 60px;
+  background: var(--m-main);
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1;
+}
+.close-modal i {
+  color: #fff;
+  font-size: 20px;
+}
+.help-card {
+  border: 1px solid var(--m-light-gray);
+  border-radius: var(--rounded-main);
+  background-color: #fff;
 }
 
 .mobile-view,

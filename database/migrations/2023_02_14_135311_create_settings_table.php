@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('terms_conditions')->nullable();
+            $table->text('terms_conditions')->nullable();
             $table->string('website_address')->nullable();
             $table->string('email')->nullable()->unique();
             $table->string('website_link')->nullable();
@@ -28,8 +28,8 @@ return new class extends Migration
             $table->string('play_store')->nullable();
             $table->string('google_play')->nullable();
             $table->string('theme')->nullable();
-            $table->string('closing_message')->nullable();
-            $table->string('description')->nullable();
+            $table->text('closing_message')->nullable();
+            $table->text('description')->nullable();
             $table->json('key_words')->nullable();
             $table->string('ads_top')->nullable();
             $table->string('ads_bottom')->nullable();

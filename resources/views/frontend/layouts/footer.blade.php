@@ -42,8 +42,8 @@
                             <li class="py-md-2 py-1">
                                 <a href="{{route('faqs')}}"> @lang('site.questions') </a>
                             </li>
-                            <li class="py-md-2 py-1"><a href="#"> @lang('site.conditions')</a></li>
-                            <li class="py-md-2 py-1"><a href="#">@lang('site.contact')  </a></li>
+                            <li class="py-md-2 py-1"><a href="{{route('terms')}}"> @lang('site.conditions')</a></li>
+                            <li class="py-md-2 py-1"><a href="{{route('contact')}}">@lang('site.contact')  </a></li>
                         </ul>
                     </div>
                 </div>
@@ -166,6 +166,7 @@
 <script src="{{FRONTASSETS}}/assets/js/dist/jquery-ui.js"></script>
 <!-- Main JS -->
 <script src="{{FRONTASSETS}}/assets/js/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
 
 </body>
 </html>

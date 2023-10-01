@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name')->nullable( );
             $table->string('phone')->nullable( );
             $table->string('message')->nullable( );
-            $table->foreignId('user_id')->nullable( )->references('id')->on('users')->onDelete('cascade');
+            $table->integer('user_id')->nullable( );
 
             $table->timestamps();
         });
