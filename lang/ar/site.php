@@ -44,6 +44,13 @@ return [
     'Information that may interest you' => 'معلومات قد تهمك',
     'conditionBooking' => "ما هي شروط حجزي؟ ",
     'allownumber' => 'العدد المسموح بيه',
+
+    'families'=>'عائلات',
+
+    'Individuals'=>'الافراد',
+    'youths'=>'شباب',
+
+    'Contact the farm owner'=>'اتصال بمالك المزرعة',
     'Arrival dates' => 'مواعيد الوصول',
     'id number' => 'رقم الاعلان',
     'Reservation deposit' => 'عربون حجز',
@@ -60,6 +67,9 @@ return [
     'Superb and easy to access' => 'أكثر من رائع وسهل الوصول ليه',
     'Receipt and delivery procedures' => 'اجراءات الاستلام والتسليم',
     'Based on reviews from all kinds of travelers' => 'بناء على تقييمات من ‪كل أنواع المسافرين‬',
+
+
+    'faqs'=>'الاسئلة المتكررة',
 
     'conditions' => 'الشروط والاحكام',
     'book' => 'احجز الان',
@@ -176,6 +186,9 @@ return [
     'amount' => 'كميات',
     'date' => 'تاريخ الحجز',
     'cancle_reason' => ' الغاء الحجز',
+
+    'The customer cancels'=>'عندما يقوم العميل بالإلغاء قبل يوم الحجز 4 أيام يسترجع له العربون أو يأجل الحجز.عندما يقوم العميل بالإلغاء خلال ال 4 أيام التي تسبق الحجز لا يسترجع له العربون أو يأجل الحجز',
+
     'link' => 'الرابط الخاصة',
     'offertime' => 'بعض الوقت',
     'find_your_favorite_country' => 'ابحث عن دولتك المفضلة',
@@ -265,6 +278,7 @@ return [
     'answer' => 'الرد',
     'refuse' => 'لم يتم السداد',
     'accept' => 'تم السداد',
+    'Share the ad'=>'مشاركة الاعلان',
 
     'ingredients_en' => ' انجليري المكونات ',
     'brand_name_ar' => 'اسم العلامة التجارية بالعربي',
@@ -314,6 +328,8 @@ return [
     'Register' => 'التسجيل',
     'website_link' => 'رابط الموقع',
     'ads_top' => 'الاعلان ثابت في الاعلى',
+    'min_price'=>'الاقل سعر ',
+    'max_price'=>'الاكثر سعر',
     'ads_bottom' => 'اعلان ثابت في الاسفل',
     'time_difference' => 'فارق التوقيت',
     'closing' => 'الاغلاق',
@@ -375,7 +391,7 @@ return [
     'add' => 'اضافة جديد',
     'create' => 'اضافة',
     'viewAny' => 'مشاهدة الكل',
-    'view' => 'مشاهدة',
+    'view' => ' اعلي مشاهدة  ',
     'read' => 'قراءة',
     'edit' => 'تعديل',
     'update' => 'تحديث',

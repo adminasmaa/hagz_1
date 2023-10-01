@@ -19,7 +19,10 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
     Auth::routes();
 
     Route::get('/', 'App\Http\Controllers\Frontend\HomeController@index')->name('Home');
+    Route::get('/faqs', 'App\Http\Controllers\Frontend\HomeController@faq')->name('faqs');
     Route::get('/aquars/{id}', 'App\Http\Controllers\Frontend\AqarController@index')->name('aquars');
+    Route::get('/aquars/favouritAqar/{id}', 'App\Http\Controllers\Frontend\AqarController@favouritAqar')->name('aquars.favouritAqar');
+    Route::get('/detailAqar/{id}', 'App\Http\Controllers\Frontend\AqarController@detailAqar')->name('detailAqar');
 
 
 

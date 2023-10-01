@@ -8,6 +8,23 @@ return [
     'floor_number' => 'Floor Numbers',
     'free_services' => 'Free Services',
     'sliders'=>'Sliders',
+    'Share the ad'=>'Share the ad',
+    'max_price'=>'Max Price',
+    'min_price'=>'Min Price',
+
+    'The customer cancels'=>'When the customer cancels 4 days before the booking day The deposit will be returned to him or the reservation will be postponed. When the customer If canceled within the 4 days preceding the reservation, it will not be refunded
+ The deposit or postponed booking',
+
+    'families'=>'Families',
+
+    'youths'=>'Youths',
+
+    'Individuals'=>'Individuals',
+
+    'faqs'=>'Frequently asked questions',
+
+    'Contact the farm owner'=>'Contact the farm owner',
+
     'kitchens' => 'Kitchens',
     'laundries' => 'Laundries',
     'bathrooms' => 'BathRooms',

@@ -20,12 +20,12 @@ class AqarReview extends Model
     public $guarded = ['id'];
 
     protected $table = 'aqar_reviews';
-    protected $with = ['reviewElement'];
+
     protected $fillable = [
         'rate', // required
         'aqar_id',
         'user_id',
-        'review_element_id',
+//        'review_element_id',
     ];
 
     protected $hidden = ['deleted_at', 'updated_at', 'created_at'];
@@ -41,19 +41,19 @@ class AqarReview extends Model
         return $this->belongsTo(Aqar::class, 'aqar_id');
     }
 
-    public function reviewElement()
-    {
-        return $this->belongsTo(ReviewElement::class, 'review_element_id');
-    }
-    public function RateTotal($id){
-        return AqarReview::where('review_element_id',$id)->sum('rate');
-
-
-    }
-
-    public function CountUser($id){
-        return AqarReview::where('review_element_id',$id)->count('user_id');
-
-
-    }
+//    public function reviewElement()
+//    {
+//        return $this->belongsTo(ReviewElement::class, 'review_element_id');
+//    }
+//    public function RateTotal($id){
+//        return AqarReview::where('review_element_id',$id)->sum('rate');
+//
+//
+//    }
+//
+//    public function CountUser($id){
+//        return AqarReview::where('review_element_id',$id)->count('user_id');
+//
+//
+//    }
 }

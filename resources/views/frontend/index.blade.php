@@ -37,14 +37,17 @@
                 </div>
             </div>
             <div class="search-container">
+
                 <div class="container">
                     <div class="search-stage">
+                        <form action="{{route('aquars',1)}}" method="get">
+
                         <div class="row align-items-end">
                             <div class="col-lg-3 col-6">
                                 <div class="box-search mb-lg-0 mb-3">
                                     <label for="categories" class="lbl-search"> @lang('site.categories')</label>
-                                    <select class="select2" id="categories" name="category_id">
-                                        <option>@lang('site.select')</option>
+                                    <select class="select2" id="categories" name="category_id" >
+                                        <option disabled selected>@lang('site.select')</option>
                                         @foreach($categories as $category)
                                             <option value="{{$category->id}}">{{$category->name ?? ''}}</option>
                                         @endforeach
@@ -54,8 +57,8 @@
                             <div class="col-lg-3 col-6">
                                 <label for="regions" class="lbl-search">@lang('site.countries') </label>
                                 <div class="box-search mb-lg-0 mb-3" id="regions" >
-                                    <select class="select2" name="country_id">
-                                        <option>@lang('site.select')</option>
+                                    <select class="select2" name="country_id" >
+                                        <option disabled selected>@lang('site.select')</option>
                                         @foreach($countries as $country)
                                             <option value="{{$country->id}}"> {{$country->name ?? ''}}</option>
                                         @endforeach
@@ -65,12 +68,13 @@
                             </div>
                             <div class="col-lg-3 col-6">
                                 <label for="individuals" class="lbl-search"
-                                >اختر الافراد
+                                > @lang('site.Individuals')
                                 </label>
                                 <div class="box-search" id="individuals">
                                     <select class="select2">
-                                        <option value="1">الكل</option>
-                                        <option value="2">الكل</option>
+                                        <option disabled selected>@lang('site.select')</option>
+                                        <option value="1">@lang('site.families')</option>
+                                        <option value="2">@lang('site.youths')</option>
                                     </select>
                                 </div>
                             </div>
@@ -78,14 +82,16 @@
                                 <div
                                     class="search-btn d-flex align-items-center justify-content-center mt-lg-0"
                                 >
-                                    <a href="#">
+                                    <button type="submit" >
                                         @lang('site.search')
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
                         </div>
+                        </form>
                     </div>
                 </div>
+
             </div>
         </section>
         <!-- add your ads section -->
@@ -139,7 +145,7 @@
                                     </p>
                                     <div class="d-flex justify-content-center my-3">
                                         <div class="main-btn">
-                                            <a href="#"> @lang('site.Explore now')</a>
+                                            <a href="{{route('aquars',$cat->id)}}"> @lang('site.Explore now')</a>
                                         </div>
                                     </div>
                                 </div>

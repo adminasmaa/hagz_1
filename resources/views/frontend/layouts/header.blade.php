@@ -56,7 +56,7 @@
         <div class="container">
             <div class="row justify-content-between align-items-center py-3">
                 <div class="col-4">
-                    <a href="#">
+                    <a href="{{route('Home')}}">
                         <img class="logo" src="{{FRONTASSETS}}/assets/images/logo.svg" alt="logo" />
                     </a>
                 </div>

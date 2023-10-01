@@ -31,7 +31,6 @@ return new class extends Migration
             $table->string('description')->nullable();
             $table->string('comision')->nullable();
 
-            $table->string('area_id')->nullable( );
             $table->string('floor_id')->nullable( );
             $table->string('car_position_id')->nullable( );
             $table->string('service_id')->nullable( );

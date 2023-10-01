@@ -37,10 +37,10 @@
                     <div>
                         <h3 class="footer-title"> @lang('site.Important links')</h3>
                         <ul class="list-unstyled links-list">
-                            <li class="py-md-2 py-1"><a href="#">@lang('site.home')</a></li>
+                            <li class="py-md-2 py-1"><a href="{{route('Home')}}">@lang('site.home')</a></li>
                             <li class="py-md-2 py-1"><a href="#">@lang('site.Become a partner with us')</a></li>
                             <li class="py-md-2 py-1">
-                                <a href="#"> @lang('site.questions') </a>
+                                <a href="{{route('faqs')}}"> @lang('site.questions') </a>
                             </li>
                             <li class="py-md-2 py-1"><a href="#"> @lang('site.conditions')</a></li>
                             <li class="py-md-2 py-1"><a href="#">@lang('site.contact')  </a></li>
@@ -56,7 +56,7 @@
                                 class="footerSocialIcons d-flex align-items-center justify-content-center"
                             >
 {{--                                {{$setting->snapchat}}--}}
-                                <a href="" class="lh-0" target="_blank" title="Snapchat">
+                                <a href="{{$setting->snapchat}}" class="lh-0" target="_blank" title="Snapchat">
                                     <i class="fab fa-snapchat-ghost"></i>
                                 </a>
                             </li>
@@ -65,7 +65,7 @@
                                 class="footerSocialIcons d-flex align-items-center justify-content-center"
                             >
 {{--                                {{$setting->instagram}}--}}
-                                <a href="" class="lh-0" target="_blank" title="Instagram">
+                                <a href="{{$setting->instagram}}" class="lh-0" target="_blank" title="Instagram">
                                     <i class="fab fa-instagram"></i>
                                 </a>
                             </li>
@@ -73,7 +73,7 @@
                                 class="footerSocialIcons d-flex align-items-center justify-content-center"
                             >
 {{--                                {{$setting->facebook}}--}}
-                                <a href="" class="lh-0" target="_blank" title="Facebook">
+                                <a href="{{$setting->facebook}}" class="lh-0" target="_blank" title="Facebook">
                                     <i class="fab fa-facebook-f"></i>
                                 </a>
                             </li>
@@ -113,7 +113,7 @@
                                             <div class="d-flex align-items-center">
                                                 <span><i class="fab fa-whatsapp"></i></span>
 {{--                                                {{$setting->phone_two ?? ''}}--}}
-                                                <div class="pe-2"></div>
+                                                <div class="pe-2"> {{$setting->phone_two ?? ''}}</div>
                                             </div>
                                         </a>
                                     </li>
@@ -122,7 +122,7 @@
                                             <div class="d-flex align-items-center">
                                                 <span><i class="fab fa-whatsapp"></i></span>
 {{--                                                {{$setting->phone_one ?? ''}}--}}
-                                                <div class="pe-2"></div>
+                                                <div class="pe-2">{{$setting->phone_one ?? ''}}</div>
                                             </div>
                                         </a>
                                     </li>

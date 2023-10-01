@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Models\Category;
 use App\Models\Country;
+use App\Models\Freq_question;
 use App\Models\HomeServices;
 use App\Models\Setting;
 use App\Models\Slider;
@@ -27,13 +28,23 @@ class HomeController extends Controller
     public function index()
     {
 
-        $categories = Category::get();
-        $countries = Country::get();
-        $setting = Setting::first();
+
+
+
         $HomeServices = HomeServices::all();
         $sliders = Slider::get();
-        return view('frontend.index', compact('categories', 'countries', 'setting', 'HomeServices','sliders'));
+        return view('frontend.index', compact(  'HomeServices', 'sliders'));
 
 
+    }
+
+
+
+    public function faq()
+    {
+
+        $faqs = Freq_question::get();
+
+        return view('frontend.faqs', compact('faqs'));
     }
 }

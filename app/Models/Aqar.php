@@ -118,15 +118,12 @@ class Aqar extends Model
     }
 
     // relations
-    public function aqarBooking()
-    {
-        return $this->HasMany(AqarBooking::class);
-    }
+
 
     public function aqarReview()
     {
 
-        return $this->HasMany(AqarReview::class ,'aqar_id')->groupBy('review_element_id');
+        return $this->HasMany(AqarReview::class ,'aqar_id');
 
 
     }
@@ -185,6 +182,6 @@ class Aqar extends Model
     }
 
 
-   
+
 
 }

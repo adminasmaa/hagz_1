@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Aqar;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -10,22 +11,11 @@ use Laravel\Passport\HasApiTokens;  //add the namespace
 
 use Laratrust\Traits\LaratrustUserTrait;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use App\Models\Place;    // HasMany
-use App\Models\PlaceComment;    // HasMany
 use App\Models\Ads;    // HasMany
-use App\Models\Car;    // HasMany
-use App\Models\CarComment;    // HasMany
 use App\Models\Commission;    // HasMany
-use App\Models\CarBooking;    // HasMany
-use App\Models\AqarBooking;    // HasMany
-use App\Models\Aqar;    // HasMany
 use App\Models\AqarComment;    // HasMany
-use App\Models\BookingNote;    // HasMany
 use App\Models\Message;    // HasMany
 use App\Models\Notification;    // HasMany
-use App\Models\Balance;    // HasMany
-use App\Models\Invoice;    // HasMany
-use App\Models\Deposit;    // HasMany
 class User extends Authenticatable
 {
     use LaratrustUserTrait;
@@ -104,6 +94,8 @@ class User extends Authenticatable
     public function notification(){
         return $this->HasMany(Notification::class);
     }
-
+    public function favourite_aqars(){
+        return $this->belongsToMany(Aqar::class,'aqar_user');
+    }
 
 }
