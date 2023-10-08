@@ -27,7 +27,6 @@
   .details-txt,
   .details-head,
   .details-item .accordion-button,
-  .restaurant-details-txt,
   .tabs a {
     font-size: 20px;
     line-height: 40px;
@@ -54,6 +53,39 @@
   }
 }
 @media (max-width: 992px) {
+  .logo-footer-content {
+    margin-bottom: 15px;
+}
+  .static-header-page {
+    text-align: center;
+  }
+  .delete-farm-card {
+    top: 15px;
+   }
+  .ads-radio-list .custom-radio {
+    font-size: 18px;
+  }
+  .login-page .tabs-details .tab-link {
+    font-size: 16px;
+  }
+  .user-link {
+    font-size: 14px;
+  }
+  .password-link,
+  .txt-phone,
+  .txt-commission {
+    font-size: 14px;
+    line-height: 22px;
+  }
+  .login-header-page p {
+    font-size: 20px;
+    line-height: 34px;
+    padding-top: 20px;
+  }
+  .login-header-page {
+    padding: 30px 10px 30px 16px;
+    text-align: center;
+  }
   .terms-title {
     padding-right: 22px;
     padding-bottom: 8px;
@@ -70,6 +102,9 @@
   .contact-input {
     height: 50px;
     padding-right: 12px;
+  }
+  .login-page input {
+    height: 50px;
   }
   .contact-input::placeholder,
   .txtarea-7agz::placeholder {
@@ -171,7 +206,11 @@
   }
   [dir="rtl"] .breadcrumb-item + .breadcrumb-item::before {
     height: 18px;
-    width: 16px;
+    scale: 0.7;
+  }
+  .static-header-fav{text-align: center;}
+  .static-header-fav .static-image img{
+ height: 250px;
   }
   .card-title {
     font-size: 22px;
@@ -515,9 +554,9 @@
     padding-top: 70px !important;
   }
   .side-menu-nav .main-menu > li > a {
-    color: var(--m-gray-2);
+    color: var(--m-second);
     padding: 15px 20px 5px 10px;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 14px;
     display: block;
     transition: 0.4s;
@@ -610,63 +649,84 @@
     font-size: 36px;
   }
 
-  .accordion-button:not(.collapsed) {
-    /* color: var(--m-main); */
-    background-color: transparent;
-    box-shadow: none;
-    border-bottom: none;
-  }
-  .accordion-button::after {
-    background-image: none;
-    content: none;
-  }
-  .accordion-button:not(.collapsed)::after {
-    background-image: none !important;
-    content: none;
-  }
-  /* .accordion-button:not(.collapsed) i {
-     transform: rotate(180deg); 
-  } */
-  .accordion-button {
-    padding: 0.5rem 1.25rem;
-  }
-  .accordion-button:focus {
-    box-shadow: none;
-  }
-  .accordion-body {
-    padding: 0.5rem 1.25rem;
-  }
-  .submenu li a {
-    color: var(--m-gray-2);
-  }
 
-  .side-login-image {
-    width: 100%;
-    background: url(../images/login-bg-mobile.png) center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-radius: 10px 10px 0 0;
-    height: 300px;
-  }
+  .accordion-flush .accordion-button {
+    width: 88%;
+    border-radius: var(--rounded-main);
+    background-color: var(--m-main);
+    color: var(--m-second);
+    padding: 12px 15px;
+    font-weight: 700;
+    font-size: 14px;
+    display: block;
+    transition: 0.4s;
+    transition: .4s;
+    -webkit-transition: .4s;
+    -moz-transition: .4s;
+    -ms-transition: .4s;
+    -o-transition: .4s;
+}
+.accordion-button:not(.collapsed) {
+  box-shadow: none;
+  background-color: var(--m-main) !important;
+}
+.accordion-button:not(.collapsed) i{
+  transform: rotate(180deg);
+}
+.accordion-button:focus {
+  z-index: 3;
+  border-color: unset;
+  outline: 0;
+  box-shadow: none;
+}
+.accordion-Profile a i{
+  color: var(--m-main);
+  font-size: 16px;
+  padding-left: 5px;
+}
+.accordion-Profile a{
+  color: var(--m-second);
+  padding: 12px 0px 5px 10px;
+    font-weight: 700;
+    font-size: 14px;
+}
+.accordion-button i{
+  font-size: 18px;
+  color: var(--m-second);
+}
+.accordion-Profile ul{
+  padding-right: 20px;
+    list-style: none;
+}
+.accordion-Profile ul li a{
+  font-size: 14px;
+}
+.profile-ic {
+  text-align: center;
+  width: 15%;
+}
 
-  .side-resto-image {
-    width: 100%;
-    background: url(../images/resto-modal-image.svg) center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    object-fit: cover;
-    border-radius: 10px 10px 0 0;
-    height: 280px;
-  }
-  .login-content,
-  .resto-modal-content {
-    width: 100%;
-    order: 2;
-  }
-  .login-body {
-    display: flex;
-    flex-direction: column;
-  }
+.btn-outline-7agz , .btn-7agz {
+  width: 88%;
+  height: 50px;
+ padding: 0 !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  line-height: 36px !important;
+
+}
+
+.btn-outline-7agz:hover ,.btn-7agz:hover{
+  background-color: unset;
+  border: 1px solid unset;
+  color: unset;
+}
+
+
+
+
+
+ 
   .close-modal {
     position: absolute;
     top: -15px;
@@ -712,6 +772,7 @@
   }
 }
 @media (max-width: 768px) {
+  
   .tabs-in-mobile {
     display: flex;
     flex-wrap: wrap;
@@ -803,6 +864,102 @@
   }
 }
 @media (max-width: 578px) {
+  .ads-radio-list .custom-radio:before {
+    width: 18px;
+    height: 18px;
+  }
+  .ads-radio-list :checked + .custom-radio:after {
+    width: 10px;
+    height: 10px;
+    right: 4px;
+  }
+  .ads-radio-list .custom-radio {
+    font-size: 14px;
+    padding-right: 22px;
+  }
+  .login-page .custom-checkbox-item::before {
+    width: 26px;
+    height: 26px;
+  }
+  .login-page
+    .input-custom-checkbox-item:checked
+    + .custom-checkbox-item:after {
+    top: 4px;
+    right: 10px;
+  }
+  .login-page .custom-checkbox-item {
+    font-size: 14px;
+  }
+  .main-btn a,
+  .main-btn button {
+    font-size: 14px;
+  }
+  .iti--separate-dial-code input[type="tel"] {
+    padding-right: 32px;
+  }
+  .iti--separate-dial-code .iti__selected-dial-code {
+    font-size: 14px;
+  }
+  .login-page input,
+  .login-page
+    .select2-container[dir="rtl"]
+    .select2-selection--single
+    .select2-selection__rendered {
+    padding-right: 32px;
+    font-size: 14px;
+  }
+  .field-icon {
+    left: 12px;
+    font-size: 14px;
+  }
+  .icon-placeholder {
+    right: 12px;
+  }
+  .icon-placeholder i {
+    font-size: 14px;
+  }
+  .login-page .tabs-details .tab-link {
+    font-size: 14px;
+    line-height: 24px;
+  }
+  .login-page .tab-active:first-of-type {
+    border-radius: 10px 10px 0 0;
+  }
+  .login-page .tab-active:last-of-type {
+    border-radius: 0 0 10px 10px;
+  }
+  .login-page .tabs-nav-details {
+    display: block;
+    height: auto;
+    border-radius: 10px;
+    border-bottom: 1px solid var(--m-light-gray);
+  }
+  .login-page .tabs-nav-details li {
+    padding-block: 10px;
+  }
+  .login-page .tabs-nav-details li:first-child {
+    border-left: none;
+  }
+  .login-page .tabs-content {
+    border-top: 0;
+  }
+  .login-header-page h2 {
+    font-size: 22px;
+  }
+  .login-header-page p {
+    padding-top: 10px;
+    font-size: 16px;
+    line-height: 28px;
+  }
+
+  .password-link,
+  .txt-phone,
+  .txt-commission {
+    font-size: 12px;
+  }
+  .user-link {
+    font-size: 12px;
+  }
   .static-header-title {
     font-size: 30px;
     line-height: 54px;
@@ -1111,6 +1268,9 @@
   }
 }
 @media (max-width: 340px) {
+  .ads-radio-list .custom-radio {
+    font-size: 14px;
+  }
   h2,
   .h2 {
     font-size: 16px;

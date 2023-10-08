@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers\Frontend;
+
+use App\Models\User;
 use Validator;
 use App\Models\Category;
 use App\Models\Contact;
@@ -38,6 +40,89 @@ class HomeController extends Controller
 
     }
 
+
+    public function checklogin(Request $request)
+    {
+        $validation = Validator::make($request->all(), [
+            'phone' => 'required|unique:users|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+
+            'password' => 'required|min:6',
+        ]);
+
+        if ($validation->fails()) {
+            return response()->json(['errors' => $validation->errors()], 422);
+        }
+        if (auth()->attempt(['phone' => $request->phone, 'password' => $request->password])) {
+            $user = Auth::user();
+            Auth::login($user);
+            return response()->json(['status' => true, 'content' => 'success', 'data' => $user]);
+
+        } else {
+
+
+            return response()->json(['status' => true, 'content' => 'error']);
+        }
+
+    }
+
+    public function createaccount(Request $request)
+    {
+        $validation = Validator::make($request->all(), [
+            'email' => 'nullable|email|string|unique:users',
+//            'phone' => 'required|string|unique:users',
+
+            'phone' => 'required|unique:users|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+
+            'password' => 'required|confirmed|min:6',
+            'username' => 'required',
+            'firstname' => 'required',
+        ]);
+
+        if ($validation->fails()) {
+            return response()->json(['errors' => $validation->errors()], 422);
+        }
+
+        $request_data = $request->except(['password', 'password_confirmation', '_token']);
+
+        $request_data['active'] = 1;
+        $request_data['account_type'] = 'User';
+
+        $request_data['password'] = bcrypt($request->password);
+//        $request_data['lastname'] = $request->username;
+        $request_data['username'] = $request->username;
+        $request_data['firstname'] = $request->firstname;
+
+        $user = User::create($request_data);
+
+        Auth::login($user);
+
+        return response()->json(['status' => true, 'content' => 'success', 'data' => $user]);
+
+    }
+
+
+    public function registers()
+    {
+        return view('frontend.registers');
+
+
+    }
+
+    public function sitelogin()
+    {
+        return view('frontend.login');
+
+
+    }
+
+    public function logout()
+    {
+
+        Auth::logout();
+
+        return redirect(route('Home'));
+    }
+
     public function terms()
     {
 
@@ -47,7 +132,8 @@ class HomeController extends Controller
 
     }
 
-    public function contact(){
+    public function contact()
+    {
 
         return view('frontend.contacts');
     }
@@ -61,7 +147,8 @@ class HomeController extends Controller
         return view('frontend.faqs', compact('faqs'));
     }
 
-    public function addContacts(Request $request){
+    public function addContacts(Request $request)
+    {
 
         $validation = Validator::make($request->all(), [
             'name' => 'required|string',
@@ -76,7 +163,7 @@ class HomeController extends Controller
         $request_data = $request->except('_token');
         $request_data['user_id'] = Auth::id() ?? '';
 
-        $data=Contact::create($request_data);
+        $data = Contact::create($request_data);
 
         return response()->json(['status' => true, 'content' => 'success', 'data' => $data]);
     }

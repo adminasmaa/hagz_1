@@ -19,7 +19,7 @@
                             <a href="javascript:void(0)"> {{$aqar->category->name ??  ''}} </a>
                         </li>
                         <li class="breadcrumb-item text-light-main" aria-current="page">
-                    @lang('site.details')
+                            @lang('site.details')
                         </li>
                     </ol>
                 </nav>
@@ -33,43 +33,22 @@
                         <div id="slides">
                             @if(!empty($aquar->images))
                                 @foreach(explode(',',$aquar->images) as $key=>$img)
-                            <div class="slide show" data-slide="{{$key}}">
-                                <img
+                                    <div class="slide show" data-slide="{{$key}}">
+                                        <img
 
-                                     src="{{asset('images/aqars/'.$img)}}"
+                                            src="{{asset('images/aqars/'.$img)}}"
 
-                                     onerror="this.src='{{FRONTASSETS}}/assets/images/farm-image.png'"
-                                     alt="farm image" />
-                            </div>
+                                            onerror="this.src='{{FRONTASSETS}}/assets/images/farm-image.png'"
+                                            alt="farm image"/>
+                                    </div>
                                 @endforeach
                             @else
                                 <div class="slide show" data-slide="1">
-                                    <img src="{{FRONTASSETS}}/assets/images/farm-img-1.svg" alt="farm image" />
+                                    <img src="{{FRONTASSETS}}/assets/images/farm-img-1.svg" alt="farm image"/>
                                 </div>
                             @endif
 
-{{--                            <div class="slide" data-slide="2">--}}
-{{--                                <img src="./assets/images/farm-image.png" alt="farm image" />--}}
-{{--                            </div>--}}
 
-{{--                            <div class="slide" data-slide="3">--}}
-{{--                                <img src="./assets/images/farm-image.png" alt="farm image" />--}}
-{{--                            </div>--}}
-{{--                            <div class="slide" data-slide="4">--}}
-{{--                                <img src="./assets/images/farm-image.png" alt="farm image" />--}}
-{{--                            </div>--}}
-{{--                            <div class="slide" data-slide="5">--}}
-{{--                                <img src="./assets/images/farm-image.png" alt="farm image" />--}}
-{{--                            </div>--}}
-{{--                            <div class="slide" data-slide="6">--}}
-{{--                                <img src="./assets/images/farm-image.png" alt="farm image" />--}}
-{{--                            </div>--}}
-{{--                            <div class="slide" data-slide="7">--}}
-{{--                                <img src="./assets/images/farm-image.png" alt="farm image" />--}}
-{{--                            </div>--}}
-{{--                            <div class="slide" data-slide="8">--}}
-{{--                                <img src="./assets/images/farm-image.png" alt="farm image" />--}}
-{{--                            </div>--}}
                             <div class="d-flex align-items-center h-100">
                                 <div class="slide-btn next-slide">
                     <span>
@@ -85,14 +64,14 @@
                         <div id="gallery" class="d-flex flex-wrap">
                             @if(!empty($aquar->images))
                                 @foreach(explode(',',$aquar->images) as $k=>$imgg)
-                            <div class="thumbnail active" data-slide="{{$k}}">
-                                <img
+                                    <div class="thumbnail active" data-slide="{{$k}}">
+                                        <img
 
-                                     src="{{asset('images/aqars/'.$imgg)}}"
+                                            src="{{asset('images/aqars/'.$imgg)}}"
 
-                                     onerror="this.src='{{FRONTASSETS}}/assets/images/farm-image.png'"
-                                     alt="farm image" />
-                            </div>
+                                            onerror="this.src='{{FRONTASSETS}}/assets/images/farm-image.png'"
+                                            alt="farm image"/>
+                                    </div>
                                 @endforeach
 
                             @else
@@ -103,7 +82,6 @@
 
                                     />
                                 </div>
-
 
                             @endif
 
@@ -226,7 +204,8 @@
                             <div class="farm-data-img">
                                 <i class="fas fa-map-marker-alt text-main"></i>
                             </div>
-                            <div class="text-second">      {{$aquar->country->name ?? ''}} , {{$aquar->city->name ?? ''}}</div>
+                            <div class="text-second">      {{$aquar->country->name ?? ''}}
+                                , {{$aquar->city->name ?? ''}}</div>
                         </div>
                         <div class="d-flex align-items-center farm-data">
                             <div class="farm-data-img">
@@ -247,253 +226,256 @@
                         </div>
                         <div class="d-flex align-items-center farm-data">
                             <div class="farm-data-img">
-                                <img src="{{FRONTASSETS}}/assets/images/area-ic.svg" alt="families icon" />
+                                <img src="{{FRONTASSETS}}/assets/images/area-ic.svg" alt="families icon"/>
                             </div>
                             <div class="text-second"> @lang('site.price') {{$aqar->fixed_price}}</div>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="tabs-details mt-lg-5 mt-4">
-                        <ul class="tabs-nav-details list-unstyled mb-0">
-                            <li>
-                                <a
-                                    href="#tab-1"
-                                    class="tab-link d-flex align-items-center justify-content-center"
-                                >
-                                    @lang('site.details')
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href="#tab-2"
-                                    class="tab-link d-flex align-items-center justify-content-center"
-                                >
-                                    @lang('site.comments')
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href="#tab-3"
-                                    class="tab-link d-flex align-items-center justify-content-center"
-                                >
-                                    الخريطة
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href="#tab-4"
-                                    class="tab-link d-flex align-items-center justify-content-center"
-                                >
-                                    الشروط
-                                </a>
-                            </li>
-                        </ul>
-                        <ul class="tabs-content tabs-details-content list-unstyled">
-                            <li id="tab-1">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="farm-details-card p-3 mt-lg-5 mt-3">
-                                            <div class="my-lg-3">
-                                                <div class="accordion" id="accordion_details">
+                    <div class="col-12">
+                        <div class="tabs-details mt-lg-5 mt-4">
+                            <ul class="tabs-nav-details list-unstyled mb-0">
+                                <li>
+                                    <a
+                                        href="#tab-1"
+                                        class="tab-link d-flex align-items-center justify-content-center"
+                                    >
+                                        @lang('site.details')
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="#tab-2"
+                                        class="tab-link d-flex align-items-center justify-content-center"
+                                    >
+                                        @lang('site.comments')
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="#tab-3"
+                                        class="tab-link d-flex align-items-center justify-content-center"
+                                    >
+                                        @lang('site.map')                                                                                              ')
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="#tab-4"
+                                        class="tab-link d-flex align-items-center justify-content-center"
+                                    >
+                                        @lang('site.conditions')
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="tabs-content tabs-details-content list-unstyled">
+                                <li id="tab-1">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="farm-details-card p-3 mt-lg-5 mt-3">
+                                                <div class="my-lg-3">
+                                                    <div class="accordion" id="accordion_details">
 
-                                                    @foreach($aqar->aqarSection as $key=>$section)
-                                                    <div class="accordion-item details-item mb-2">
-                                                        <h3 class="accordion-header">
-                                                            <button
-                                                                class="accordion-button fw-bold"
-                                                                data-bs-toggle="collapse"
-                                                                data-bs-target="#accordion-details-1"
-                                                                aria-expanded="true"
-                                                                aria-controls="accordion-details-1"
-                                                            >
-                                                                <div>
+                                                        @foreach($aqar->aqarSection as $key=>$section)
+                                                            <div class="accordion-item details-item mb-2">
+                                                                <h3 class="accordion-header">
+                                                                    <button
+                                                                        class="accordion-button fw-bold"
+                                                                        data-bs-toggle="collapse"
+                                                                        data-bs-target="#accordion-details-{{$key}}"
+                                                                        aria-expanded="true"
+                                                                        aria-controls="accordion-details-{{$key}}"
+                                                                    >
+                                                                        <div>
                                     <span class="details-item-ic"
                                     ><i class="fas fa-car"></i
                                         ></span>
 
-                                                                    {{$section->name ?? ''}}
-                                                                </div>
+                                                                            {{$section->name ?? ''}}
+                                                                        </div>
 
-                                                                <div class="arrow-down">
-                                                                    <i class="far fa-chevron-down"></i>
-{{--                                                                    <img--}}
-{{--                                                                        src="{{asset('images/services_aqars/'.$section->icon)}}"--}}
-
-
-{{--                                                                        onerror="this.src='{{FRONTASSETS}}/assets/images/area-ic.svg'"--}}
-{{--                                                                        alt="car"/>--}}
-                                                                </div>
-                                                            </button>
+                                                                        <div class="arrow-down">
+                                                                            <i class="far fa-chevron-down"></i>
+                                                                            {{--                                                                    <img--}}
+                                                                            {{--                                                                        src="{{asset('images/services_aqars/'.$section->icon)}}"--}}
 
 
-                                                        </h3>
-                                                        <div
-                                                            id="accordion-details-1"
-                                                            class="accordion-collapse collapse show"
-                                                        >
-                                                            <div class="accordion-body">
+                                                                            {{--                                                                        onerror="this.src='{{FRONTASSETS}}/assets/images/area-ic.svg'"--}}
+                                                                            {{--                                                                        alt="car"/>--}}
+                                                                        </div>
+                                                                    </button>
 
-                                                                <div class="custom-ul-list">
-                                                                    @foreach($section->subsection->unique('name') as $subsection)
 
-                                                                    <div class="custom-ul-list-item">
-                                                                        {{$subsection->name  ?? ''}}
+                                                                </h3>
+                                                                <div
+                                                                    id="accordion-details-{{$key}}"
+                                                                    class="accordion-collapse collapse show"
+                                                                >
+                                                                    <div class="accordion-body">
+
+                                                                        <div class="custom-ul-list">
+                                                                            @foreach($section->subsection->unique('name') as $subsection)
+
+                                                                                <div class="custom-ul-list-item">
+                                                                                    {{$subsection->name  ?? ''}}
+                                                                                </div>
+                                                                            @endforeach
+
+                                                                        </div>
                                                                     </div>
-                                                                    @endforeach
-
                                                                 </div>
                                                             </div>
-                                                        </div>
+                                                        @endforeach
+
+
                                                     </div>
-                                                    @endforeach
-
-
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div
-                                        class="col-12 d-flex align-items-center justify-content-center mt-lg-5 mt-3"
-                                    >
                                         <div
-                                            class="main-btn d-flex align-items-center justify-content-center"
+                                            class="col-12 d-flex align-items-center justify-content-center mt-lg-5 mt-3"
                                         >
-                                            <a href="#">
-                                                <span><i class="fas fa-phone-plus"></i></span>
-                                                @lang('site.Contact the farm owner')
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li id="tab-2">
-                                <div class="row">
-                                    <div class="farm-details-card p-3 mt-lg-5 mt-3">
-                                        <div class="col-12">
                                             <div
-                                                class="full-reviews round-border my-lg-5 my-3 py-lg-4 px-lg-5 p-3"
+                                                class="main-btn d-flex align-items-center justify-content-center"
                                             >
-                                                <div class="d-md-flex align-items-center">
-                                                    <div
-                                                        class="d-flex align-items-center justify-content-center"
-                                                    >
+                                                <a href="#">
+                                                    <span><i class="fas fa-phone-plus"></i></span>
+                                                    @lang('site.Contact the farm owner')
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li id="tab-2">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="farm-details-card p-3 mt-lg-5 mt-3">
+
+                                                <div
+                                                    class="full-reviews round-border my-lg-5 my-3 py-lg-4 px-lg-5 p-3"
+                                                >
+                                                    <div class="d-md-flex align-items-center">
                                                         <div
-                                                            class="round-box d-flex justify-content-center align-items-center"
+                                                            class="d-flex align-items-center justify-content-center"
                                                         >
-                                                            <div>
+                                                            <div
+                                                                class="round-box d-flex justify-content-center align-items-center"
+                                                            >
                                                                 <div>
-                                                                    <span> <i class="fas fa-star"></i></span>
-                                                                    <span class="text-second"> ({{$aqar->aqarReview->avg('rate') ?? 0}})</span>
-                                                                </div>
-                                                                <div class="text-second text-center">
-                                                                    {{$aqar->aqarReview->count() ?? 0}} @lang('site.reviews')
+                                                                    <div>
+                                                                        <span> <i class="fas fa-star"></i></span>
+                                                                        <span class="text-second"> ({{$aqar->aqarReview->avg('rate') ?? 0}})</span>
+                                                                    </div>
+                                                                    <div class="text-second text-center">
+                                                                        {{$aqar->aqarReview->count() ?? 0}} @lang('site.reviews')
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="reviews-content">
-                                                        <h3 class="review-title">@lang('site.excellent')</h3>
-                                                        <p class="review-txt">
-                                                      @lang('site.Based on reviews from all kinds of travelers')
-                                                        </p>
+                                                        <div class="reviews-content">
+                                                            <h3 class="review-title">@lang('site.excellent')</h3>
+                                                            <p class="review-txt">
+                                                                @lang('site.Based on reviews from all kinds of travelers')
+                                                            </p>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div
-                                        class="col-12 d-flex align-items-center justify-content-center mt-lg-5 mt-3"
-                                    >
                                         <div
-                                            class="main-btn d-flex align-items-center justify-content-center"
+                                            class="col-12 d-flex align-items-center justify-content-center mt-lg-5 mt-3"
                                         >
-                                            <a href="#">
-                                                <span><i class="fas fa-phone-plus"></i></span>
-                                                @lang('site.Contact the farm owner')
-                                            </a>
+                                            <div
+                                                class="main-btn d-flex align-items-center justify-content-center"
+                                            >
+                                                <a href="#">
+                                                    <span><i class="fas fa-phone-plus"></i></span>
+                                                    @lang('site.Contact the farm owner')
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </li>
-                            <li id="tab-3">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="farm-details-card p-3 mt-lg-5 mt-3">
-                                            <h4 class="details-head pt-4">@lang('site.locations')</h4>
-                                            <div class="d-flex">
-                                                <div class="details-item-ic">
-                                                    <i class="fas fa-map-marker-alt"></i>
+                                </li>
+                                <li id="tab-3">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="farm-details-card p-3 mt-lg-5 mt-3">
+                                                <h4 class="details-head pt-4">@lang('site.locations')</h4>
+                                                <div class="d-flex">
+                                                    <div class="details-item-ic">
+                                                        <i class="fas fa-map-marker-alt"></i>
+                                                    </div>
+                                                    <p class="details-sm-txt">
+                                                        {{$aqar->details ?? ''}}
+                                                    </p>
                                                 </div>
-                                                <p class="details-sm-txt">
-                                                {{$aqar->details ?? ''}}
-                                                </p>
-                                            </div>
-                                            <div class="map my-lg-5 my-3">
-                                                <iframe
-                                                    src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d2965.0824050173574!2d-93.63905729999999!3d41.998507000000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sWebFilings%2C+University+Boulevard%2C+Ames%2C+IA!5e0!3m2!1sen!2sus!4v1390839289319"
-                                                    width="100%"
-                                                    frameborder="0"
-                                                    class="round-border iframe-map"
-                                                >
-                                                </iframe>
+                                                <div class="map my-lg-5 my-3">
+                                                    <iframe
+                                                        src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d2965.0824050173574!2d-93.63905729999999!3d41.998507000000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sWebFilings%2C+University+Boulevard%2C+Ames%2C+IA!5e0!3m2!1sen!2sus!4v1390839289319"
+                                                        width="100%"
+                                                        frameborder="0"
+                                                        class="round-border iframe-map"
+                                                    >
+                                                    </iframe>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <div
-                                        class="col-12 d-flex align-items-center justify-content-center mt-lg-5 mt-3"
-                                    >
                                         <div
-                                            class="main-btn d-flex align-items-center justify-content-center"
+                                            class="col-12 d-flex align-items-center justify-content-center mt-lg-5 mt-3"
                                         >
-                                            <a href="#">
-                                                <span><i class="fas fa-phone-plus"></i></span>
-                                                @lang('site.Contact the farm owner')
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li id="tab-4">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="farm-details-card p-3 mt-lg-5 mt-3">
-                                            <h4>
-                                                @lang('site.locations')
-                                            </h4>
-                                            <div class="condition-content">
-                                                <h3 class="condition-title mb-0">@lang('site.cancle_reason') </h3>
-                                                <p class="details-sm-txt padding-right mb-4">
-
-
-@lang('site.The customer cancels')
-
-
-                                                </p>
-                                                <hr class="hr-7agz" />
-                                            </div>
-                                            <div class="condition-content">
-                                                <h3 class="condition-title mb-0"> @lang('site.allownumber')</h3>
-                                                <p class="details-sm-txt padding-right"> {{$aqar->personnumber ?? 0}}</p>
+                                            <div
+                                                class="main-btn d-flex align-items-center justify-content-center"
+                                            >
+                                                <a href="#">
+                                                    <span><i class="fas fa-phone-plus"></i></span>
+                                                    @lang('site.Contact the farm owner')
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
-                                    <div
-                                        class="col-12 d-flex align-items-center justify-content-center mt-lg-5 mt-3"
-                                    >
+                                </li>
+                                <li id="tab-4">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="farm-details-card p-3 mt-lg-5 mt-3">
+                                                <h4>
+                                                    @lang('site.locations')
+                                                </h4>
+                                                <div class="condition-content">
+                                                    <h3 class="condition-title mb-0">@lang('site.cancle_reason') </h3>
+                                                    <p class="details-sm-txt padding-right mb-4">
+
+
+                                                        @lang('site.The customer cancels')
+
+
+                                                    </p>
+                                                    <hr class="hr-7agz"/>
+                                                </div>
+                                                <div class="condition-content">
+                                                    <h3 class="condition-title mb-0"> @lang('site.allownumber')</h3>
+                                                    <p class="details-sm-txt padding-right"> {{$aqar->personnumber ?? 0}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div
-                                            class="main-btn d-flex align-items-center justify-content-center"
+                                            class="col-12 d-flex align-items-center justify-content-center mt-lg-5 mt-3"
                                         >
-                                            <a href="#">
-                                                <span><i class="fas fa-phone-plus"></i></span>
-                                                @lang('site.Contact the farm owner')
-                                            </a>
+                                            <div
+                                                class="main-btn d-flex align-items-center justify-content-center"
+                                            >
+                                                <a href="#">
+                                                    <span><i class="fas fa-phone-plus"></i></span>
+                                                    @lang('site.Contact the farm owner')
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </li>
-                        </ul>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -517,7 +499,7 @@
                         </div>
                         <div class="d-flex align-items-center justify-content-center">
                             <a href="#">
-                                <img src="{{FRONTASSETS}}/assets/images/app-store.svg" alt=" app store" />
+                                <img src="{{FRONTASSETS}}/assets/images/app-store.svg" alt=" app store"/>
                             </a>
                         </div>
                     </div>
@@ -529,9 +511,6 @@
             ></div>
         </section>
     </main>
-
-
-
 
 @endsection
 

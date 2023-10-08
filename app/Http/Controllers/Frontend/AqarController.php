@@ -60,16 +60,26 @@ class AqarController extends Controller
         }
 
 
-
-
         $minpriceAqars = Aqar::where('fixed_price', '=', $minprice)->paginate(2);
         $maxpriceAqars = Aqar::where('fixed_price', '=', $maxprice)->paginate(2);
 
 
-
-
-
         return view('frontend.aquars', compact('maxpriceAqars', 'minpriceAqars', 'aqars', 'category'));
+
+
+    }
+
+
+    public function myfavouriteAll()
+    {
+        $user = Auth::user();
+
+        $favouriteaqar = $user->setRelation('favourite_aqars', $user->favourite_aqars()->paginate(20));
+
+
+
+
+        return view('frontend.myfavouriteAll', compact('favouriteaqar'));
 
 
     }

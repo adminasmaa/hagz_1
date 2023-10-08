@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <title>@lang('site.title')</title>
     <!-- Cairo Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
     <link
         href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet"
@@ -25,7 +25,7 @@
         href="{{FRONTASSETS}}/assets/js/OwlCarousel/css/owl.carousel.min.css"
     />
     <!--select 2-->
-    <link rel="stylesheet" href="{{FRONTASSETS}}/assets/js/select2/css/select2.min.css" />
+    <link rel="stylesheet" href="{{FRONTASSETS}}/assets/js/select2/css/select2.min.css"/>
     <!-- Bootstrap-->
     <link
         rel="stylesheet"
@@ -44,8 +44,26 @@
     />
 
     <!-- CSS -->
-    <link rel="stylesheet" href="{{FRONTASSETS}}/assets/styles/styles.css" />
-    <link rel="stylesheet" href="{{FRONTASSETS}}/assets/styles/responsive-styles.css" />
+    <link rel="stylesheet" href="{{FRONTASSETS}}/assets/styles/styles.css"/>
+    <link rel="stylesheet" href="{{FRONTASSETS}}/assets/styles/responsive-styles.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/css/intlTelInput.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+    @yield('css')
+
+    <style>
+
+        .hide {
+            display: none;
+        }
+        #valid-msg {
+            color: #00c900;
+        }
+        [dir=rtl] .iti--allow-dropdown .iti__flag-container, [dir=rtl] .iti--separate-dial-code .iti__flag-container {
+            right: auto;
+            left: 0;
+        }
+    </style>
 </head>
 
 <body>
@@ -57,7 +75,7 @@
             <div class="row justify-content-between align-items-center py-3">
                 <div class="col-4">
                     <a href="{{route('Home')}}">
-                        <img class="logo" src="{{FRONTASSETS}}/assets/images/logo.svg" alt="logo" />
+                        <img class="logo" src="{{FRONTASSETS}}/assets/images/logo.svg" alt="logo"/>
                     </a>
                 </div>
 
@@ -83,24 +101,87 @@
                                             </div>
                                         </a>
                                     </li>
-                                    <li>
-                                        <a
-                                            href="#"
-                                            class="btn-outline-7agz btn-space d-flex justify-content-center align-items-center"
-                                        >
-                                            <span><i class="fas fa-user"></i></span>
-                                            <span> @lang('site.login')</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="#"
-                                            class="btn-7agz d-flex justify-content-center align-items-center"
-                                        >
-                                            <span><i class="fas fa-user"></i></span>
-                                            <span> @lang('site.register')</span>
-                                        </a>
-                                    </li>
+
+
+                                    @if(!empty(auth()->user()))
+                                        <!-- when user login -->
+                                        <li>
+                                            <div class="dropdown-container">
+                                                <div
+                                                    class="dropdown-toggle click-dropdown d-flex align-items-center"
+                                                >
+
+                                                    @lang('site.welcome')
+
+                                                    {{auth()->user()->firstname ?? ''}}
+                                                    <span>
+                              <i
+                                  class="far fa-angle-down d-flex align-items-center"
+                              ></i>
+                            </span>
+                                                </div>
+                                                <div class="dropdown-menu">
+                                                    <ul>
+                                                        <li>
+                                                            <a href="{{route('myfavouriteAll')}}" class="d-flex align-items-center">
+                                                                <div class="profile-ic">
+                                                                    <i class="far fa-heart"></i>
+                                                                </div>
+                                                                <div>@lang('site.favorite')</div>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" class="d-flex align-items-center">
+                                                                <div class="profile-ic">
+                                                                    <i class="far fa-book-open"></i>
+                                                                </div>
+                                                                <div>@lang('site.My bookings')</div>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" class="d-flex align-items-center">
+                                                                <div class="profile-ic">
+                                                                    <i class="far fa-user"></i>
+                                                                </div>
+                                                                <div>@lang('site.Profile')</div>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="{{route('logout')}}" class="d-flex align-items-center">
+                                                                <div class="profile-ic">
+                                                                    <i class="far fa-sign-out"></i>
+                                                                </div>
+                                                                <div> @lang('site.logout')</div>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <!-- without login -->
+
+                                    @else
+                                        <li>
+                                            <a
+                                                href="{{route('sitelogin')}}"
+                                                class="btn-outline-7agz btn-space d-flex justify-content-center align-items-center"
+                                            >
+                                                <span><i class="fas fa-user"></i></span>
+                                                <span> @lang('site.login')</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a
+                                                href="{{route('registers')}}"
+                                                class="btn-7agz d-flex justify-content-center align-items-center"
+                                            >
+                                                <span><i class="fas fa-user"></i></span>
+                                                <span> @lang('site.register')</span>
+                                            </a>
+                                        </li>
+
+                                    @endif
+
                                 </ul>
                             </div>
                         </nav>
@@ -177,7 +258,7 @@
                                             </svg>
                                         </div>
                                         <p class="mb-0 box-notifications-txt">
-                                   @lang('site.You can now add your ad at any time you want')
+                                            @lang('site.You can now add your ad at any time you want')
                                         </p>
                                     </a>
                                 </li>
@@ -202,19 +283,19 @@
                             <a href="{{route('Home')}}" class="home-link"> @lang('site.home') </a>
                         </li>
                         @foreach($categories as $catt)
-                        <li class="nav-link">
-                            <a href="{{route('aquars',$catt->id)}}" class=""> {{$catt->name ?? ''}} </a>
-                        </li>
+                            <li class="nav-link">
+                                <a href="{{route('aquars',$catt->id)}}" class=""> {{$catt->name ?? ''}} </a>
+                            </li>
                         @endforeach
-{{--                        <li class="nav-link">--}}
-{{--                            <a href="javascript:void(0)" class=""> استراحة </a>--}}
-{{--                        </li>--}}
-{{--                        <li class="nav-link">--}}
-{{--                            <a href="javascript:void(0)" class=""> شالية </a>--}}
-{{--                        </li>--}}
-{{--                        <li class="nav-link">--}}
-{{--                            <a href="javascript:void(0)" class=""> شالية </a>--}}
-{{--                        </li>--}}
+                        {{--                        <li class="nav-link">--}}
+                        {{--                            <a href="javascript:void(0)" class=""> استراحة </a>--}}
+                        {{--                        </li>--}}
+                        {{--                        <li class="nav-link">--}}
+                        {{--                            <a href="javascript:void(0)" class=""> شالية </a>--}}
+                        {{--                        </li>--}}
+                        {{--                        <li class="nav-link">--}}
+                        {{--                            <a href="javascript:void(0)" class=""> شالية </a>--}}
+                        {{--                        </li>--}}
                     </ul>
                 </div>
 
@@ -260,7 +341,8 @@
 
                                                     @if($properties['native']=='English')
                                                         <li class="sub-menu__sub-item pb-2">
-                                                            <a href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}" class="sub-menu-link">
+                                                            <a href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}"
+                                                               class="sub-menu-link">
                                                                 <div class="d-flex align-items-center">
                                                                     <div>
                                                                         <img
@@ -274,10 +356,10 @@
                                                             </a>
                                                         </li>
 
-
                                                     @else
                                                         <li class="sub-menu__sub-item pb-2">
-                                                            <a href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}" class="sub-menu-link">
+                                                            <a href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}"
+                                                               class="sub-menu-link">
                                                                 <div class="d-flex align-items-center">
                                                                     <div>
                                                                         <img
@@ -295,13 +377,6 @@
                                             </ul>
                                         </div>
                                     </li>
-
-
-
-
-
-
-
 
 
                                 </ul>
@@ -376,7 +451,8 @@
 
                                 @if($properties['native']=='English')
                                     <li class="sub-menu__sub-item pb-2">
-                                        <a href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}" class="sub-menu-link">
+                                        <a href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}"
+                                           class="sub-menu-link">
                                             <div class="d-flex align-items-center">
                                                 <div>
                                                     <img
@@ -390,10 +466,10 @@
                                         </a>
                                     </li>
 
-
                                 @else
                                     <li class="sub-menu__sub-item pb-2">
-                                        <a href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}" class="sub-menu-link">
+                                        <a href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}"
+                                           class="sub-menu-link">
                                             <div class="d-flex align-items-center">
                                                 <div>
                                                     <img
@@ -461,7 +537,7 @@
                                     </svg>
                                 </div>
                                 <p class="mb-0 box-notifications-txt">
-                                   @lang('site.You can now add your ad at any time you want')
+                                    @lang('site.You can now add your ad at any time you want')
                                 </p>
                             </a>
                         </li>
@@ -483,7 +559,7 @@
                                     </svg>
                                 </div>
                                 <p class="mb-0 box-notifications-txt">
-                                  @lang('site.You can now add your ad at any time you want')
+                                    @lang('site.You can now add your ad at any time you want')
                                 </p>
                             </a>
                         </li>
@@ -502,19 +578,19 @@
                 <a class="nav-link" href="#"> @lang('site.home') </a>
             </li>
             @foreach($categories as $ccat)
-            <li class="nav-item">
-                <a class="nav-link" href="#"> {{$ccat->name ?? ''}} </a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"> {{$ccat->name ?? ''}} </a>
+                </li>
             @endforeach
-{{--            <li class="nav-item">--}}
-{{--                <a class="nav-link" href="#"> استراحة </a>--}}
-{{--            </li>--}}
-{{--            <li class="nav-item">--}}
-{{--                <a class="nav-link" href="#"> شالية </a>--}}
-{{--            </li>--}}
-{{--            <li class="nav-item">--}}
-{{--                <a class="nav-link" href="#"> @lang() </a>--}}
-{{--            </li>--}}
+            {{--            <li class="nav-item">--}}
+            {{--                <a class="nav-link" href="#"> استراحة </a>--}}
+            {{--            </li>--}}
+            {{--            <li class="nav-item">--}}
+            {{--                <a class="nav-link" href="#"> شالية </a>--}}
+            {{--            </li>--}}
+            {{--            <li class="nav-item">--}}
+            {{--                <a class="nav-link" href="#"> @lang() </a>--}}
+            {{--            </li>--}}
 
             <li class="nav-item">
                 <a class="nav-link" href="#"> @lang('site.help') </a>

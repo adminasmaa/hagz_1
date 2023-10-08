@@ -66,9 +66,6 @@ $(window).on("resize", function () {
 });
 // close side menu over 992px end
 
-
-
-
 const header = document.querySelector(".header-web");
 const toggleClass = "is-sticky";
 window.addEventListener("scroll", () => {
@@ -100,7 +97,6 @@ $(".nav-link").click(function () {
   return false;
 });
 
-
 $(document).ready(function () {
   $(".slider-owl").owlCarousel({
     loop: true,
@@ -114,7 +110,6 @@ $(document).ready(function () {
       '<i class="fas fa-chevron-right"></i>',
     ],
     items: 1,
- 
   });
   $(".farm-img-carousel").owlCarousel({
     items: 1,
@@ -122,11 +117,11 @@ $(document).ready(function () {
     dots: true,
     rtl: true,
     slideSpeed: 400,
-    animateIn: 'fadeIn', // add this
-    animateOut: 'fadeOut', // and this
+    animateIn: "fadeIn", // add this
+    animateOut: "fadeOut", // and this
     lazyLoad: true,
     autoplay: true,
-    navs:true,
+    navs: true,
     navText: [
       '<i class="fas fa-chevron-left" aria-hidden="true"></i>',
       '<i class="fas fa-chevron-right" aria-hidden="true"></i>',
@@ -217,12 +212,16 @@ $(document).ready(function () {
   }
 
   function nextSlide() {
-    let nextSlideId =currentSlideId >= slideCount ? 1 : parseInt(currentSlideId) + 1;
-      let nextSlideIdTh =currentThId >= slideCount ? 1 : parseInt(currentThId) + 1;
+    let nextSlideId =
+      currentSlideId >= slideCount ? 1 : parseInt(currentSlideId) + 1;
+    let nextSlideIdTh =
+      currentThId >= slideCount ? 1 : parseInt(currentThId) + 1;
     currentSlide.classList.remove("show");
     currentTh.classList.remove("active");
     currentSlide = document.querySelector(`.slide[data-slide="${nextSlideId}"`);
-    currentTh = document.querySelector(`.thumbnail[data-slide="${nextSlideIdTh}"`);
+    currentTh = document.querySelector(
+      `.thumbnail[data-slide="${nextSlideIdTh}"`
+    );
     currentSlideId = currentSlide.dataset.slide;
     currentThId = currentTh.dataset.slide;
     currentSlide.classList.add("show");
@@ -231,12 +230,16 @@ $(document).ready(function () {
   }
 
   function prevSlide() {
-    let prevSlideId =currentSlideId <= 1 ? slideCount : parseInt(currentSlideId) - 1;
-    let prevSlideIdTh =currentThId <= 1 ? slideCount : parseInt(currentThId) - 1;
+    let prevSlideId =
+      currentSlideId <= 1 ? slideCount : parseInt(currentSlideId) - 1;
+    let prevSlideIdTh =
+      currentThId <= 1 ? slideCount : parseInt(currentThId) - 1;
     currentSlide.classList.remove("show");
     currentTh.classList.remove("active");
     currentSlide = document.querySelector(`.slide[data-slide="${prevSlideId}"`);
-    currentTh = document.querySelector(`.thumbnail[data-slide="${prevSlideIdTh}"`);
+    currentTh = document.querySelector(
+      `.thumbnail[data-slide="${prevSlideIdTh}"`
+    );
     currentSlideId = currentSlide.dataset.slide;
     currentThId = currentTh.dataset.slide;
     currentSlide.classList.add("show");
@@ -250,14 +253,101 @@ $(document).ready(function () {
   }
 });
 
-  // <!--notifications -->
-  $(".notification").click(function () {
-    $(".box-notifications").toggle();
-  });
-  $(".close-btn-notify").click(function () {
-    $(".box-notifications").hide();
-  });
+// <!--notifications -->
+$(".notification").click(function () {
+  $(".box-notifications").toggle();
+});
+$(".close-btn-notify").click(function () {
+  $(".box-notifications").hide();
+});
 
-  $(document).ready(function () {
-    $(".select2").select2();
-  });
+$(document).ready(function () {
+  $(".select2").select2();
+});
+
+$(".toggle-password").click(function () {
+  $(this).toggleClass("fa-eye fa-eye-slash");
+  var input = $($(this).attr("toggle"));
+  if (input.attr("type") == "password") {
+    input.attr("type", "text");
+  } else {
+    input.attr("type", "password");
+  }
+});
+/* intlTelInput */
+// const allTelInputs = document.querySelectorAll("[type='tel']");
+// allTelInputs.forEach((input) => {
+//   intlTelInput(input, {
+//     initialCountry: "sa",
+//     preferredCountries: ["sa"],
+//     separateDialCode: true,
+//   });
+// });
+
+
+// delete item
+$(".delete-farm-card").click(function () {
+  $(this).parent().parent().parent().remove();
+  return false;
+});
+
+
+
+// Get all the dropdown from document
+document.querySelectorAll('.dropdown-toggle').forEach(dropDownFunc);
+
+// Dropdown Open and Close function
+function dropDownFunc(dropDown) {
+    console.log(dropDown.classList.contains('click-dropdown'));
+
+    if(dropDown.classList.contains('click-dropdown') === true){
+        dropDown.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            if (this.nextElementSibling.classList.contains('dropdown-active') === true) {
+                // Close the clicked dropdown
+                this.parentElement.classList.remove('dropdown-open');
+                this.nextElementSibling.classList.remove('dropdown-active');
+
+            } else {
+                // Close the opend dropdown
+                closeDropdown();
+
+                // add the open and active class(Opening the DropDown)
+                this.parentElement.classList.add('dropdown-open');
+                this.nextElementSibling.classList.add('dropdown-active');
+            }
+        });
+    }
+
+
+};
+
+// Listen to the doc click
+window.addEventListener('click', function (e) {
+
+    // Close the menu if click happen outside menu
+    if (e.target.closest('.dropdown-container') === null) {
+        // Close the opend dropdown
+        closeDropdown();
+    }
+});
+// Close the openend Dropdowns
+function closeDropdown() {
+    console.log('run');
+
+    // remove the open and active class from other opened Dropdown (Closing the opend DropDown)
+    document.querySelectorAll('.dropdown-container').forEach(function (container) {
+        container.classList.remove('dropdown-open')
+    });
+
+    document.querySelectorAll('.dropdown-menu').forEach(function (menu) {
+        menu.classList.remove('dropdown-active');
+    });
+}
+
+// close the dropdown on mouse out from the dropdown list
+// document.querySelectorAll('.dropdown-menu').forEach(function (dropDownList) {
+//     // close the dropdown after user leave the list
+//     dropDownList.onmouseleave = closeDropdown;
+// });

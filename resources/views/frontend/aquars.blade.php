@@ -82,7 +82,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h2 class="main-title">الترتيب حسب</h2>
+                        <h2 class="main-title"> @lang('site.order')</h2>
                     </div>
                 </div>
                 <div class="row">

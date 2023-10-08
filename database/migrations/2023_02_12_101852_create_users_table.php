@@ -27,7 +27,7 @@ return new class extends Migration
             $table->string('longitude')->nullable();
             $table->string('account_type')->nullable();
             $table->string('phone')->nullable()->unique();
-            $table->string('email')->unique();
+            $table->string('email')->nullable();
             $table->boolean('active')->default(0);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
