@@ -27,14 +27,18 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
     Route::post('/createaccount', 'App\Http\Controllers\Frontend\HomeController@createaccount')->name('createaccount');
     Route::get('/registers', 'App\Http\Controllers\Frontend\HomeController@registers')->name('registers');
     Route::get('/sitelogin', 'App\Http\Controllers\Frontend\HomeController@sitelogin')->name('sitelogin');
+    Route::get('/updateprofile/{id}', 'App\Http\Controllers\Frontend\HomeController@updateprofile')->name('updateprofile');
+    Route::post('/updateprofile/{id}', 'App\Http\Controllers\Frontend\HomeController@updateprofileuser')->name('updateprofile');
     Route::post('/checklogin', 'App\Http\Controllers\Frontend\HomeController@checklogin')->name('checklogin');
+    Route::post('/addContacts', 'App\Http\Controllers\Frontend\HomeController@addContacts')->name('addContacts');
+
+
+
 
     Route::get('/aquars/{id}', 'App\Http\Controllers\Frontend\AqarController@index')->name('aquars');
     Route::get('/aquars/favouritAqar/{id}', 'App\Http\Controllers\Frontend\AqarController@favouritAqar')->name('aquars.favouritAqar');
     Route::get('/detailAqar/{id}', 'App\Http\Controllers\Frontend\AqarController@detailAqar')->name('detailAqar');
     Route::get('/myfavouriteAll', 'App\Http\Controllers\Frontend\AqarController@myfavouriteAll')->name('myfavouriteAll');
-
-
 
 
 });

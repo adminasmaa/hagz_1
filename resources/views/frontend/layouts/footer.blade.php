@@ -149,6 +149,105 @@
 </footer>
 <!-- Bootstrap-->
 
+<!--start Modal help -->
+<div
+    class="modal fade modal-custom modal-height-mobile"
+    id="helpModal"
+    tabindex="-1"
+    aria-labelledby="helpModalLabel"
+    aria-hidden="true"
+>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <button
+                type="button"
+                class="close-modal d-flex justify-content-center align-items-center"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+            >
+                <i class="fal fa-times"></i>
+            </button>
+            <div class="modal-body my-lg-5 my-3">
+                <div class="row d-flex justify-content-center">
+                    <div
+                        class="col-11 d-lg-flex justify-content-between align-items-center help-header"
+                    >
+                        <div>
+                            <h2 class="mb-lg-0 mb-3">   @lang('site.Report any problem')</h2>
+                        </div>
+
+
+
+                        <div class="static-image">
+                            <img src="{{FRONTASSETS}}/assets/images/help-image.png" alt="help image" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-lg-0 mb-3">
+                    <ul class="register_errors"></ul>
+                </div>
+                <div
+                    class="row d-flex justify-content-center align-items-center mt-lg-5 mt-4"
+                >
+
+
+
+                    <div class="col-11">
+                        <div class="help-card p-lg-4 p-3">
+                            <div class="row">
+                                <div class="col-lg-6 mb-3">
+                                    <label for="name" class="pb-2 contact-lbl"> @lang('site.name') </label>
+                                    <input
+                                        type="text"
+                                        id="name"
+                                        name="name"
+                                        class="form-control contact-input name1"
+                                        placeholder=" {{trans('site.name')}}  "
+                                    />
+                                </div>
+                                <div class="col-lg-6 mb-3">
+                                    <label for="name" class="pb-2 contact-lbl">
+                                         @lang('site.phone')
+                                    </label>
+                                    <input
+                                        type="number"
+                                        id="name"
+                                        name="phone"
+                                        class="form-control contact-input phone1"
+                                        placeholder="{{trans('site.phone')}}"
+                                    />
+                                </div>
+                                <div class="col-12 mb-lg-3">
+                                    <label for="name" class="pb-2 contact-lbl"> @lang('site.message') </label>
+                                    <textarea
+                                        class="form-control txtarea-7agz message1"
+                                        name="message"
+                                        placeholder="{{trans('site.message')}}"
+                                        rows="5"
+                                    ></textarea>
+                                </div>
+                                <div
+                                    class="col-12 d-flex align-items-center justify-content-center my-lg-4 my-3"
+                                >
+                                    <div
+                                        class="main-btn d-flex align-items-center justify-content-center w-100"
+                                    >
+                                        <button  class="addContactsUserss">@lang('site.send')</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End modal-->
+
+
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
 <script
     src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"
@@ -170,6 +269,81 @@
 <script src="{{FRONTASSETS}}/assets/js/script.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/intlTelInput.min.js"></script>
+
+
+@if(app()->getLocale()=='ar')
+<!-- Main JS ar-->
+<script src="{{FRONTASSETS}}/assets/js/script.js"></script>
+@else
+<!-- Main JS en-->
+<script src="{{FRONTASSETS}}/assets/js/script-en.js"></script>
+
+@endif
+
+<script>
+
+    jQuery('.addContactsUserss').click(function (e) {
+        console.log("daaaa");
+        e.preventDefault();
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+
+        jQuery.ajax({
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf_token"]').attr('content')},
+
+            url: "{{ route('addContacts') }}",
+            method: 'post',
+            data: {
+                _token: '{{ csrf_token() }}',
+                name: jQuery('.name1').val(),
+                message: jQuery('.message1').val(),
+                phone: jQuery('.phone1').val(),
+
+
+            },
+            success: function (result) {
+                console.log(result);
+
+                if (result.content == 'success')
+
+                    $('#helpModal').hide()
+                swal({
+                    title: "Success!",
+                    text: "The message has been successfully sent!",
+                    type: "success",
+                    confirmButtonText: "OK"
+                });
+                window.location.href = '{{route('Home')}}';
+
+
+            },
+            error: function (result) {
+                // console.log(result.responseJSON);
+                var errors = result.responseJSON;
+                var errorsList = "";
+                $.each(errors, function (_, value) {
+                    $.each(value, function (_, fieldErrors) {
+                        fieldErrors.forEach(function (error) {
+                            errorsList += "<li style='color:red'>" + error + "</li>";
+                        })
+                    });
+                });
+                $('.register_errors').html(errorsList);
+
+
+            }
+        });
+    });
+
+
+
+</script>
+
+
 
 </body>
 </html>

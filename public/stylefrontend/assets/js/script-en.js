@@ -66,75 +66,6 @@ $(window).on("resize", function () {
 });
 // close side menu over 992px end
 
-$(document).ready(function () {
-  $(".brands-owl").owlCarousel({
-    loop: true,
-    ltr: true,
-    autoplay: true,
-    lazyLoad: true,
-    autoplayTimeout: 4000,
-    nav: true,
-    navText: [
-      '<i class="fas fa-arrow-left"></i>',
-      '<i class="fas fa-arrow-right"></i>',
-    ],
-
-    responsive: {
-      0: {
-        items: 1,
-      },
-      400: {
-        items: 2,
-      },
-      767: {
-        items: 3,
-      },
-      992: {
-        items: 6,
-      },
-    },
-  });
-});
-$(document).ready(function () {
-  $(".products-owl").owlCarousel({
-    loop: true,
-    ltr: true,
-    autoplay: true,
-    lazyLoad: true,
-    autoplayTimeout: 4000,
-    nav: true,
-    margin:20,
-    navText: [
-      '<i class="fas fa-chevron-left"></i>',
-      '<i class="fas fa-chevron-right"></i>',
-    ],
-
-    responsive: {
-      0: {
-        items: 1,
-      },
-      400: {
-        items: 2,
-      },
-      767: {
-        items: 3,
-      },
-      992: {
-        items: 4,
-      },
-    },
-  });
-});
-// delete item from cart
-$(".cart_removeItem").click(function () {
-  $(this).parent().parent().remove();
-  return false;
-});
-$(".onlineInp").click(function () {
-  $(".creditdata").hide();
-  $("#" + $(this).data("form")).show();
-});
-
 const header = document.querySelector(".header-web");
 const toggleClass = "is-sticky";
 window.addEventListener("scroll", () => {
@@ -166,53 +97,57 @@ $(".nav-link").click(function () {
   return false;
 });
 
-// Get all sections that have an ID defined
-const sections = document.querySelectorAll("section[id]");
-
-// Add an event listener listening for scroll
-window.addEventListener("scroll", navHighlighter);
-
-function navHighlighter() {
-  // Get current scroll position
-  let scrollY = window.pageYOffset;
-
-  // Now we loop through sections to get height, top and ID values for each
-  sections.forEach((current) => {
-    const sectionHeight = current.offsetHeight;
-    const sectionTop = current.offsetTop - 50;
-    sectionId = current.getAttribute("id");
-
-    if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-      document
-        .querySelector("nav a[href*=" + sectionId + "]")
-        .classList.add("active");
-    } else {
-      document
-        .querySelector("nav a[href*=" + sectionId + "]")
-        .classList.remove("active");
-    }
+$(document).ready(function () {
+  $(".slider-owl").owlCarousel({
+    loop: true,
+    ltr: true,
+    autoplay: true,
+    lazyLoad: true,
+    autoplayTimeout: 4000,
+    nav: true,
+    navText: [
+      '<i class="fas fa-chevron-left"></i>',
+      '<i class="fas fa-chevron-right"></i>',
+    ],
+    items: 1,
   });
-}
+  $(".farm-img-carousel").owlCarousel({
+    items: 1,
+    loop: true,
+    dots: true,
+    ltr: true,
+    slideSpeed: 400,
+    animateIn: "fadeIn", // add this
+    animateOut: "fadeOut", // and this
+    lazyLoad: true,
+    autoplay: true,
+    navs: true,
+    navText: [
+      '<i class="fas fa-chevron-left" aria-hidden="true"></i>',
+      '<i class="fas fa-chevron-right" aria-hidden="true"></i>',
+    ],
+    responsive: {
+      0: {
+        nav: false,
+      },
+      768: {
+        nav: true,
+      },
+    },
+  });
+});
+// Show the first tab by default details page
+$(".tabs-content li").hide();
+$(".tabs-content li:first").show();
+$(".tabs-nav-details li:first").addClass("tab-active");
 
-/*in mobile */
-document.addEventListener("DOMContentLoaded", function () {
-  const selector = ".nav-link";
-  const elems = Array.from(document.querySelectorAll(selector));
-  const navigation = document.querySelector(".main-menu");
-
-  function makeActive(evt) {
-    const target = evt.target;
-
-    if (!target || !target.matches(selector)) {
-      return;
-    }
-
-    elems.forEach((elem) => elem.classList.remove("activee"));
-
-    evt.target.classList.add("activee");
-  }
-
-  navigation.addEventListener("mousedown", makeActive);
+// Change tab class and display content
+$(".tabs-nav-details a").on("click", function (event) {
+  event.preventDefault();
+  $(".tabs-nav-details li").removeClass("tab-active");
+  $(this).parent().addClass("tab-active");
+  $(".tabs-content li").hide();
+  $($(this).attr("href")).show();
 });
 
 // product +/-
@@ -317,3 +252,100 @@ $(document).ready(function () {
     slideshow = setInterval(nextSlide, nextSlideTimer);
   }
 });
+
+// <!--notifications -->
+$(".notification").click(function () {
+  $(".box-notifications").toggle();
+});
+$(".close-btn-notify").click(function () {
+  $(".box-notifications").hide();
+});
+
+$(document).ready(function () {
+  $(".select2").select2();
+});
+
+$(".toggle-password").click(function () {
+  $(this).toggleClass("fa-eye fa-eye-slash");
+  var input = $($(this).attr("toggle"));
+  if (input.attr("type") == "password") {
+    input.attr("type", "text");
+  } else {
+    input.attr("type", "password");
+  }
+});
+/* intlTelInput */
+// const allTelInputs = document.querySelectorAll("[type='tel']");
+// allTelInputs.forEach((input) => {
+//   intlTelInput(input, {
+//     initialCountry: "sa",
+//     preferredCountries: ["sa"],
+//     separateDialCode: true,
+//   });
+// });
+
+
+// delete item
+$(".delete-farm-card").click(function () {
+  $(this).parent().parent().parent().remove();
+  return false;
+});
+
+
+
+// Get all the dropdown from document
+document.querySelectorAll('.dropdown-toggle').forEach(dropDownFunc);
+
+// Dropdown Open and Close function
+function dropDownFunc(dropDown) {
+    console.log(dropDown.classList.contains('click-dropdown'));
+
+    if(dropDown.classList.contains('click-dropdown') === true){
+        dropDown.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            if (this.nextElementSibling.classList.contains('dropdown-active') === true) {
+                // Close the clicked dropdown
+                this.parentElement.classList.remove('dropdown-open');
+                this.nextElementSibling.classList.remove('dropdown-active');
+
+            } else {
+                // Close the opend dropdown
+                closeDropdown();
+
+                // add the open and active class(Opening the DropDown)
+                this.parentElement.classList.add('dropdown-open');
+                this.nextElementSibling.classList.add('dropdown-active');
+            }
+        });
+    }
+
+
+};
+
+// Listen to the doc click
+window.addEventListener('click', function (e) {
+
+    // Close the menu if click happen outside menu
+    if (e.target.closest('.dropdown-container') === null) {
+        // Close the opend dropdown
+        closeDropdown();
+    }
+});
+// Close the openend Dropdowns
+function closeDropdown() {
+    // remove the open and active class from other opened Dropdown (Closing the opend DropDown)
+    document.querySelectorAll('.dropdown-container').forEach(function (container) {
+        container.classList.remove('dropdown-open')
+    });
+
+    document.querySelectorAll('.dropdown-menu').forEach(function (menu) {
+        menu.classList.remove('dropdown-active');
+    });
+}
+
+// close the dropdown on mouse out from the dropdown list
+// document.querySelectorAll('.dropdown-menu').forEach(function (dropDownList) {
+//     // close the dropdown after user leave the list
+//     dropDownList.onmouseleave = closeDropdown;
+// });

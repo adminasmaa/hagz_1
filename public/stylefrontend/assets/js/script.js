@@ -334,7 +334,6 @@ window.addEventListener('click', function (e) {
 });
 // Close the openend Dropdowns
 function closeDropdown() {
-    console.log('run');
 
     // remove the open and active class from other opened Dropdown (Closing the opend DropDown)
     document.querySelectorAll('.dropdown-container').forEach(function (container) {

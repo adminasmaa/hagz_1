@@ -11,8 +11,7 @@
   --rounded-main: 8px;
 }
 
-@media (min-width: 1600px) {
-}
+
 @media (min-width: 1400px) {
   .container {
     max-width: 1300px;
@@ -332,11 +331,22 @@
     right: 15px;
     top: 75px;
   }
-  .box-notify:before,
+  /* .box-notify:before,
   .box-notify:after {
     left: 29%;
+  } */
+  .reviews-content {
+    padding-right: 0%;
+    text-align: center;
+}
+.review-title {
+  font-weight: 700;
+  padding-top: 10px;
+  font-size: 28px}
+  .review-txt {
+    font-weight: 600;
+    font-size: 20px;
   }
-
   ul.submenu {
     height: initial;
     max-height: 10em;
@@ -650,7 +660,7 @@
   }
 
 
-  .accordion-flush .accordion-button {
+  .side-menu-wrap .accordion-flush .accordion-button {
     width: 88%;
     border-radius: var(--rounded-main);
     background-color: var(--m-main);
@@ -666,39 +676,39 @@
     -ms-transition: .4s;
     -o-transition: .4s;
 }
-.accordion-button:not(.collapsed) {
+.side-menu-wrap .accordion-button:not(.collapsed) {
   box-shadow: none;
   background-color: var(--m-main) !important;
 }
-.accordion-button:not(.collapsed) i{
+.side-menu-wrap .accordion-button:not(.collapsed) i{
   transform: rotate(180deg);
 }
-.accordion-button:focus {
+.side-menu-wrap .accordion-button:focus {
   z-index: 3;
   border-color: unset;
   outline: 0;
   box-shadow: none;
 }
-.accordion-Profile a i{
+.side-menu-wrap .accordion-Profile a i{
   color: var(--m-main);
   font-size: 16px;
   padding-left: 5px;
 }
-.accordion-Profile a{
+.side-menu-wrap .accordion-Profile a{
   color: var(--m-second);
   padding: 12px 0px 5px 10px;
     font-weight: 700;
     font-size: 14px;
 }
-.accordion-button i{
+.side-menu-wrap .accordion-button i{
   font-size: 18px;
   color: var(--m-second);
 }
-.accordion-Profile ul{
+.side-menu-wrap .accordion-Profile ul{
   padding-right: 20px;
     list-style: none;
 }
-.accordion-Profile ul li a{
+.side-menu-wrap .accordion-Profile ul li a{
   font-size: 14px;
 }
 .profile-ic {

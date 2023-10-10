@@ -30,6 +30,7 @@ return new class extends Migration
             $table->time('time_from')->nullable();
             $table->string('description')->nullable();
             $table->string('comision')->nullable();
+            $table->enum('individual', ['families', 'youths'])->nullable();
 
             $table->string('floor_id')->nullable( );
             $table->string('car_position_id')->nullable( );

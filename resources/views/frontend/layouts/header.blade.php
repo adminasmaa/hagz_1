@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="{{ app()->getLocale() }}">
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -37,15 +37,7 @@
         href="{{FRONTASSETS}}/assets/vendor/bootstrap/css/bootstrap.min.css"
         type="text/css"
     />
-    <link
-        rel="stylesheet"
-        href="{{FRONTASSETS}}/assets/vendor/bootstrap/css/bootstrap.rtl.min.css"
-        type="text/css"
-    />
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="{{FRONTASSETS}}/assets/styles/styles.css"/>
-    <link rel="stylesheet" href="{{FRONTASSETS}}/assets/styles/responsive-styles.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/css/intlTelInput.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
@@ -56,14 +48,36 @@
         .hide {
             display: none;
         }
+
         #valid-msg {
             color: #00c900;
         }
+
         [dir=rtl] .iti--allow-dropdown .iti__flag-container, [dir=rtl] .iti--separate-dial-code .iti__flag-container {
             right: auto;
             left: 0;
         }
     </style>
+
+
+    @if(app()->getLocale()=='ar')
+        <!-- css ar -->
+        <link
+            rel="stylesheet"
+            href="{{FRONTASSETS}}/assets/vendor/bootstrap/css/bootstrap.rtl.min.css"
+            type="text/css"
+        />
+        <link rel="stylesheet" href="{{FRONTASSETS}}/assets/styles/styles.css"/>
+        <link rel="stylesheet" href="{{FRONTASSETS}}/assets/styles/responsive-styles.css"/>
+
+    @else
+
+        <!-- CSS en -->
+        <link rel="stylesheet" href="{{FRONTASSETS}}/assets/styles/styles-en.css"/>
+        <link rel="stylesheet" href="{{FRONTASSETS}}/assets/styles/responsive-styles-en.css"/>
+
+    @endif
+
 </head>
 
 <body>
@@ -107,23 +121,31 @@
                                         <!-- when user login -->
                                         <li>
                                             <div class="dropdown-container">
-                                                <div
-                                                    class="dropdown-toggle click-dropdown d-flex align-items-center"
-                                                >
+                                                <div class="dropdown-toggle click-dropdown d-flex align-items-center">
 
                                                     @lang('site.welcome')
 
                                                     {{auth()->user()->firstname ?? ''}}
                                                     <span>
-                              <i
-                                  class="far fa-angle-down d-flex align-items-center"
-                              ></i>
-                            </span>
+                                                      <i
+                                                          class="far fa-angle-down d-flex align-items-center"
+                                                      ></i>
+                                                    </span>
                                                 </div>
                                                 <div class="dropdown-menu">
                                                     <ul>
                                                         <li>
-                                                            <a href="{{route('myfavouriteAll')}}" class="d-flex align-items-center">
+                                                            <a href="{{route('updateprofile',auth()->user()->id)}}"
+                                                               class="d-flex align-items-center">
+                                                                <div class="profile-ic">
+                                                                    <i class="far fa-user"></i>
+                                                                </div>
+                                                                <div>@lang('site.Profile')</div>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="{{route('myfavouriteAll')}}"
+                                                               class="d-flex align-items-center">
                                                                 <div class="profile-ic">
                                                                     <i class="far fa-heart"></i>
                                                                 </div>
@@ -138,16 +160,10 @@
                                                                 <div>@lang('site.My bookings')</div>
                                                             </a>
                                                         </li>
+
                                                         <li>
-                                                            <a href="#" class="d-flex align-items-center">
-                                                                <div class="profile-ic">
-                                                                    <i class="far fa-user"></i>
-                                                                </div>
-                                                                <div>@lang('site.Profile')</div>
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="{{route('logout')}}" class="d-flex align-items-center">
+                                                            <a href="{{route('logout')}}"
+                                                               class="d-flex align-items-center">
                                                                 <div class="profile-ic">
                                                                     <i class="far fa-sign-out"></i>
                                                                 </div>
@@ -305,7 +321,7 @@
                             <div class="collapse navbar-collapse">
                                 <ul class="navbar-nav align-items-center">
                                     <li class="nav-link ms-3">
-                                        <a href="javascript:void(0)">
+                                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#helpModal">
                           <span class="help-icon">
                             <i class="fas fa-question-circle"></i>
                           </span>
@@ -572,29 +588,125 @@
 <div class="side-menu-wrap">
     <nav class="navbar side-menu-nav">
         <ul
-            class="main-menu d-flex flex-column flex-lg-row align-items-lg-center list-unstyled p-0 m-0"
+            class="main-menu d-flex flex-column flex-lg-row align-items-lg-center list-unstyled p-0 m-0 w-100"
         >
             <li class="nav-item">
-                <a class="nav-link" href="#"> @lang('site.home') </a>
+                <a class="nav-link" href="{{route('Home')}}"> @lang('site.home') </a>
             </li>
             @foreach($categories as $ccat)
                 <li class="nav-item">
-                    <a class="nav-link" href="#"> {{$ccat->name ?? ''}} </a>
+                    <a class="nav-link" href="{{route('aquars',$ccat->id)}}"> {{$ccat->name ?? ''}} </a>
                 </li>
             @endforeach
-            {{--            <li class="nav-item">--}}
-            {{--                <a class="nav-link" href="#"> استراحة </a>--}}
-            {{--            </li>--}}
-            {{--            <li class="nav-item">--}}
-            {{--                <a class="nav-link" href="#"> شالية </a>--}}
-            {{--            </li>--}}
-            {{--            <li class="nav-item">--}}
-            {{--                <a class="nav-link" href="#"> @lang() </a>--}}
-            {{--            </li>--}}
+
 
             <li class="nav-item">
-                <a class="nav-link" href="#"> @lang('site.help') </a>
+                <a class="nav-link" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#helpModal">
+                     <span class="help-icon">
+                        <i class="fas fa-question-circle"></i>
+                      </span>
+                    @lang('site.help') </a>
             </li>
+
+
+            @if(!empty(auth()->user()))
+                <!-- WHEN User Login -->
+                <li>
+                    <div class="accordion accordion-flush" id="accordionFlushProfile">
+                        <div
+                            id="flush-headingOne2 d-flex justify-content-center"
+                            class="d-flex justify-content-center"
+                        >
+                            <a
+                                class="accordion-button collapsed d-flex align-items-center justify-content-between mt-3"
+                                type="button"
+                                href="#"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseProfile"
+                                aria-expanded="false"
+                                aria-controls="flush-collapseProfile"
+                            >
+                                @lang('site.welcome')
+
+                                {{auth()->user()->firstname ?? ''}}
+
+                                <i class="far fa-angle-down"></i>
+                            </a>
+                        </div>
+                        <div
+                            id="flush-collapseProfile"
+                            class="accordion-collapse collapse"
+                            aria-labelledby="flush-headingOne2"
+                            data-bs-parent="#accordionFlushProfile"
+                        >
+                            <div class="accordion-Profile">
+                                <ul class="submenu">
+                                    <li>
+                                        <a href="{{route('updateprofile',auth()->user()->id)}}"
+                                           class="d-flex align-items-center">
+                                            <div class="profile-ic">
+                                                <i class="far fa-user"></i>
+                                            </div>
+                                            <div>@lang('site.Profile')</div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('myfavouriteAll')}}"
+                                           class="d-flex align-items-center">
+                                            <div class="profile-ic">
+                                                <i class="far fa-heart"></i>
+                                            </div>
+                                            <div>@lang('site.favorite')</div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="d-flex align-items-center">
+                                            <div class="profile-ic">
+                                                <i class="far fa-book-open"></i>
+                                            </div>
+                                            <div>@lang('site.My bookings')</div>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="{{route('logout')}}"
+                                           class="d-flex align-items-center">
+                                            <div class="profile-ic">
+                                                <i class="far fa-sign-out"></i>
+                                            </div>
+                                            <div> @lang('site.logout')</div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+            @else
+
+                <!-- without login -->
+
+                <li>
+                    <a
+                        href="{{route('sitelogin')}}"
+                        class="btn-outline-7agz btn-space d-flex justify-content-center align-items-center"
+                    >
+                        <span><i class="fas fa-user"></i></span>
+                        <span> @lang('site.login')</span>
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href="{{route('registers')}}"
+                        class="btn-7agz d-flex justify-content-center align-items-center"
+                    >
+                        <span><i class="fas fa-user"></i></span>
+                        <span> @lang('site.register')</span>
+                    </a>
+                </li>
+
+            @endif
         </ul>
     </nav>
     <div

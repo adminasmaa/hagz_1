@@ -188,6 +188,22 @@
 
                                             </div>
                                         </div>
+
+                                        <div class="col-12">
+                                            <div class="position-relative">
+                                                <input
+                                                    type="email"
+                                                    class="form-control email"
+                                                    name="email"
+                                                    id="email"
+                                                    value="{{$user->email ?? ''}}"
+                                                    placeholder=" {{trans('site.email')}}"
+                                                />
+
+
+                                            </div>
+
+                                        </div>
                                         <div class="col-12">
                                             <div class="main-btn my-4">
                                                 <button type="button" class="formregistersUser">     {{trans('site.sing_up')}}</button>
@@ -466,7 +482,7 @@
                     firstname: jQuery('.firstname').val(),
                     username: jQuery('.username').val(),
                     phone: jQuery('.phone2').val(),
-                    // username: jQuery('.email2').val(),
+                    email: jQuery('.email').val(),
                     password: jQuery('.password2').val(),
                     password_confirmation: jQuery('.password_confirmation2').val(),
 

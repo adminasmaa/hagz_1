@@ -433,6 +433,7 @@ return [
     'passwords' => 'كلمة السر الحالية:',
 
     'newpassword' => 'كلمة السر الجديدة:',
+    'updateprofile'=>'تعديل الحساب ',
 
     'confirmpassword' => 'تاكيد كلمة السر الجديدة:',
     'chanage' => 'تغيير',
