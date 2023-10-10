@@ -3,7 +3,6 @@
 namespace App\Repositories\Eloquent;
 
 use App\Models\Category;
-use App\Models\category_city;
 use App\Models\City;
 use App\Models\Country;
 use App\Repositories\Interfaces\CityRepositoryInterface as ICityRepositoryAlias;

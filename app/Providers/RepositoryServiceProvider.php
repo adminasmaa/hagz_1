@@ -6,7 +6,6 @@ use App\Repositories\Eloquent\AdvertisingRepository;
 
 use App\Repositories\Eloquent\CategoryRepository;
 use App\Repositories\Eloquent\CityRepository;
-use App\Repositories\Eloquent\CondiotionTypeRepository;
 use App\Repositories\Eloquent\ContactRepository;
 use App\Repositories\Eloquent\CountryRepository;
 
@@ -25,7 +24,6 @@ use App\Repositories\Eloquent\MessageRepository;
 use App\Repositories\Eloquent\NotificationRepository;
 use App\Repositories\Eloquent\CommissionRepository;
 
-use App\Repositories\Eloquent\BalanceRepository;
 
 use App\Repositories\Eloquent\SectionRepository;
 use App\Repositories\Eloquent\SliderRepository;
@@ -37,11 +35,9 @@ use App\Repositories\Interfaces\AdsStatusRepositoryInterface;
 use App\Repositories\Interfaces\AdvertisingRepositoryInterface;
 use App\Repositories\Interfaces\ContactRepositoryInterface;
 
-use App\Repositories\Interfaces\BrandRepositoryInterface;
 
 use App\Repositories\Interfaces\CategoryRepositoryInterface;
 use App\Repositories\Interfaces\CityRepositoryInterface;
-use App\Repositories\Interfaces\ConditionTypeRepositoryInterface;
 use App\Repositories\Interfaces\CountryRepositoryInterface;
 
 use App\Repositories\Interfaces\MediatorRepositoryInterface;
@@ -49,7 +45,6 @@ use App\Repositories\Interfaces\AreaRepositoryInterface;
 use App\Repositories\Interfaces\MessageRepositoryInterface;
 use App\Repositories\Interfaces\NotificationRepositoryInterface;
 
-use App\Repositories\Interfaces\BalanceRepositoryInterface;
 
 use App\Repositories\Interfaces\SectionRepositoryInterface;
 use App\Repositories\Interfaces\SliderRepositoryInterface;
@@ -90,15 +85,11 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(MediatorRepositoryInterface::class, MediatorRepository::class);
         $this->app->bind(SettingRepositoryInterface::class, SettingRepository::class);
         $this->app->bind(AdvertisingRepositoryInterface::class, AdvertisingRepository::class);
-        $this->app->bind(BrandRepositoryInterface::class, BrandRepository::class);
         $this->app->bind(ServiceAqarRepositoryInterface::class, ServiceAqarRepository::class);
 
         $this->app->bind(AreaRepositoryInterface::class, AreaRepository::class);
         $this->app->bind(ServiceRepositoryInterface::class, ServiceRepository::class);
 
-        $this->app->bind(ConditionTypeRepositoryInterface::class, CondiotionTypeRepository::class);
-
-        $this->app->bind(BalanceRepositoryInterface::class, BalanceRepository::class);
 
         $this->app->bind(SectionRepositoryInterface::class, SectionRepository::class);
 

@@ -17,7 +17,8 @@ return new class extends Migration {
             $table->string('name_ar')->nullable();
             $table->string('name_en')->nullable();
             $table->string('image')->nullable();
-            $table->string('order')->nullable();
+            $table->string('order')->default(1);
+
             $table->boolean('active')->default(0);
             $table->foreignId('country_id')->required( )->references('id')->on('countries')->onDelete('cascade');
 

@@ -125,7 +125,7 @@
                                         </div>
                                         <div class="media-body">
                                             <div class="right-chart-content">
-                                                <h4>{{$categories}}</h4><span>@lang('site.categories') @endlang </span>
+                                                <h4>{{\App\Models\Category::count()}}</h4><span>@lang('site.categories')  </span>
                                             </div>
                                         </div>
                                     </div>
@@ -139,7 +139,7 @@
                                         </div>
                                         <div class="media-body">
                                             <div class="right-chart-content">
-                                                <h4>{{$countries}}</h4><span>@lang('site.countries')</span>
+                                                <h4>{{\App\Models\Country::count()}}</h4><span>@lang('site.countries')</span>
                                             </div>
                                         </div>
                                     </div>
@@ -153,7 +153,7 @@
                                         </div>
                                         <div class="media-body">
                                             <div class="right-chart-content">
-                                                <h4>{{$aqar}}</h4><span>@lang('site.aqars') </span>
+                                                <h4>{{\App\Models\Aqar::count()}}</h4><span>@lang('site.aqars') </span>
                                             </div>
                                         </div>
                                     </div>

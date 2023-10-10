@@ -31,7 +31,7 @@
     line-height: 40px;
   }
   .details-item .accordion-body,
-  .details-sm-txt .search-btn a {
+  .details-sm-txt .search-btn a ,.search-btn button {
     font-size: 16px;
   }
   .banner-txt {
@@ -1261,6 +1261,7 @@
   .details-btn a,
   .booking-btn a,
   .search-btn a,
+.search-btn button,
   .contact-btn,
   .call-btn a,
   .cancle-btn a,

@@ -30,7 +30,7 @@
     line-height: 40px;
   }
   .details-item .accordion-body,
-  .details-sm-txt .search-btn a {
+  .details-sm-txt .search-btn a ,.search-btn button{
     font-size: 16px;
   }
   .banner-txt {
@@ -736,7 +736,7 @@
 
 
 
- 
+
   .close-modal {
     position: absolute;
     top: -15px;
@@ -782,7 +782,7 @@
   }
 }
 @media (max-width: 768px) {
-  
+
   .tabs-in-mobile {
     display: flex;
     flex-wrap: wrap;
@@ -1261,6 +1261,7 @@
   .details-btn a,
   .booking-btn a,
   .search-btn a,
+  .search-btn button,
   .contact-btn,
   .call-btn a,
   .cancle-btn a,

@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\User;   //belongsTo
 use App\Models\Aqar;   //belongsTo
-use App\Models\AqarBooking;   //belongsTo
 
 class AqarComment extends Model
 {

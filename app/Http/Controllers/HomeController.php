@@ -3,11 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Aqar;
-use App\Models\Car;
 use App\Models\Category;
 use App\Models\Country;
 use App\Models\Notification;
-use App\Models\Place;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -34,10 +32,11 @@ class HomeController extends Controller
 
         $users=User::count();
         $aqar=Aqar::count();
-        $categories=Category::count();
+        $categories=\App\Models\Category::count();
         $countries=Country::count();
 
         $notifications=Notification::count();
+
 
         return view('home', compact('users','notifications','aqar','categories','countries'));
     }

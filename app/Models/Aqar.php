@@ -14,7 +14,6 @@ use App\Models\Ads;
 use App\Models\AqarComment;
 
 // HasMany
-use App\Models\AqarBooking;
 
 // HasMany
 class Aqar extends Model

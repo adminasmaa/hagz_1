@@ -552,15 +552,24 @@ p {
   cursor: pointer;
 }
 
-.search-btn a {
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 150%;
-  color: var(--m-second);
+.search-btn a ,
+.search-btn button
+{
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 150%;
+    color: var(--m-second);
 }
 
-.search-btn:hover a {
-  color: var(--m-main);
+.search-btn:hover a ,.search-btn:hover button  {
+    color: var(--m-main);
+}
+
+.search-stage {
+    background-color: #f8f8f8;
+    padding: 40px;
+    border-radius: var(--rounded-main);
+    position: relative;
 }
 
 .search-stage {

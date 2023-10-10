@@ -6,7 +6,6 @@ namespace App\Repositories\Eloquent;
 use App\Models\Aqar;
 use App\Models\User;
 use App\Models\Category;
-use App\Models\AnotherRoom;
 use App\Models\Area;
 use App\Models\City;
 use App\Models\Country;

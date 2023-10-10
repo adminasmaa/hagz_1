@@ -39,25 +39,6 @@ function UploadImage($path, $image, $model, $request)
 }
 
 
-if(!function_exists('headerweb')){
-    function headerweb()
-    {
-        $categories = Category::get();
-        $countries = Country::get();
-        $setting=Setting::first();
-        $view = (string) View::make('frontend.layouts.header', compact('categories','countries','setting'));
-        return $view;
-    }
-}
 
-if(!function_exists('footerweb')){
-    function footerweb()
-    {
-        $setting=Setting::first();
-        $HomeServices=\App\Models\HomeServices::all();
-        $view = (string) View::make('frontend.layouts.footer', compact('setting','HomeServices'));
-        return $view;
-    }
-}
 
 ?>

@@ -41,19 +41,5 @@ class AqarReview extends Model
         return $this->belongsTo(Aqar::class, 'aqar_id');
     }
 
-//    public function reviewElement()
-//    {
-//        return $this->belongsTo(ReviewElement::class, 'review_element_id');
-//    }
-//    public function RateTotal($id){
-//        return AqarReview::where('review_element_id',$id)->sum('rate');
-//
-//
-//    }
-//
-//    public function CountUser($id){
-//        return AqarReview::where('review_element_id',$id)->count('user_id');
-//
-//
-//    }
+
 }
