@@ -229,7 +229,8 @@ return [
         'mony_item_kind__id' => 'Mony Account Kind',
 
         'name' => 'Name',
-        'username' => 'User Name',
+        'username' => 'Last Name',
+        'firstname'=>'First Name',
         'user_id' => 'User ID',
         'email' => 'Email',
         'first_name' => 'First Name',

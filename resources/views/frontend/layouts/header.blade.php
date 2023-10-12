@@ -295,23 +295,18 @@
                     <ul
                         class="navbar-nav d-flex align-items-center flex-lg-row position-relative"
                     >
-                        <li class="nav-link active">
+                        @php $current_route=Route::currentRouteName();@endphp
+
+                        <li class="nav-link {{($current_route=='Home')?'active':'' }}">
                             <a href="{{route('Home')}}" class="home-link"> @lang('site.home') </a>
                         </li>
                         @foreach($categories as $catt)
-                            <li class="nav-link">
-                                <a href="{{route('aquars',$catt->id)}}" class=""> {{$catt->name ?? ''}} </a>
+                            <li class="nav-link {{($current_route=='aquars')?'active':'' }}">
+
+                                <a href="{{route('aquars',$catt->id)}}" > {{$catt->name ?? ''}} </a>
                             </li>
                         @endforeach
-                        {{--                        <li class="nav-link">--}}
-                        {{--                            <a href="javascript:void(0)" class=""> استراحة </a>--}}
-                        {{--                        </li>--}}
-                        {{--                        <li class="nav-link">--}}
-                        {{--                            <a href="javascript:void(0)" class=""> شالية </a>--}}
-                        {{--                        </li>--}}
-                        {{--                        <li class="nav-link">--}}
-                        {{--                            <a href="javascript:void(0)" class=""> شالية </a>--}}
-                        {{--                        </li>--}}
+
                     </ul>
                 </div>
 

@@ -32,8 +32,13 @@
                             <div>
                                 <h2 class="mb-lg-0 mb-2">   @lang('site.login')</h2>
                                 <p class="">
-                                    أدخل رقم الهاتف وكلمة المرور لإنشاء <br />حساب أو تسجيل
-                                    الدخول
+
+                                    @lang('site.login with phone and password')
+
+
+
+
+
                                 </p>
                             </div>
                             <div class="static-image">
@@ -71,7 +76,7 @@
                                         href="#tab-1"
                                         class="tab-link d-flex align-items-center justify-content-center"
                                     >
-                                        @lang('site.login')
+                                        @lang('site.loginuser')
                                     </a>
                                 </li>
                                 <li>
@@ -79,7 +84,8 @@
                                         href="#tab-2"
                                         class="tab-link d-flex align-items-center justify-content-center"
                                     >
-                                        تسجيل الدخول كمستثمر
+                                        @lang('site.logininvestor')
+
                                     </a>
                                 </li>
                             </ul>

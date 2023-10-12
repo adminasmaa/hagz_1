@@ -258,7 +258,7 @@
                                                                             alt="families icon"
                                                                         />
                                                                     </div>
-                                                                    <div class="text-second"> {{$aquar->details?? ''}}</div>
+                                                                    <div class="text-second"> {{trans('site.'.$aquar->individual)}}</div>
                                                                 </div>
                                                                 <div
                                                                     class="d-flex align-items-center farm-data"
@@ -285,6 +285,27 @@
                                             </div>
                                         </div>
                                         @endforeach
+
+
+
+                                            @if(!empty($aqars->hasPages()))
+                                                <div class="card card-farm round-border mb-3 p-lg-3 p-2">
+                                                    <nav
+                                                        class="farm-list-pagination d-md-flex justify-content-md-between align-items-center"
+                                                    >
+                                                        <ul
+                                                            class="pagination mb-0 justify-content-lg-start justify-content-center"
+                                                        >
+                                                            <li class="page-item">
+                                                                {{ $aqars->links() }}
+                                                            </li>
+
+                                                        </ul>
+                                                    </nav>
+                                                </div>
+                                            @endif
+
+
                                     </div>
                                 </div>
                             </li>
@@ -434,7 +455,9 @@
                                                                                 alt="families icon"
                                                                             />
                                                                         </div>
-                                                                        <div class="text-second"> {{$aquar->details?? ''}}</div>
+
+
+                                                                        <div class="text-second"> {{trans('site.'.$aquar->individual)}}</div>
                                                                     </div>
 
                                                                     <div
@@ -463,6 +486,24 @@
                                                 </div>
                                             </div>
                                         @endforeach
+
+                                            @if(!empty($aqars->hasPages()))
+                                                <div class="card card-farm round-border mb-3 p-lg-3 p-2">
+                                                    <nav
+                                                        class="farm-list-pagination d-md-flex justify-content-md-between align-items-center"
+                                                    >
+                                                        <ul
+                                                            class="pagination mb-0 justify-content-lg-start justify-content-center"
+                                                        >
+                                                            <li class="page-item">
+                                                                {{ $aqars->links() }}
+                                                            </li>
+
+                                                        </ul>
+                                                    </nav>
+                                                </div>
+                                            @endif
+
 
                                     </div>
                                 </div>
@@ -613,7 +654,7 @@
                                                                                 alt="families icon"
                                                                             />
                                                                         </div>
-                                                                        <div class="text-second"> {{$aquar->details?? ''}}</div>
+                                                                        <div class="text-second"> {{trans('site.'.$aquar->individual)}}</div>
                                                                     </div>
 
                                                                     <div
@@ -642,6 +683,24 @@
                                                 </div>
                                             </div>
                                         @endforeach
+
+
+                                            @if(!empty($maxpriceAqars->hasPages()))
+                                                <div class="card card-farm round-border mb-3 p-lg-3 p-2">
+                                                    <nav
+                                                        class="farm-list-pagination d-md-flex justify-content-md-between align-items-center"
+                                                    >
+                                                        <ul
+                                                            class="pagination mb-0 justify-content-lg-start justify-content-center"
+                                                        >
+                                                            <li class="page-item">
+                                                                {{ $maxpriceAqars->links() }}
+                                                            </li>
+
+                                                        </ul>
+                                                    </nav>
+                                                </div>
+                                            @endif
 
                                     </div>
                                 </div>
@@ -792,7 +851,7 @@
                                                                                 alt="families icon"
                                                                             />
                                                                         </div>
-                                                                        <div class="text-second"> {{$aquar->details?? ''}}</div>
+                                                                        <div class="text-second"> {{trans('site.'.$aquar->individual)}}</div>
                                                                     </div>
 
                                                                     <div
@@ -823,31 +882,49 @@
                                         @endforeach
 
 
+                                            @if(!empty($minpriceAqars->hasPages()))
+                                                <div class="card card-farm round-border mb-3 p-lg-3 p-2">
+                                                    <nav
+                                                        class="farm-list-pagination d-md-flex justify-content-md-between align-items-center"
+                                                    >
+                                                        <ul
+                                                            class="pagination mb-0 justify-content-lg-start justify-content-center"
+                                                        >
+                                                            <li class="page-item">
+                                                                {{ $minpriceAqars->links() }}
+                                                            </li>
+
+                                                        </ul>
+                                                    </nav>
+                                                </div>
+                                            @endif
                                     </div>
                                 </div>
                             </li>
 
                         </ul>
+{{--                        @if($aqars->hasPages())--}}
+{{--                            <div class="card card-farm round-border mb-3 p-3">--}}
+{{--                                <nav--}}
+{{--                                    class="farm-list-pagination d-md-flex justify-content-md-between align-items-center"--}}
+{{--                                >--}}
+{{--                                    <ul--}}
+{{--                                        class="pagination mb-0 justify-content-lg-start justify-content-center"--}}
+{{--                                    >--}}
+{{--                                        <li class="page-item">--}}
+{{--                                            {{ $aqars->links() }}--}}
+{{--                                        </li>--}}
+
+{{--                                    </ul>--}}
+{{--                                </nav>--}}
+{{--                            </div>--}}
+{{--                        @endif--}}
                     </div>
+
                 </div>
             </div>
         </section>
-        @if($aqars->hasPages())
-            <div class="card card-department round-border mb-3 p-3">
-                <nav
-                    class="department-list-pagination d-md-flex justify-content-md-between align-items-center"
-                >
-                    <ul
-                        class="pagination mb-0 justify-content-lg-start justify-content-center"
-                    >
-                        <li class="page-item">
-                            {{ $aqars->links() }}
-                        </li>
 
-                    </ul>
-                </nav>
-            </div>
-        @endif
         <section class="d-lg-flex">
             <div class="right-container d-flex align-items-center py-lg-0 py-4">
                 <div class="right-container-content">

@@ -30,7 +30,7 @@ return [
         'array' => 'يجب أن يحتوي :attribute على عدد من العناصر بين :min و :max.',
     ],
     'boolean' => 'يجب أن تكون قيمة :attribute إما true أو false .',
-    'confirmed' => 'حقل التأكيد غير مُطابق للحقل :attribute.',
+    'confirmed' => 'حقل التأكيد غير مُطابق لحقل :attribute.',
     'date' => ':attribute ليس تاريخًا صحيحًا.',
     'date_equals' => 'يجب أن يكون :attribute مطابقاً للتاريخ :date.',
     'date_format' => 'لا يتوافق :attribute مع الشكل :format.',
@@ -237,7 +237,8 @@ return [
         'mony_item_kind__id' => 'نوع المحاسبه',
 
         'name' => 'الاسم',
-        'username' => 'اسم المُستخدم',
+        'username' => ' الاسم الاخير',
+        'firstname'=>'الاسم الاول',
         'user_id' => 'هوية المستخدم',
         'email' => 'البريد الالكتروني',
         'first_name' => 'الاسم الأول',

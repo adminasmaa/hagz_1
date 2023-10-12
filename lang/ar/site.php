@@ -7,6 +7,13 @@ return [
     'favorite' => 'المفضله',
     'Log in' => '
 قم بتسجيل الدخول',
+
+    'loginuser' => 'تسجيل الدخول كمستخدم',
+
+    'logininvestor' => 'تسجيل الدخول كمستثمر',
+
+    'login with phone and password' => 'أدخل رقم الهاتف وكلمة المرور لتسجيل الدخول',
+
     'Create a new account' => 'قم بانشاء حساب جديد',
     'We will send a text message to verify the phone number via whats up' => '( سنقوم بإرسال رسالة نصية للتحقق من رقم الهاتف عن طريق الواتس اب)',
     'You can create a new account through Fill in the following information' => ' يمكنك انشاء حساب جديد من خلال  ملئ البيانات التالية',
@@ -433,7 +440,7 @@ return [
     'passwords' => 'كلمة السر الحالية:',
 
     'newpassword' => 'كلمة السر الجديدة:',
-    'updateprofile'=>'تعديل الحساب ',
+    'updateprofile' => 'تعديل الحساب ',
 
     'confirmpassword' => 'تاكيد كلمة السر الجديدة:',
     'chanage' => 'تغيير',
@@ -453,13 +460,16 @@ return [
     'clients' => 'العملاء',
     'client_name' => 'اسم العميل',
 
+    'registerinvestor' => 'انشاء حساب كمستثمر',
+
+    'registeruser' => 'انشاء حساب كمستخدم',
     'suppliers' => 'الموردين',
     'supp_name' => 'اسم المورد',
     'type1' => 'النوع/الجنس',
     'geography' => 'الجغرافيا',
     'country' => 'الدولة ',
     'countrys' => 'دولة الميلاد',
-    'countries' => 'الدول',
+    'countries' => 'المناطق',
     'discover_the_most_famous_tourist_destinations' => 'استكشف اشهر  الواجهات السياحيه',
     'city' => 'المدينة',
     'cities' => 'المدن',
@@ -510,7 +520,7 @@ return [
     'emails' => 'البريد الرسمي',
 
     'activity' => 'نشاط',
-
+'register in'=>'انشاء حساب',
 
     'name' => 'الاسم',
     'names' => 'الأسم الأول',
@@ -519,7 +529,7 @@ return [
     'description' => 'الوصف',
     'category' => 'الفئه',
     'created_at' => 'تم اضافتة',
-    'welcome' => 'اهلا بكم',
+    'welcome' => 'اهلا بك',
 
     'size' => 'حجم',
     'minimum' => 'أقل',

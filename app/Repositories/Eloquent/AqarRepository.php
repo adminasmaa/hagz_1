@@ -15,6 +15,7 @@ use App\Repositories\Interfaces\AqarRepositoryInterface as AqarRepositoryInterfa
 use Illuminate\Support\Facades\DB;
 use Intervention\Image\Facades\Image;
 use Alert;
+
 class AqarRepository implements AqarRepositoryInterfaceAlias
 {
     public function getAll($data)
@@ -36,11 +37,11 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
 
         $users = User::get();
         $categories = Category::get();
-        $Area = Area::where('active',1)->get();
+        $Area = Area::where('active', 1)->get();
         $countries = Country::all();
         $cities = City::all();
 
-        return view('dashboard.aqars.create', compact('users', 'categories','Area', 'countries', 'cities'));
+        return view('dashboard.aqars.create', compact('users', 'categories', 'Area', 'countries', 'cities'));
     }
 
     public function edit($Id)
@@ -48,13 +49,13 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
         // TODO: Implement edit() method.
 
         $aqar = Aqar::with('aqarSection')->find($Id);
-        $aqar['changed_price']=json_decode($aqar['changed_price']);
+        $aqar['changed_price'] = json_decode($aqar['changed_price']);
         $users = User::get();
         $categories = Category::get();
-        $Area = Area::where('active',1)->get();
+        $Area = Area::where('active', 1)->get();
         $countries = Country::all();
         $cities = City::all();
-        return view('dashboard.aqars.edit', compact('aqar', 'users', 'categories','Area', 'countries', 'cities'));
+        return view('dashboard.aqars.edit', compact('aqar', 'users', 'categories', 'Area', 'countries', 'cities'));
     }
 
     public function show($Id)
@@ -62,13 +63,13 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
         // TODO: Implement show() method.
 
         $aqar = Aqar::find($Id);
-        $aqar['changed_price']=json_decode($aqar['changed_price']);
+        $aqar['changed_price'] = json_decode($aqar['changed_price']);
         $users = User::get();
         $categories = Category::get();
-        $Area = Area::where('active',1)->get();
+        $Area = Area::where('active', 1)->get();
         $countries = Country::all();
         $cities = City::all();
-        return view('dashboard.aqars.show', compact('aqar', 'users', 'categories','Area', 'countries', 'cities'));
+        return view('dashboard.aqars.show', compact('aqar', 'users', 'categories', 'Area', 'countries', 'cities'));
     }
 
     public function store($request)
@@ -77,48 +78,39 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
 
         //  return $request;
 
-        $request_data = $request->except(['main_image','images','videos','subservice']);
+        $request_data = $request->except(['main_image', 'images', 'videos', 'subservice']);
 
         $aqar = Aqar::create($request_data);
 
         if ($request->hasFile('main_image')) {
 
-            UploadImage('images/aqars/','main_image', $aqar, $request->file('main_image'));
+            UploadImage('images/aqars/', 'main_image', $aqar, $request->file('main_image'));
 
         }
 
-//        if ($request->hasFile('images')) {
-//            $images = $request->file('images');
-//            foreach ($images as $key => $files) {
-//                $destinationPath = 'images/aqars/';
-//                $file_name = $_FILES['images']['name'][$key];
-//                $files->move($destinationPath, $file_name);
-//                $data[] = $_FILES['images']['name'][$key];
-//                $aqar->images = implode(',',$data);
-//                $aqar->save();
-//            }
-//        }
 
         if ($request->hasFile('videos')) {
-                $thumbnail = $request->file('videos');
-                $destinationPath = 'images/aqars/videos/';
-                $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-                $thumbnail->move($destinationPath, $filename);
-                $aqar->videos = $filename;
-                $aqar->save();
-
-            }
-        foreach ($request->subservice as $subserv) {
-            $arr=explode('-',$subserv);
-            AqarSections::create([
-                'section_id' => $arr[0],
-                'sub_section_id' => $arr[1],
-                'aqar_id'=>$aqar->id
-
-            ]);
+            $thumbnail = $request->file('videos');
+            $destinationPath = 'images/aqars/videos/';
+            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+            $thumbnail->move($destinationPath, $filename);
+            $aqar->videos = $filename;
+            $aqar->save();
 
         }
+        if (!empty($request->subservice)) {
 
+            foreach ($request->subservice as $subserv) {
+                $arr = explode('-', $subserv);
+                AqarSections::create([
+                    'section_id' => $arr[0],
+                    'sub_section_id' => $arr[1],
+                    'aqar_id' => $aqar->id
+
+                ]);
+
+            }
+        }
         if ($aqar) {
             Alert::success('Success', __('site.added_successfully'));
 
@@ -131,26 +123,15 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
     {
         // TODO: Implement update() method.
 
-        $request_data = $request->except(['main_image', '_token', '_method', 'images','videos','subservice']);
+        $request_data = $request->except(['main_image', '_token', '_method', 'images', 'videos', 'subservice']);
         $aqar->update($request_data);
 
 
         if ($request->hasFile('main_image')) {
 
-            UploadImage('images/aqars/','main_image', $aqar, $request->file('main_image'));
+            UploadImage('images/aqars/', 'main_image', $aqar, $request->file('main_image'));
         }
-//
-//        if ($request->hasFile('images')) {
-//            $images = $request->file('images');
-//            foreach ($images as $key => $files) {
-//                $destinationPath = 'images/places/';
-//                $file_name = $_FILES['images']['name'][$key];
-//                $files->move($destinationPath, $file_name);
-//                $data[] = $_FILES['images']['name'][$key];
-//                $aqar->images = implode(',',$data);
-//                $aqar->save();
-//            }
-//        }
+
         if ($request->hasFile('videos')) {
             $thumbnail = $request->file('videos');
             $destinationPath = 'images/aqars/videos/';
@@ -160,16 +141,21 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
             $aqar->save();
 
         }
-        $services=AqarSections::where('aqar_id', $aqar->id)->get()->each(function($service){ $service->delete(); });
-        foreach ($request->subservice as $subserv) {
-            $arr=explode('-',$subserv);
-            AqarSections::create([
-                'section_id' => $arr[0],
-                'sub_section_id' => $arr[1],
-                'aqar_id'=>$aqar->id
+        $services = AqarSections::where('aqar_id', $aqar->id)->get()->each(function ($service) {
+            $service->delete();
+        });
 
-            ]);
+        if (!empty($request->subservice)) {
+            foreach ($request->subservice as $subserv) {
+                $arr = explode('-', $subserv);
+                AqarSections::create([
+                    'section_id' => $arr[0],
+                    'sub_section_id' => $arr[1],
+                    'aqar_id' => $aqar->id
 
+                ]);
+
+            }
         }
         if ($aqar) {
             Alert::success('Success', __('site.updated_successfully'));
@@ -191,11 +177,11 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
         // $result=DB::table('categories')->where('id',$category->id)->delete();
         $result = $aqar->delete();
         if ($result) {
-                Alert::toast('Success', __('site.deleted_successfully'));
+            Alert::toast('Success', __('site.deleted_successfully'));
         } else {
-                Alert::toast('Error', __('site.delete_faild'));
+            Alert::toast('Error', __('site.delete_faild'));
 
-          //      session()->flash('error', __('site.delete_faild'));
+            //      session()->flash('error', __('site.delete_faild'));
         }
         return back();
     }

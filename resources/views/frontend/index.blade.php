@@ -70,8 +70,8 @@
                                 <label for="individuals" class="lbl-search"
                                 > @lang('site.Individuals')
                                 </label>
-                                <div class="box-search" id="individuals" name="individual">
-                                    <select class="select2">
+                                <div class="box-search" id="individuals" >
+                                    <select class="select2"  name="individual">
                                         <option disabled selected>@lang('site.select')</option>
                                         <option value="families">@lang('site.families')</option>
                                         <option value="youths">@lang('site.youths')</option>

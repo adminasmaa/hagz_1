@@ -31,7 +31,13 @@ class AqarController extends Controller
     {
 
 
-        if (!empty($request->category_id) && !empty($request->country_id)) {
+        if (!empty($request->category_id) && !empty($request->country_id) && !empty($request->individual)) {
+            $aqars = Aqar::where('category_id', '=', $request->category_id)->where('country_id', '=', $request->country_id)->where('individual','=',$request->individual)->paginate(2);
+            $category = Category::find($request->category_id);
+            $minprice = Aqar::where('category_id', '=', $request->category_id)->min('fixed_price');
+            $maxprice = Aqar::where('category_id', '=', $request->category_id)->max('fixed_price');
+
+        }  elseif (!empty($request->category_id) && !empty($request->country_id)) {
             $aqars = Aqar::where('category_id', '=', $request->category_id)->where('country_id', '=', $request->country_id)->paginate(2);
             $category = Category::find($request->category_id);
             $minprice = Aqar::where('category_id', '=', $request->category_id)->min('fixed_price');
@@ -46,6 +52,13 @@ class AqarController extends Controller
 
         } elseif (!empty($request->country_id)) {
             $aqars = Aqar::where('country_id', '=', $request->country_id)->paginate(2);
+            $category = Category::find($request->category_id);
+            $minprice = Aqar::where('category_id', '=', $request->category_id)->min('fixed_price');
+            $maxprice = Aqar::where('category_id', '=', $request->category_id)->max('fixed_price');
+
+
+        } elseif (!empty($request->individual)) {
+            $aqars = Aqar::where('individual', '=', $request->individual)->paginate(2);
             $category = Category::find($request->category_id);
             $minprice = Aqar::where('category_id', '=', $request->category_id)->min('fixed_price');
             $maxprice = Aqar::where('category_id', '=', $request->category_id)->max('fixed_price');

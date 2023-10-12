@@ -2309,6 +2309,120 @@ tr {
   padding-left: 0px !important;}
 
 
+/*pagination*/
+.farm-list-pagination .page-item {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.farm-list-pagination .page-item .page-link {
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--m-light-gray);
+    width: 40px;
+    height: 40px;
+
+    background: #ffffff;
+
+    border: 1px solid var(--m-light-gray);
+    border-radius: 6px;
+}
+
+.page-link:focus {
+    box-shadow: none;
+}
+
+.farm-list-pagination .page-item .active {
+    color: var(--m-main);
+    border: 1px solid var(--m-main);
+}
+
+.farm-list-pagination .page-item.disabled {
+    cursor: not-allowed;
+}
+
+.pagination .page-item svg {
+    width: 20px;
+    height: 20px;
+    transform: rotate(180deg);
+}
+
+.pagination,
+.pagination .page-item {
+    width: 100%;
+
+}
+
+.pagination .page-item nav > div:first-child {
+    display: none !important;
+}
+
+.pagination .page-item nav > div:last-child {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pagination .page-item nav > div:last-child p {
+    display: flex;
+    margin-bottom: 0;
+    color: var(--m-main);
+}
+
+.pagination .page-item nav > div:last-child span:last-child {
+    box-shadow: none !important;
+    display: flex !important;
+}
+
+.pagination .page-item nav > div:last-child a,
+[aria-current="page"] span,
+[aria-disabled="true"] span {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--m-light-gray);
+    width: 40px;
+    height: 40px;
+    background: #ffffff;
+    border: 1px solid var(--m-light-gray) !important;
+    border-radius: 6px;
+    margin-left: 3px;
+    margin-right: 3px;
+    padding: 0 !important;
+}
+
+[rel="next"] svg,
+[rel="prev"] svg {
+    color: var(--m-main);
+}
+
+[aria-current="page"] span {
+    color: var(--m-main);
+    border: 1px solid var(--m-main) !important;
+}
+
+.pagination,
+.pagination .page-item {
+display: block !important;
+}
+
+
+
+
+
+
+
+
+
 
 .mobile-view,
 .delete-chat-mobile {

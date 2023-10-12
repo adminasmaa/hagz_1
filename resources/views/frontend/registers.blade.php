@@ -77,7 +77,7 @@
                                         href="#tab-1"
                                         class="tab-link d-flex align-items-center justify-content-center"
                                     >
-                             @lang('site.register')
+                             @lang('site.registeruser')
                                     </a>
                                 </li>
                                 <li>
@@ -85,7 +85,8 @@
                                         href="#tab-2"
                                         class="tab-link d-flex align-items-center justify-content-center"
                                     >
-                                        انشاء حساب كمستثمر
+                                        @lang('site.registerinvestor')
+
                                     </a>
                                 </li>
                             </ul>
@@ -206,7 +207,7 @@
                                         </div>
                                         <div class="col-12">
                                             <div class="main-btn my-4">
-                                                <button type="button" class="formregistersUser">     {{trans('site.sing_up')}}</button>
+                                                <button type="button" class="formregistersUser">      {{trans('site.register in')}}</button>
                                             </div>
 
                                             <div

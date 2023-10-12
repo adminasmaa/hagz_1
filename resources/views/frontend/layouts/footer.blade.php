@@ -282,6 +282,17 @@
 
 <script>
 
+
+
+    $(document).ready(function(){
+        $('ul li ').click(function(){
+            $('li').removeClass("active");
+            $(this).addClass("active");
+        });
+    });
+
+
+
     jQuery('.addContactsUserss').click(function (e) {
         console.log("daaaa");
         e.preventDefault();

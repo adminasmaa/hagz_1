@@ -5,6 +5,14 @@ return [
     'services' => 'Services',
     'link' => 'Link',
     'map' => 'Map',
+
+    'loginuser' => 'Log in as a user',
+    'logininvestor' => 'Log in as a investor',
+
+
+    'login with phone and password' => 'Enter your phone number and password to register Access',
+
+
     'Log in' => 'Log in',
 
     'updateprofile' => 'Update Profile',
@@ -422,6 +430,12 @@ return [
     'delete_faild' => 'Error Happen, Delete Process Failed',
 
     'no_vendor_found' => 'Sorry No Vendor Found',
+
+
+
+
+'register in'=>'Create an account',
+
     'room number' => 'Room Number',
 
     'Welcome to Saeeh' => 'Welcome to Hagz',
@@ -437,8 +451,13 @@ return [
     'all_countries' => 'All Countries',
     'find_your_favorite_country' => 'Find your favorite country',
     'country' => 'Country',
-    'countries' => 'Countries',
+    'countries' => 'Regions',
     'city' => 'City',
+    'registeruser' => 'Create an account as a user',
+
+    'registerinvestor' => 'Create an account as an investor',
+
+
     'cities' => 'Cities',
     'notes' => 'Notes',
     'phone' => 'Phone',

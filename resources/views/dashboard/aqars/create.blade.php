@@ -106,6 +106,19 @@
 
                                                         </select>
                                                     </div>
+
+                                                    <div class="col-md-6 form-group">
+                                                        <label for="individuals" class="lbl-search"
+                                                        > @lang('site.Individuals')
+                                                        </label>
+                                                        <div class="box-search" id="individuals" >
+                                                            <select class="js-example-placeholder-multiple col-sm-12" name="individual">
+                                                                <option disabled selected>@lang('site.select')</option>
+                                                                <option value="families">@lang('site.families')</option>
+                                                                <option value="youths">@lang('site.youths')</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                                 <br>
                                                 <div class="col-sm-12">
@@ -126,7 +139,7 @@
                                                         @endforeach
                                                     </ul>
                                                 </div>
-                                                <br>
+
 {{--                                                <div class="col-sm-12" id="cityarea">--}}
 {{--                                                    <h5 class="border-bottom">@lang('site.areas')</h5>--}}
 {{--                                                </div>--}}

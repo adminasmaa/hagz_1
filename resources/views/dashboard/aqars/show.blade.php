@@ -151,6 +151,21 @@
 
                                                     </select>
                                                 </div>
+
+
+
+                                                <div class="col-md-6 form-group">
+                                                    <label for="individuals" class="lbl-search"
+                                                    > @lang('site.Individuals')
+                                                    </label>
+                                                    <div class="box-search" id="individuals" >
+                                                        <select class="js-example-placeholder-multiple col-sm-12" name="individual" readonly="" disabled>
+                                                            <option disabled selected>@lang('site.select')</option>
+                                                            <option value="families" @if($aqar->individual=='families')  selected @endif>@lang('site.families')</option>
+                                                            <option value="youths" @if($aqar->individual=='youths')  selected @endif>@lang('site.youths')</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
                                             </div>
                                             <br>
                                             <div class="col-sm-12">
