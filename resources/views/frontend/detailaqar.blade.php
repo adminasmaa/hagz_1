@@ -214,7 +214,7 @@
                                     alt="families icon"
                                 />
                             </div>
-                            <div class="text-second"> {{$aquar->details?? ''}}</div>
+                            <div class="text-second"> {{trans('site.'.$aqar->individual)}}</div>
                         </div>
                     </div>
                     <div class="col-lg-4">
@@ -257,7 +257,9 @@
                                         href="#tab-3"
                                         class="tab-link d-flex align-items-center justify-content-center"
                                     >
-                                        @lang('site.map')                                                                                              ')
+                                           {{trans('site.map')}}
+
+
                                     </a>
                                 </li>
                                 <li>
@@ -289,20 +291,32 @@
                                                                     >
                                                                         <div>
                                     <span class="details-item-ic"
-                                    ><i class="fas fa-car"></i
-                                        ></span>
+                                    >
+
+{{--                                        --}}
+{{--                                        --}}
+{{--                                        <i class="fas fa-car"></i--}}
+{{--                                        >--}}
+{{--                                    --}}
+
+
+
+                                                                  <img
+                                                                      src="{{asset('images/services_aqars/'.$section->icon)}}"
+
+
+                                                                      onerror="this.src='{{FRONTASSETS}}/assets/images/area-ic.svg'"
+                                                                      alt="car"/>
+
+
+                                    </span>
 
                                                                             {{$section->name ?? ''}}
                                                                         </div>
 
                                                                         <div class="arrow-down">
                                                                             <i class="far fa-chevron-down"></i>
-                                                                            {{--                                                                    <img--}}
-                                                                            {{--                                                                        src="{{asset('images/services_aqars/'.$section->icon)}}"--}}
 
-
-                                                                            {{--                                                                        onerror="this.src='{{FRONTASSETS}}/assets/images/area-ic.svg'"--}}
-                                                                            {{--                                                                        alt="car"/>--}}
                                                                         </div>
                                                                     </button>
 
