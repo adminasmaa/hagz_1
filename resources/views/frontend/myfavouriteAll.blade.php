@@ -44,7 +44,7 @@
                 <div class="row">
 
                     @foreach($favouriteaqar->favourite_aqars as $aquar)
-                    <div class="col-12">
+                    <div class="col-12" id="favouritessAquar{{$aquar->id}}" >
                         <div class="card card-farm round-border mb-3 p-lg-3 p-2">
                             <div class="row g-0">
                                 <div class="col-lg-5">
@@ -54,12 +54,26 @@
                                         @if(!empty($aquar->images))
                                             @foreach(explode(',',$aquar->images) as $img)
                                         <div class="item">
-                                            <button
-                                                type="button"
-                                                class="farm-like d-flex justify-content-center align-items-center"
-                                            >
-                                                <i class="fas fa-heart"></i>
-                                            </button>
+                                            @if(!empty(auth()->user()))
+
+                                                <a
+                                                    id="favouritess{{$aquar->id}}" data-id="{{$aquar->id}}"
+                                                    class="farm-like d-flex justify-content-center align-items-center favouritess"
+                                                >
+                                                    <i
+                                                        class=" @if(count(\App\Models\AquarUser::where('aqar_id', '=',$aquar->id)->where('user_id', '=', auth()->user()->id)->get()) > 0) fas @else far @endif far fa-heart "></i>
+                                                </a>
+
+
+
+                                            @else
+                                                <a
+                                                    type="button"
+                                                    class="farm-like d-flex justify-content-center align-items-center"
+                                                >
+                                                    <i class="fal fa-heart"></i>
+                                                </a>
+                                            @endif
                                             <div class="farm-img-list">
                                                 <img
                                                     loading="lazy"
@@ -196,5 +210,40 @@
     </main>
 
 
+
+@endsection
+
+@section('scripts')
+
+    <script>
+
+
+        jQuery(document).ready(function () {
+            jQuery('.favouritess').click(function (e) {
+                e.preventDefault();
+
+                var id = $(this).data('id');
+                jQuery.ajax({
+                    url: 'favouritAqar/' + id,
+                    method: 'GET',
+                    data: {
+                        '_token': '{{ csrf_token() }}',
+                    },
+                    success: function (result) {
+                        console.log(result.status);
+                        if (result.status == 'deleted')
+                            // $(`#favouritess${id} i`).addClass('far').removeClass('fas');
+                            $(`#favouritessAquar${id}`).remove();
+                        else if (result.status == 'added')
+                            $(`#favouritess${id} i`).addClass('fas').removeClass('far');
+                        console.log(result);
+                    },
+                    error: function (err) {
+                        console.log(err)
+                    }
+                });
+            });
+        });
+    </script>
 
 @endsection
