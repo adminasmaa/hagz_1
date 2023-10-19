@@ -8,6 +8,17 @@ return [
     'Log in' => '
 قم بتسجيل الدخول',
 
+'Mandatory'=>'اجبارى',
+
+    'optional'=>'غير اجبارى',
+
+    'Add an advertisement'=>'اضافة اعلان',
+
+    'Please do not close the page and wait for it to load'=>'الرجاء عدم إغلاق الصفحه وانتظار التحميل',
+
+
+
+
     'loginuser' => 'تسجيل الدخول كمستخدم',
 
     'logininvestor' => 'تسجيل الدخول كمستثمر',
@@ -22,6 +33,16 @@ return [
     'inquires' => 'للحجز والاستفسار',
     'send' => 'ارسال',
     'locations' => 'موقعنا',
+
+
+    'commissiondetails' => '(عزيزى العميل كلما زادت نسبة العمولة سوف يتم إظهار
+                                                أعلانك بالمقدمة)',
+
+
+    'Choisissez votre commission' => 'اختر عمولتك',
+
+    'Nom personnel' => 'الاسم الشخصى',
+
     'register' => 'تسجيل جديد',
     'dealine' => 'مواعيد العمل',
     'Total' => 'الاجمالي',
@@ -431,7 +452,7 @@ return [
     'dont_have_an_account' => '  ليس لديك حساب ? ',
     'sing_up' => 'التسجيل',
     'enter_pass_email' => 'أدخل بريدك الإلكتروني وكلمة المرور لتسجيل الدخول',
-    'forget_password' => 'نسيت كلمة المرور',
+    'forget_password' => 'نسيت كلمة المرور ؟',
     'copy_right' => 'كل حقوق الطبع والنشر محفوظة',
     'remember_me' => 'تذكرني',
     'password' => 'كلمة المرور',
@@ -467,7 +488,7 @@ return [
     'supp_name' => 'اسم المورد',
     'type1' => 'النوع/الجنس',
     'geography' => 'الجغرافيا',
-    'country' => 'الدولة ',
+    'country' => 'المنطقه ',
     'countrys' => 'دولة الميلاد',
     'countries' => 'المناطق',
     'discover_the_most_famous_tourist_destinations' => 'استكشف اشهر  الواجهات السياحيه',
@@ -520,7 +541,7 @@ return [
     'emails' => 'البريد الرسمي',
 
     'activity' => 'نشاط',
-'register in'=>'انشاء حساب',
+    'register in' => 'انشاء حساب',
 
     'name' => 'الاسم',
     'names' => 'الأسم الأول',
@@ -679,7 +700,12 @@ return [
     'display_photo' => ' الصورة الرئيسية  ',
     'notify_photo' => ' صورة الملاحظه',
     'place_comments' => ' تعليقات الاماكن ',
-    'personnumber' => 'عدد الاشخاص',
+    'personnumber' => 'عدد الايام',
+'total_area'=>'المساحه',
+    'Farm name'=>'اسم المزرعة',
+'The name appears to the customer after booking'=>'يظهر الاسم للعميل بعد الحجز',
+
+
     'space' => 'المساحة',
     'services_aqars' => 'خدمات العقارات',
     'unitnumber' => 'عدد الوحدات',

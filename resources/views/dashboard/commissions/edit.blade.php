@@ -57,7 +57,7 @@
                                     <!--<div class="col-md-6">-->
 
                                 <div class="col-md-6 form-group col-12 p-2 ">
-                                        <label>@lang('site.price')<span class="text-danger">*</span></label>
+                                        <label>@lang('site.commission')<span class="text-danger">*</span></label>
                                         <input type="float" name="price" class="form-control"
                                                value="{{$commission->price}}"
                                             >
@@ -71,7 +71,7 @@
                                         </option>
                                         <option value="0"
                                                 @if($commission->status=='0') selected @endif>@lang('site.not-active')
-                                        </option>   
+                                        </option>
                                     </select>
                                     </div>
                                 </div>
@@ -89,8 +89,8 @@
 
                                     </select>
                                 </div>
-                             
-                                
+
+
 
                             <br>
 

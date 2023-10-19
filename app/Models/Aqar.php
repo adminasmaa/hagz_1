@@ -69,7 +69,8 @@ class Aqar extends Model
         'country_id',
         'ads_status_id',
         'city_id',
-        'individual'
+        'individual',
+        'total_area'
     ];
 
     // relations

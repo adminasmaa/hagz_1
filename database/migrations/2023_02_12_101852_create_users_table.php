@@ -25,12 +25,14 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->string('latitude')->nullable();
             $table->string('longitude')->nullable();
-            $table->string('account_type')->nullable();
+            $table->string('account_type')->default('User');
             $table->string('phone')->nullable()->unique();
             $table->string('email')->nullable();
             $table->boolean('active')->default(0);
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('password')->nullable();
+            $table->string('details')->nullable();
+            $table->integer('category_id')->nullable();
 
             $table->foreignId('country_id')->nullable( )->references('id')->on('countries')->onDelete('cascade');
             $table->foreignId('city_id')->nullable( )->references('id')->on('cities')->onDelete('cascade');

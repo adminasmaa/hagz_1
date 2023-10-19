@@ -48,6 +48,8 @@ class CommissionsDataTable extends DataTable
             ->eloquent($query)
             ->editColumn('created_at', function ($model) {
                 return (!empty($model->created_at)) ? $model->created_at->diffForHumans() : '';
+            })->editColumn('user_id', function ($model) {
+                return (!empty($model->user_id)) ? $model->user->firstname : '';
             })
             ->addIndexColumn()
             ->addColumn('action', function ($model) {
@@ -91,17 +93,17 @@ class CommissionsDataTable extends DataTable
             ->addTableClass('cell-border stripe')
             ->columns($this->getColumns())
             ->minifiedAjax()
-           ->dom('Bfrtip')
+            ->dom('Bfrtip')
             ->orderBy(1)
             ->selectStyleSingle()
             ->buttons([
-            //    Button::make('create')->text('<i class="fa fa-plus"></i> ' . trans('site.add')),
+                //    Button::make('create')->text('<i class="fa fa-plus"></i> ' . trans('site.add')),
                 Button::make('csv')->text('<i class="fa fa-download"></i> ' . trans('site.export')),
                 Button::make('print')->text('<i class="fa fa-print"></i> ' . trans('site.print')),
-            //    Button::make('reset')->text('<i class="fa fa-undo"></i> ' . trans('site.reset')),
-            //    Button::make('reload')->text('<i class="fa fa-refresh"></i> ' . trans('site.reload')),
+                //    Button::make('reset')->text('<i class="fa fa-undo"></i> ' . trans('site.reset')),
+                //    Button::make('reload')->text('<i class="fa fa-refresh"></i> ' . trans('site.reload')),
             ])->language([
-                "url" => app()->getLocale() == 'ar' ? "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Arabic.json":"//cdn.datatables.net/plug-ins/1.13.4/i18n/en-GB.json"
+                "url" => app()->getLocale() == 'ar' ? "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Arabic.json" : "//cdn.datatables.net/plug-ins/1.13.4/i18n/en-GB.json"
             ]);
     }
 
@@ -115,7 +117,7 @@ class CommissionsDataTable extends DataTable
         return [
             Column::make('DT_RowIndex')->data('DT_RowIndex')->name('id')->title('#'),
             Column::make('user_id')->title(trans('site.users')),
-            Column::make('price')->title(trans('site.price')),
+            Column::make('price')->title(trans('site.commission')),
             Column::make('status')->title(trans('site.status')),
             Column::make('created_at')->title(trans('site.created_at')),
             Column::computed('action')

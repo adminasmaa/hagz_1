@@ -6,9 +6,18 @@ return [
     'link' => 'Link',
     'map' => 'Map',
 
+    'Add an advertisement'=>'Add an advertisement',
+
+'Mandatory'=>'Mandatory',
+    'optional'=>'optional',
+
+
+    'commissiondetails'=>'(Cher client, plus le pourcentage de commission sera élevé Annonce dans introduction)',
+
     'loginuser' => 'Log in as a user',
     'logininvestor' => 'Log in as a investor',
-
+    'Nom personnel' => 'Nom personnel',
+    'Choisissez votre commission'=>'Choisissez votre commission',
 
     'login with phone and password' => 'Enter your phone number and password to register Access',
 
@@ -255,7 +264,7 @@ return [
     'dont_have_an_account' => "Don't have an account",
     'sing_up' => 'Sing up',
     'enter_pass_email' => 'Enter your email and password to log in',
-    'forget_password' => 'Forget password',
+    'forget_password' => 'Forget password ؟',
     'copy_right' => 'All rights reserved',
 
     'passwords' => 'Current password:',
@@ -345,8 +354,17 @@ return [
     'ConditioningType' => 'Conditioning Type',
     'descrption' => 'Descrption',
     'alert' => 'Alert',
+
+    'total_area'=>'area',
+
+    'Farm name'=>'Farm name',
+
+
+    'The name appears to the customer after booking'=>'The name appears to the customer after booking',
+
+
     'If you have a problem adding your ad, please call us' => 'If you have a problem adding your ad, please call us',
-    'personnumber' => 'Person Number',
+    'personnumber' => 'Days Number',
     'space' => 'Space',
     'unitnumber' => 'Unit Number',
     'hallnumber' => 'Hall Number',
@@ -432,9 +450,7 @@ return [
     'no_vendor_found' => 'Sorry No Vendor Found',
 
 
-
-
-'register in'=>'Create an account',
+    'register in' => 'Create an account',
 
     'room number' => 'Room Number',
 
@@ -450,9 +466,14 @@ return [
     'discover_the_most_famous_tourist_destinations' => 'Discover the most famous tourist destinations',
     'all_countries' => 'All Countries',
     'find_your_favorite_country' => 'Find your favorite country',
-    'country' => 'Country',
+    'country' => 'Area',
     'countries' => 'Regions',
     'city' => 'City',
+
+    'Please do not close the page and wait for it to load'=>'Please do not close the page and wait for it to load',
+
+
+
     'registeruser' => 'Create an account as a user',
 
     'registerinvestor' => 'Create an account as an investor',

@@ -134,6 +134,42 @@ class HomeController extends Controller
         return response()->json(['status' => true, 'content' => 'success', 'data' => $user]);
 
     }
+    public function createaccountinvest(Request $request)
+    {
+        $validation = Validator::make($request->all(), [
+//            'email' => 'nullable|email|string|unique:users',
+//            'phone' => 'required|string|unique:users',
+
+            'phone' => 'required|unique:users|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+
+            'password' => 'required|confirmed|min:6',
+            'username' => 'required',
+        ]);
+
+        if ($validation->fails()) {
+            return response()->json(['errors' => $validation->errors()], 422);
+        }
+
+        $request_data = $request->except(['password', 'password_confirmation', '_token']);
+
+        $request_data['active'] = 1;
+        $request_data['account_type'] = 'invest';
+
+        $request_data['password'] = bcrypt($request->password);
+//        $request_data['lastname'] = $request->username;
+        $request_data['username'] = $request->username;
+        $request_data['firstname'] = $request->username;
+        $request_data['details'] = $request->details;
+        $request_data['comision'] = $request->comision;
+        $request_data['category_id'] = $request->category_id;
+
+        $user = User::create($request_data);
+
+        Auth::login($user);
+
+        return response()->json(['status' => true, 'content' => 'success', 'data' => $user]);
+
+    }
 
     public function updateprofileuser(Request $request, $id)
     {

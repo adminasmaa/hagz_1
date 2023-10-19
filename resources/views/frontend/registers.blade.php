@@ -225,58 +225,35 @@
                                     <div class="row mt-lg-5 mt-4">
                                         <div class="col-12 ads-radio-list mb-lg-5 mb-3">
                                             <div class="row">
+
+                                                @foreach($categories as $cat)
                                                 <div class="col-md-2 col-4">
                                                     <div class="d-flex align-items-center">
                                                         <input
                                                             type="radio"
-                                                            name="register-radio"
-                                                            id="farm"
-                                                            checked
+                                                            name="category_id"
+
+                                                            class="category_id"
+                                                            value="{{$cat->id}}"
+                                                            id="farm_{{$cat->id}}"
                                                         />
-                                                        <label for="farm" class="online-lbl custom-radio">
-                                                            مزرعة
+                                                        <label for="farm_{{$cat->id}}" class="online-lbl custom-radio">
+                                                            {{$cat->name ?? ''}}
                                                         </label>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-2 col-4">
-                                                    <div class="d-flex align-items-center">
-                                                        <input
-                                                            type="radio"
-                                                            name="register-radio"
-                                                            id="chalet"
-                                                        />
-                                                        <label
-                                                            for="chalet"
-                                                            class="online-lbl custom-radio"
-                                                        >
-                                                            شالية
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-2 col-4">
-                                                    <div class="d-flex align-items-center">
-                                                        <input
-                                                            type="radio"
-                                                            name="register-radio"
-                                                            id="break"
-                                                        />
-                                                        <label
-                                                            for="break"
-                                                            class="online-lbl custom-radio"
-                                                        >
-                                                            استراحة
-                                                        </label>
-                                                    </div>
-                                                </div>
+
+                                                @endforeach
+
                                             </div>
                                         </div>
                                         <div class="col-12 mb-4">
                                             <div class="position-relative">
                                                 <input
                                                     type="text"
-                                                    class="form-control"
-                                                    name="first name"
-                                                    placeholder="الاسم الشخصى  "
+                                                    class="form-control first_names"
+                                                    name="first_name"
+                                                    placeholder="{{trans('site.Nom personnel')}}  "
                                                 />
                                                 <span class="icon-placeholder">
                             <i class="fas fa-user"></i>
@@ -289,9 +266,9 @@
                                                 <input
                                                     id="password-field"
                                                     type="password"
-                                                    class="form-control"
+                                                    class="form-control passwords"
                                                     name="password"
-                                                    placeholder="كلمة المرور"
+                                                    placeholder="{{trans('site.password')}}"
                                                 />
                                                 <span class="icon-placeholder">
                             <i class="fas fa-lock-alt"></i>
@@ -307,9 +284,9 @@
                                                 <input
                                                     id="password-fieldd"
                                                     type="password"
-                                                    class="form-control"
-                                                    name="confirm password"
-                                                    placeholder="تاكيد كلمة المرور"
+                                                    class="form-control password_confirmations"
+                                                    name="confirm_passwords"
+                                                    placeholder="  {{trans('site.Confirm Password')}}"
                                                 />
                                                 <span class="icon-placeholder">
                             <i class="fas fa-lock-alt"></i>
@@ -322,27 +299,31 @@
                                         </div>
                                         <div class="col-lg-6 mb-3">
                                             <div class="position-relative">
-                                                <select class="select2">
-                                                    <option>اختر عمولتك</option>
-                                                    <option value="1">5%</option>
-                                                    <option value="2">10%</option>
+                                                <select class="select2 comision" name="comision">
+                                                    <option>   @lang('site.Choisissez votre commission')</option>
+                                                    @foreach(\App\Models\Commission::where('status','=',1)->get() as $com)
+                                                    <option value="{{$com->price}}">{{$com->price}} %</option>
+                                                    @endforeach
                                                 </select>
                                                 <span class="icon-placeholder">
                             <i class="fas fa-wallet"></i>
                           </span>
                                             </div>
-                                            <div class="pt-lg-3 pt-2 txt-phone">(تبدأ من 5%)</div>
+                                            <div class="pt-lg-3 pt-2 txt-phone">({{trans('site.start_date')}} 5%)</div>
                                             <div class="pt-lg-3 text-second txt-commission">
-                                                (عزيزى العميل كلما زادت نسبة العمولة سوف يتم إظهار
-                                                أعلانك بالمقدمة)
+
+                                            @lang('site.commissiondetails')
+
+
                                             </div>
                                         </div>
                                         <div class="col-lg-6 mb-3">
                                             <div class="position-relative">
                                                 <input
                                                     type="tel"
-                                                    class="form-control"
-                                                    placeholder="رقم الهاتف"
+                                                    name="phone"
+                                                    class="form-control phones"
+                                                    placeholder=" {{trans('site.phone')}}"
                                                 />
                                                 <span class="icon-placeholder">
                             <i class="fas fa-phone"></i>
@@ -353,7 +334,7 @@
 
                                                 <span>
                             <img
-                                src="./assets/images/wt-icon.png"
+                                src="{{FRONTASSETS}}/assets/images/wt-icon.png"
                                 alt="whatsapp "
                             />
                           </span>
@@ -361,8 +342,8 @@
                                         </div>
                                         <div class="col-12">
                         <textarea
-                            class="form-control txtarea-7agz py-lg-3 py-2"
-                            placeholder=" الشروط والاحكام  "
+                            class="form-control txtarea-7agz py-lg-3 py-2 details"  name="details"
+                            placeholder="  {{trans('site.termcondition')}}  "
                             rows="5"
                         ></textarea>
                                         </div>
@@ -376,20 +357,20 @@
                                                 for="register-check"
                                                 class="custom-checkbox-item"
                                             >
-                                                أوافق على الشروط والاحكام
+                                                {{trans('site.Please agree to the terms and conditions')}}
                                             </label>
                                         </div>
                                         <div class="col-12">
                                             <div class="main-btn my-4">
-                                                <button type="button">تسجيل</button>
+                                                <button type="button" class="formregistersinvest">@lang('site.sing_up')</button>
                                             </div>
 
                                             <div
                                                 class="pt-3 d-flex justify-content-center user-link"
                                             >
-                                                لديك حساب ؟
-                                                <a href="#" class="text-main underline-line">
-                                                    قم بتسجيل الدخول
+                                                @lang('site.haveprofile')
+                                                <a href="{{route('sitelogin')}}" class="text-main underline-line">
+                                                    {{trans('site.Log in')}}
                                                 </a>
                                             </div>
                                         </div>
@@ -528,7 +509,74 @@
         });
 
 
-        ;
+
+        jQuery('.formregistersinvest').click(function (e) {
+            // console.log("daaaa");
+            e.preventDefault();
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+
+            jQuery.ajax({
+                headers: {'X-CSRF-TOKEN': $('meta[name="csrf_token"]').attr('content')},
+
+                url: "{{ route('createaccountinvest') }}",
+                method: 'post',
+                data: {
+                    _token: '{{ csrf_token() }}',
+                    category_id: jQuery('.category_id').val(),
+                    username: jQuery('.first_names').val(),
+                    phone: jQuery('.phones').val(),
+                    details: jQuery('.details').val(),
+                    comision: jQuery('.comision').val(),
+                    password: jQuery('.passwords').val(),
+                    password_confirmation: jQuery('.password_confirmations').val(),
+
+
+                },
+                success: function (result) {
+                    console.log(result);
+
+                    if (result.content == 'success')
+
+
+                        swal({
+                            title: "Success!",
+                            text: "The invest has been successfully Added!",
+                            type: "success",
+                            confirmButtonText: "OK"
+                        });
+
+                    setTimeout(function () {
+                        Swal.close()
+                    }, 10000)
+
+                    window.location.href = '{{route('Home')}}';
+
+                },
+                error: function (result) {
+                    console.log(result.responseJSON);
+                    var errors = result.responseJSON;
+                    var errorsList = "";
+                    $.each(errors, function (_, value) {
+                        $.each(value, function (_, fieldErrors) {
+                            fieldErrors.forEach(function (error) {
+                                errorsList += "<li style='color:#e81f1f'>" + error + "</li>";
+                            })
+                        });
+                    });
+                    $('#register_errorsUsers').html(errorsList);
+
+
+                }
+            });
+        });
+
+
+
 
 
     </script>

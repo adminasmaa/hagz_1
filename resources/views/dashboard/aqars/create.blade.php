@@ -170,6 +170,12 @@
                                                                value="{{old('name_en')}}">
                                                     </div>
 
+                                                    <div class="col-md-6 form-group col-12 p-2 ">
+                                                        <label>@lang('site.total_area')</label>
+                                                        <input type="text" name="total_area" class="form-control"
+                                                               value="{{old('total_area')}}">
+                                                    </div>
+
                                                 </div>
                                                 <div class="row m-t-10">
                                                     <!--<div class="col-md-6">-->

@@ -41,6 +41,8 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapWebRoutes();
 
         $this->mapDashboardRoutes();
+
+        $this->mapInvestRoutes();
     }
 
     /**
@@ -60,6 +62,11 @@ class RouteServiceProvider extends ServiceProvider
     {
         Route::middleware('web')
             ->group(base_path('routes/dashboard/web.php'));
+    }
+    protected function mapInvestRoutes()
+    {
+        Route::middleware('web')
+            ->group(base_path('routes/invest/web.php'));
     }
 
     /**

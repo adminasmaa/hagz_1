@@ -25,6 +25,7 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
     Route::get('/contact', 'App\Http\Controllers\Frontend\HomeController@contact')->name('contact');
     Route::post('/addContacts', 'App\Http\Controllers\Frontend\HomeController@addContacts')->name('addContacts');
     Route::post('/createaccount', 'App\Http\Controllers\Frontend\HomeController@createaccount')->name('createaccount');
+    Route::post('/createaccountinvest', 'App\Http\Controllers\Frontend\HomeController@createaccountinvest')->name('createaccountinvest');
     Route::get('/registers', 'App\Http\Controllers\Frontend\HomeController@registers')->name('registers');
     Route::get('/sitelogin', 'App\Http\Controllers\Frontend\HomeController@sitelogin')->name('sitelogin');
     Route::get('/updateprofile/{id}', 'App\Http\Controllers\Frontend\HomeController@updateprofile')->name('updateprofile')->middleware([User::class]);

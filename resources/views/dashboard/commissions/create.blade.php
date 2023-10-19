@@ -59,7 +59,7 @@
                                     <!--<div class="col-md-6">-->
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
-                                        <label>@lang('site.price')<span class="text-danger">*</span></label>
+                                        <label>@lang('site.commission')<span class="text-danger">*</span></label>
                                         <input type="number"  step=".1" name="price" class="form-control"
                                                value="{{old('price')}}"
                                                required>
