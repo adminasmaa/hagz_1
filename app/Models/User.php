@@ -78,6 +78,10 @@ class User extends Authenticatable
         return $this->HasMany(Ads::class);
     }
 
+    public function aqars(){
+        return $this->HasMany(Aqar::class);
+    }
+
 
     public function country(){
         return $this->belongsTo(Country::class,'country_id');

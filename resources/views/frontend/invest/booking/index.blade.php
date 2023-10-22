@@ -28,7 +28,7 @@
                 <div class="booking_investor_card">
                     <div class="row">
                         <div class="col-lg-4 col-sm-6 col-12">
-                            <a href="#">
+                            <a href="{{route('invest.showAds')}}">
                                 <div class="booking_card mb-lg-5 mb-4 text-center py-sm-5 py-4">
                                     <img
                                         src="{{FRONTASSETS}}/assets/images/investor/booking_ic1.png"

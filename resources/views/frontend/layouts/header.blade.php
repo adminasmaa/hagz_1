@@ -293,66 +293,61 @@
             <div class="row justify-content-between align-items-center">
                 <div class="col-8">
 
-                    @php $current_route=Route::currentRouteName();@endphp
-
-                    @if(auth()->user()->account_type='invest')
+                    @php $current_route=Route::currentRouteName();   @endphp
 
 
-
-
-                        <ul
-                            class="navbar-nav d-flex align-items-center flex-lg-row position-relative"
-                        >
-                            <li class="nav-link {{($current_route=='Home')?'active':'' }}">
-                                <a href="{{route('Home')}}" class="home-link"> @lang('site.home') </a>
-                            </li>
-
-                            <li class="nav-link">
-                                <a href="javascript:void(0)"  class="nav-link"> @lang('site.aquars') </a>
-                            </li>
-                            <li class="nav-link {{($current_route=='invest.booking')?'active':'' }}">
-                                <a href="{{route('invest.booking')}}"  class="nav-link"> @lang('site.bookings') </a>
-                            </li>
-                            <li class="nav-link">
-                                <a href="javascript:void(0)"  class="nav-link"> @lang('site.commissions') </a>
-                            </li>
-                            <li class="nav-link">
-                                <a  href="javascript:void(0)"  class="nav-link">   @lang('site.Reservation and cancellation conditions') </a>
-                            </li>
-
-
-
-                        </ul>
-
-
-
-                    @else
+                    @if(!empty(auth()->user()) && auth()->user()->account_type='invest' )
 
 
 
 
 
-                        <ul
-                            class="navbar-nav d-flex align-items-center flex-lg-row position-relative"
 
-
-
-                        >
-                            <li class="nav-link {{($current_route=='Home')?'active':'' }}">
-                                <a href="{{route('Home')}}" class="home-link"> @lang('site.home') </a>
-                            </li>
-
-                            @foreach($categories as $catt)
-                                <li class="nav-link {{($current_route=='aquars')?'active':'' }}">
-
-                                    <a href="{{route('aquars',$catt->id)}}"> {{$catt->name ?? ''}} </a>
+                            <ul
+                                class="navbar-nav d-flex align-items-center flex-lg-row position-relative"
+                            >
+                                <li class="nav-link {{($current_route=='Home')?'active':'' }}">
+                                    <a href="{{route('Home')}}" class="home-link"> @lang('site.home') </a>
                                 </li>
-                            @endforeach
 
-                        </ul>
+                                <li class="nav-link">
+                                    <a href="javascript:void(0)" class="nav-link"> @lang('site.aquars') </a>
+                                </li>
+                                <li class="nav-link {{($current_route=='invest.booking')?'active':'' }}">
+                                    <a href="{{route('invest.booking')}}" class="nav-link"> @lang('site.bookings') </a>
+                                </li>
+                                <li class="nav-link">
+                                    <a href="javascript:void(0)" class="nav-link"> @lang('site.commissions') </a>
+                                </li>
+                                <li class="nav-link">
+                                    <a href="javascript:void(0)"
+                                       class="nav-link">   @lang('site.Reservation and cancellation conditions') </a>
+                                </li>
 
 
-                    @endif
+                            </ul>
+
+                        @else
+
+                            <ul
+                                class="navbar-nav d-flex align-items-center flex-lg-row position-relative"
+
+
+                            >
+                                <li class="nav-link {{($current_route=='Home')?'active':'' }}">
+                                    <a href="{{route('Home')}}" class="home-link"> @lang('site.home') </a>
+                                </li>
+
+                                @foreach($categories as $catt)
+                                    <li class="nav-link {{($current_route=='aquars')?'active':'' }}">
+
+                                        <a href="{{route('aquars',$catt->id)}}"> {{$catt->name ?? ''}} </a>
+                                    </li>
+                                @endforeach
+
+                            </ul>
+
+                        @endif
                 </div>
 
                 <div class="col-4">
@@ -362,9 +357,9 @@
                                 <ul class="navbar-nav align-items-center">
                                     <li class="nav-link ms-3">
                                         <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#helpModal">
-                          <span class="help-icon">
-                            <i class="fas fa-question-circle"></i>
-                          </span>
+                         <span class="help-icon">
+                           <i class="fas fa-question-circle"></i>
+                         </span>
                                             @lang('site.help')
                                         </a>
                                     </li>
@@ -378,13 +373,13 @@
                                             data-bs-toggle="dropdown"
                                             aria-expanded="false"
                                         >
-                          <span
-                          ><img src="{{FRONTASSETS}}/assets/images/flag-ar.svg" alt="lang"
-                              /></span>
+                         <span
+                         ><img src="{{FRONTASSETS}}/assets/images/flag-ar.svg" alt="lang"
+                             /></span>
                                             @lang('site.language')
                                             <span class="pe-2">
-                            <i class="far fa-chevron-down"></i>
-                          </span>
+                           <i class="far fa-chevron-down"></i>
+                         </span>
                                         </a>
                                         <div
                                             class="dropdown-menu lang-dropdown"
@@ -491,9 +486,9 @@
                         data-bs-toggle="dropdown"
                         aria-expanded="false"
                     >
-                <span
-                ><img src="{{FRONTASSETS}}/assets/images/flag-ar.svg" alt="lang"
-                    /></span>
+               <span
+               ><img src="{{FRONTASSETS}}/assets/images/flag-ar.svg" alt="lang"
+                   /></span>
                         @lang('site.language')
                     </a>
                     <div
@@ -627,151 +622,153 @@
 </header>
 <div class="side-menu-wrap">
     <nav class="navbar side-menu-nav">
-        @if(auth()->user()->account_type='invest')
-        <ul
-            class="main-menu d-flex flex-column flex-lg-row align-items-lg-center list-unstyled p-0 m-0"
-        >
-            <li class="nav-item {{($current_route=='Home')?'active':'' }}">
-                <a href="{{route('Home')}}" class="home-link"> @lang('site.home') </a>
-            </li>
+        @if(!empty(auth()->user()) && auth()->user()->account_type='invest' )
 
-            <li class="nav-item">
-                <a href="javascript:void(0)"  class="nav-link"> @lang('site.aquars') </a>
-            </li>
-            <li class="nav-item {{($current_route=='invest.booking')?'active':'' }}">
-                <a href="{{route('invest.booking')}}"  class="nav-link"> @lang('site.bookings') </a>
-            </li>
-            <li class="nav-item">
-                <a href="javascript:void(0)"  class="nav-link"> @lang('site.commissions') </a>
-            </li>
-            <li class="nav-item">
-                <a  href="javascript:void(0)"  class="nav-link">   @lang('site.Reservation and cancellation conditions') </a>
-            </li>
 
-        </ul>
-    @else
-        <ul
-            class="main-menu d-flex flex-column flex-lg-row align-items-lg-center list-unstyled p-0 m-0 w-100"
-        >
-            <li class="nav-item">
-                <a class="nav-link" href="{{route('Home')}}"> @lang('site.home') </a>
-            </li>
-            @foreach($categories as $ccat)
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('aquars',$ccat->id)}}"> {{$ccat->name ?? ''}} </a>
+            <ul
+                class="main-menu d-flex flex-column flex-lg-row align-items-lg-center list-unstyled p-0 m-0"
+            >
+                <li class="nav-item {{($current_route=='Home')?'active':'' }}">
+                    <a href="{{route('Home')}}" class="home-link"> @lang('site.home') </a>
                 </li>
-            @endforeach
+
+                <li class="nav-item">
+                    <a href="javascript:void(0)" class="nav-link"> @lang('site.aquars') </a>
+                </li>
+                <li class="nav-item {{($current_route=='invest.booking')?'active':'' }}">
+                    <a href="{{route('invest.booking')}}" class="nav-link"> @lang('site.bookings') </a>
+                </li>
+                <li class="nav-item">
+                    <a href="javascript:void(0)" class="nav-link"> @lang('site.commissions') </a>
+                </li>
+                <li class="nav-item">
+                    <a href="javascript:void(0)"
+                       class="nav-link">   @lang('site.Reservation and cancellation conditions') </a>
+                </li>
+
+            </ul>
+        @else
+            <ul
+                class="main-menu d-flex flex-column flex-lg-row align-items-lg-center list-unstyled p-0 m-0 w-100"
+            >
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('Home')}}"> @lang('site.home') </a>
+                </li>
+                @foreach($categories as $ccat)
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('aquars',$ccat->id)}}"> {{$ccat->name ?? ''}} </a>
+                    </li>
+                @endforeach
 
 
-            <li class="nav-item">
-                <a class="nav-link" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#helpModal">
-                     <span class="help-icon">
-                        <i class="fas fa-question-circle"></i>
-                      </span>
-                    @lang('site.help') </a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#helpModal">
+                    <span class="help-icon">
+                       <i class="fas fa-question-circle"></i>
+                     </span>
+                        @lang('site.help') </a>
+                </li>
 
 
-            @if(!empty(auth()->user()))
-                <!-- WHEN User Login -->
-                <li>
-                    <div class="accordion accordion-flush" id="accordionFlushProfile">
-                        <div
-                            id="flush-headingOne2 d-flex justify-content-center"
-                            class="d-flex justify-content-center"
-                        >
-                            <a
-                                class="accordion-button collapsed d-flex align-items-center justify-content-between mt-3"
-                                type="button"
-                                href="#"
-                                data-bs-toggle="collapse"
-                                data-bs-target="#flush-collapseProfile"
-                                aria-expanded="false"
-                                aria-controls="flush-collapseProfile"
+                @if(!empty(auth()->user()))
+                    <!-- WHEN User Login -->
+                    <li>
+                        <div class="accordion accordion-flush" id="accordionFlushProfile">
+                            <div
+                                id="flush-headingOne2 d-flex justify-content-center"
+                                class="d-flex justify-content-center"
                             >
-                                @lang('site.welcome')
+                                <a
+                                    class="accordion-button collapsed d-flex align-items-center justify-content-between mt-3"
+                                    type="button"
+                                    href="#"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseProfile"
+                                    aria-expanded="false"
+                                    aria-controls="flush-collapseProfile"
+                                >
+                                    @lang('site.welcome')
 
-                                {{auth()->user()->firstname ?? ''}}
+                                    {{auth()->user()->firstname ?? ''}}
 
-                                <i class="far fa-angle-down"></i>
-                            </a>
-                        </div>
-                        <div
-                            id="flush-collapseProfile"
-                            class="accordion-collapse collapse"
-                            aria-labelledby="flush-headingOne2"
-                            data-bs-parent="#accordionFlushProfile"
-                        >
-                            <div class="accordion-Profile">
-                                <ul class="submenu">
-                                    <li>
-                                        <a href="{{route('updateprofile',auth()->user()->id)}}"
-                                           class="d-flex align-items-center">
-                                            <div class="profile-ic">
-                                                <i class="far fa-user"></i>
-                                            </div>
-                                            <div>@lang('site.Profile')</div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{route('myfavouriteAll')}}"
-                                           class="d-flex align-items-center">
-                                            <div class="profile-ic">
-                                                <i class="far fa-heart"></i>
-                                            </div>
-                                            <div>@lang('site.favorite')</div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="d-flex align-items-center">
-                                            <div class="profile-ic">
-                                                <i class="far fa-book-open"></i>
-                                            </div>
-                                            <div>@lang('site.My bookings')</div>
-                                        </a>
-                                    </li>
+                                    <i class="far fa-angle-down"></i>
+                                </a>
+                            </div>
+                            <div
+                                id="flush-collapseProfile"
+                                class="accordion-collapse collapse"
+                                aria-labelledby="flush-headingOne2"
+                                data-bs-parent="#accordionFlushProfile"
+                            >
+                                <div class="accordion-Profile">
+                                    <ul class="submenu">
+                                        <li>
+                                            <a href="{{route('updateprofile',auth()->user()->id)}}"
+                                               class="d-flex align-items-center">
+                                                <div class="profile-ic">
+                                                    <i class="far fa-user"></i>
+                                                </div>
+                                                <div>@lang('site.Profile')</div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{route('myfavouriteAll')}}"
+                                               class="d-flex align-items-center">
+                                                <div class="profile-ic">
+                                                    <i class="far fa-heart"></i>
+                                                </div>
+                                                <div>@lang('site.favorite')</div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="d-flex align-items-center">
+                                                <div class="profile-ic">
+                                                    <i class="far fa-book-open"></i>
+                                                </div>
+                                                <div>@lang('site.My bookings')</div>
+                                            </a>
+                                        </li>
 
-                                    <li>
-                                        <a href="{{route('logout')}}"
-                                           class="d-flex align-items-center">
-                                            <div class="profile-ic">
-                                                <i class="far fa-sign-out"></i>
-                                            </div>
-                                            <div> @lang('site.logout')</div>
-                                        </a>
-                                    </li>
-                                </ul>
+                                        <li>
+                                            <a href="{{route('logout')}}"
+                                               class="d-flex align-items-center">
+                                                <div class="profile-ic">
+                                                    <i class="far fa-sign-out"></i>
+                                                </div>
+                                                <div> @lang('site.logout')</div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </li>
+                    </li>
 
-            @else
+                @else
 
-                <!-- without login -->
+                    <!-- without login -->
 
-                <li>
-                    <a
-                        href="{{route('sitelogin')}}"
-                        class="btn-outline-7agz btn-space d-flex justify-content-center align-items-center"
-                    >
-                        <span><i class="fas fa-user"></i></span>
-                        <span> @lang('site.login')</span>
-                    </a>
-                </li>
-                <li>
-                    <a
-                        href="{{route('registers')}}"
-                        class="btn-7agz d-flex justify-content-center align-items-center"
-                    >
-                        <span><i class="fas fa-user"></i></span>
-                        <span> @lang('site.register')</span>
-                    </a>
-                </li>
+                    <li>
+                        <a
+                            href="{{route('sitelogin')}}"
+                            class="btn-outline-7agz btn-space d-flex justify-content-center align-items-center"
+                        >
+                            <span><i class="fas fa-user"></i></span>
+                            <span> @lang('site.login')</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            href="{{route('registers')}}"
+                            class="btn-7agz d-flex justify-content-center align-items-center"
+                        >
+                            <span><i class="fas fa-user"></i></span>
+                            <span> @lang('site.register')</span>
+                        </a>
+                    </li>
 
-            @endif
-        </ul>
-
+                @endif
+            </ul>
 
         @endif
     </nav>

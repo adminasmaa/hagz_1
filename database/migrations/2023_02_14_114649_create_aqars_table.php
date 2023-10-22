@@ -36,6 +36,8 @@ return new class extends Migration {
             $table->string('bathroom_id')->nullable();
             $table->string('free_service_id')->nullable();
             $table->string('total_area')->nullable();
+            $table->string('Insurance_amount')->nullable();
+            $table->string('amount_deposit')->nullable();
             $table->string('laundry_id')->nullable();
             $table->string('kitchen_id')->nullable();
             $table->string('crew_id')->nullable();

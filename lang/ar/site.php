@@ -8,15 +8,17 @@ return [
     'Log in' => '
 قم بتسجيل الدخول',
 
-'Mandatory'=>'اجبارى',
+    'Mandatory' => 'اجبارى',
 
-    'optional'=>'غير اجبارى',
+    'Insurance_amount' => 'مبلغ التأمين',
+    'optional' => 'غير اجبارى',
 
-    'Add an advertisement'=>'اضافة اعلان',
+    'Add an advertisement' => 'اضافة اعلان',
+    'Ad status' => 'حالة الاعلان',
 
-    'Please do not close the page and wait for it to load'=>'الرجاء عدم إغلاق الصفحه وانتظار التحميل',
+    'amount_deposit' => 'مبلغ العربون',
 
-
+    'Please do not close the page and wait for it to load' => 'الرجاء عدم إغلاق الصفحه وانتظار التحميل',
 
 
     'loginuser' => 'تسجيل الدخول كمستخدم',
@@ -243,9 +245,19 @@ return [
 
     'Reset Password' => 'إعادة تعيين كلمة المرور',
     'Send Password Reset' => 'إرسال إعادة تعيين كلمة المرور',
+    'Phone number is not accepted' => ' لايتم قبول  رقم تليفون',
 
+    'Please write specifications' => 'يرجي كتابة المواصفات',
+
+    'Number of people allowed' => 'عدد الاشخاص المسموح بهم',
     'reference' => 'المرجع',
     'videos' => 'الفيديو',
+    'A video containing a logo or phone number will not be accepted' => 'لايتم قبول فيديو به شعار أو رقم تليفون',
+    'Determine the time' => 'تحديد الوقت',
+
+    'Kuwaiti Dinar' => 'دينار كويتى',
+
+    'Choose the appropriate video' => 'اخترالفيديو المناسب',
 
     'car_delivery_date' => ' اخر موعد لتسليم السيارة ',
     'color' => 'اللون',
@@ -651,6 +663,15 @@ return [
     'aqars' => 'الاعلانات',
     'time_from' => 'ساعة الدخول',
     'time_to' => 'ساعة الخروج',
+
+    'My ads' => 'اعلاناتى',
+    'specified place' => 'المكان المخصص',
+
+    'Choose the main image for the ad' => 'اختر الصورة الرئيسية للاعلان',
+
+    'Choose the rest of the photos for the ad' => ' اختر باقى الصور للاعلان',
+
+
     'fixed_price' => 'السعر',
     'floor' => 'الطابق',
     'floornumber' => 'عدد الأدوار',
@@ -701,10 +722,15 @@ return [
     'notify_photo' => ' صورة الملاحظه',
     'place_comments' => ' تعليقات الاماكن ',
     'personnumber' => 'عدد الايام',
-'total_area'=>'المساحه',
-    'Farm name'=>'اسم المزرعة',
-'The name appears to the customer after booking'=>'يظهر الاسم للعميل بعد الحجز',
+    'total_area' => 'المساحه',
+    'Farm name' => 'اسم المزرعة',
+    'prices'=>'الاسعار',
+    'The name appears to the customer after booking' => 'يظهر الاسم للعميل بعد الحجز',
+    'Advertisement category' => 'فئة الاعلان',
 
+    'Pause'=>'ايقاف مؤقت',
+
+    'Enter the advertisement number'=>'ادخل رقم الاعلان',
 
     'space' => 'المساحة',
     'services_aqars' => 'خدمات العقارات',

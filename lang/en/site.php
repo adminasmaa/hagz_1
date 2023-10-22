@@ -6,18 +6,18 @@ return [
     'link' => 'Link',
     'map' => 'Map',
 
-    'Add an advertisement'=>'Add an advertisement',
+    'Add an advertisement' => 'Add an advertisement',
 
-'Mandatory'=>'Mandatory',
-    'optional'=>'optional',
+    'Mandatory' => 'Mandatory',
+    'optional' => 'optional',
 
 
-    'commissiondetails'=>'(Cher client, plus le pourcentage de commission sera élevé Annonce dans introduction)',
+    'commissiondetails' => '(Cher client, plus le pourcentage de commission sera élevé Annonce dans introduction)',
 
     'loginuser' => 'Log in as a user',
     'logininvestor' => 'Log in as a investor',
     'Nom personnel' => 'Nom personnel',
-    'Choisissez votre commission'=>'Choisissez votre commission',
+    'Choisissez votre commission' => 'Choisissez votre commission',
 
     'login with phone and password' => 'Enter your phone number and password to register Access',
 
@@ -44,8 +44,32 @@ return [
     'families' => 'Families',
 
     'youths' => 'Youths',
+    'A video containing a logo or phone number will not be accepted' => 'A video containing a logo or phone number will not be accepted',
+
+    'Please write specifications'=>'Please write specifications',
+'Phone number is not accepted'=>'Phone number is not accepted',
+'Number of people allowed'=>'Number of people allowed',
+
+'My ads'=>'My ads',
+    'Ad status'=>'Ad status',
+    'Advertisement category'=>'Advertisement category',
+    'prices'=>'Prices',
+    'Pause'=>'Pause',
+    'Enter the advertisement number'=>'Enter the advertisement number',
+
 
     'Individuals' => 'Individuals',
+    'Kuwaiti Dinar' => 'Kuwaiti Dinar',
+
+    'Determine the time' => 'Determine The Time',
+
+
+    'Choose the appropriate video' => 'Choose the appropriate video',
+
+    'Choose the rest of the photos for the ad' => 'Choose the rest of the photos for the ad',
+
+    'Choose the main image for the ad' => 'Choose the main image for the ad',
+
 
     'faqs' => 'Frequently asked questions',
 
@@ -325,12 +349,16 @@ return [
     'Profile' => 'Profile',
     'next' => 'next',
 
+    'specified place' => 'Specified Place',
+
     'Confirm Password' => 'Confirm Password',
 
     'back' => 'Back',
     'code' => 'Code',
     'slider' => 'sliders',
+    'Insurance_amount' => 'Insurance Amount',
 
+    'amount_deposit' => 'Amount Deposit',
 
     ///////////////Aquar
 
@@ -355,12 +383,12 @@ return [
     'descrption' => 'Descrption',
     'alert' => 'Alert',
 
-    'total_area'=>'area',
+    'total_area' => 'area',
 
-    'Farm name'=>'Farm name',
+    'Farm name' => 'Farm name',
 
 
-    'The name appears to the customer after booking'=>'The name appears to the customer after booking',
+    'The name appears to the customer after booking' => 'The name appears to the customer after booking',
 
 
     'If you have a problem adding your ad, please call us' => 'If you have a problem adding your ad, please call us',
@@ -470,8 +498,7 @@ return [
     'countries' => 'Regions',
     'city' => 'City',
 
-    'Please do not close the page and wait for it to load'=>'Please do not close the page and wait for it to load',
-
+    'Please do not close the page and wait for it to load' => 'Please do not close the page and wait for it to load',
 
 
     'registeruser' => 'Create an account as a user',

@@ -3,6 +3,7 @@
 namespace App\DataTables;
 
 use App\Helpers\DTHelper;
+use App\Models\AqarService;
 use App\Models\Service;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Yajra\DataTables\EloquentDataTable;
@@ -71,14 +72,14 @@ class ServicesDataTable extends DataTable
      * @param \App\Models\Service $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(Service $model): QueryBuilder
+    public function query(AqarService $model): QueryBuilder
     {
         return $model->newQuery();
     }
 
     public function count()
     {
-        return Service::all()->count();
+        return AqarService::all()->count();
     }
 
     /**

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\User;
 use DB;
+
 //belongsTo
 use App\Models\Ads;
 
@@ -70,7 +71,9 @@ class Aqar extends Model
         'ads_status_id',
         'city_id',
         'individual',
-        'total_area'
+        'total_area',
+        'Insurance_amount',
+        'amount_deposit'
     ];
 
     // relations
@@ -86,10 +89,6 @@ class Aqar extends Model
 
     // relations
 
-    public function area()
-    {
-        return $this->belongsTo(Area::class, 'area_id')->withDefault(['name_ar' => '']);
-    }
 
     // relations
     public function category()
@@ -100,6 +99,11 @@ class Aqar extends Model
     public function ads()
     {
         return $this->belongsTo(Ads::class, 'ads_id');
+    }
+
+    public function bookingstatus()
+    {
+        return $this->belongsTo(BookingStatus::class, 'ads_status_id');
     }
 
     public function country()
@@ -124,7 +128,7 @@ class Aqar extends Model
     public function aqarReview()
     {
 
-        return $this->HasMany(AqarReview::class ,'aqar_id');
+        return $this->HasMany(AqarReview::class, 'aqar_id');
 
 
     }
@@ -149,7 +153,7 @@ class Aqar extends Model
         return $this->belongsToMany(User::class, 'aqar_user', 'aqar_id', 'user_id');
     }
 
-    public function roomnumbers($cat_id,$aqar_id)
+    public function roomnumbers($cat_id, $aqar_id)
     {
 
         $roomnumbers = DB::select("SELECT   DISTINCT sum(aqar_details.name_ar) as total
@@ -157,16 +161,15 @@ class Aqar extends Model
         INNER JOIN aqar_sections on aqars.id=aqar_sections.aqar_id
         INNER JOIN aqar_details on aqar_details.id=aqar_sections.sub_section_id
         WHERE aqars.category_id=$cat_id and aqar_sections.section_id=6 or aqar_sections.section_id=18  and aqars.id=$aqar_id;");
-        if(!empty($floornumbers)){
-        return $roomnumbers[0]->total;
+        if (!empty($floornumbers)) {
+            return $roomnumbers[0]->total;
         }
-
 
 
     }
 
 
-    public function floornumbers($cat_id,$aqar_id)
+    public function floornumbers($cat_id, $aqar_id)
     {
 
         $floornumbers = DB::select("SELECT   DISTINCT aqar_details.name_ar as floornumber
@@ -175,14 +178,12 @@ class Aqar extends Model
         INNER JOIN aqar_details on aqar_details.id=aqar_sections.sub_section_id
         WHERE aqars.category_id=$cat_id and aqar_sections.section_id=1    and aqars.id=$aqar_id;");
 
-       if(!empty($floornumbers)){
-        return $floornumbers[0]->floornumber;}
-
+        if (!empty($floornumbers)) {
+            return $floornumbers[0]->floornumber;
+        }
 
 
     }
-
-
 
 
 }

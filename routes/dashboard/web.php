@@ -73,7 +73,7 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
 
 
         //services
-        Route::resource('services', ServiceController::class);
+//        Route::resource('services', ServiceController::class);
 
 
         //areas
@@ -106,7 +106,7 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
         Route::resource('advertisings', AdvertisingController::class);
 
         //balances
-        Route::resource('balances', BalanceController::class);
+//        Route::resource('balances', BalanceController::class);
 
 
 
@@ -132,7 +132,7 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
 
         Route::get('/aqarsetting/active_input_required/{id}/{id2}', 'App\Http\Controllers\Dashboard\AqarSettingController@active_input_required');
 
-        Route::resource('aqar_reviews', AqarReviewController::class);
+//        Route::resource('aqar_reviews', AqarReviewController::class);
 
 
     }); //end of dashboard routes
