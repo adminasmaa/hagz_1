@@ -25,7 +25,7 @@ class RoleRepository implements IRoleRepositoryAlias
         // TODO: Implement create() method.
 
         $models = ['users','settings','roles',' message','contacts','countries','cities','questions','problems','mediators','advertising','categories','areas',
-            'commissions','notifications'
+            'commissions','notifications','terms','policies'
         ];
         $maps = ['create', 'update', 'read', 'delete'];
 
@@ -38,7 +38,7 @@ class RoleRepository implements IRoleRepositoryAlias
         // TODO: Implement edit() method.
 
         $models = ['users','settings','roles',' message','contacts','countries','cities','questions','problems','mediators','advertising','categories','areas',
-            'commissions','notifications'
+            'commissions','notifications','terms','policies'
         ];
 
         $maps = ['create', 'update', 'read', 'delete'];

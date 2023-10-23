@@ -15,13 +15,13 @@ use App\Http\Controllers\Dashboard\SliderController;
 use App\Http\Controllers\Dashboard\AreaController;
 use App\Http\Controllers\Dashboard\ServiceAqarController;
 
-use App\Http\Controllers\Dashboard\ConditionTypeController;
+use App\Http\Controllers\Dashboard\TermController;
 use App\Http\Controllers\Dashboard\MessageController;
 use App\Http\Controllers\Dashboard\NotificationController;
 
 use App\Http\Controllers\Dashboard\CommissionController;
 
-use App\Http\Controllers\Dashboard\BalanceController;
+use App\Http\Controllers\Dashboard\PolicyController;
 
 
 use App\Http\Controllers\Dashboard\UserController;
@@ -38,6 +38,16 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
 
         //users
         Route::resource('users', UserController::class);
+
+
+        //terms
+        Route::resource('terms', TermController::class);
+
+
+        //policies
+        Route::resource('policies', PolicyController::class);
+
+
 
         //roles
         Route::resource('roles', RoleController::class)->except(['show']);

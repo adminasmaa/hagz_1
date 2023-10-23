@@ -7,7 +7,16 @@ return [
     'favorite' => 'المفضله',
     'Log in' => '
 قم بتسجيل الدخول',
+'The customer will be shown the existing reservation conditions at the time of his reservation'=>' سوف يظهر للعميل شروط الحجز الموجوده وقت ماتم حجزه',
 
+
+    'notaqars'=>'لا يوجد اعلانات',
+    'terms'=>' شروط الحجز الالغاء ',
+
+    'Pictures containing a logo or phone number will not be accepted'=>'لن يتم قبول الصور التي تحتوي على شعار أو رقم هاتف',
+
+'Which cancellation and return policy suits you?'=>'أى سياسة إلغاء وإسترجاع تتناسب معك ؟',
+    'policies'=>'سياسة الإلغاء والاسترجاع',
     'Mandatory' => 'اجبارى',
 
     'Insurance_amount' => 'مبلغ التأمين',
@@ -607,6 +616,9 @@ return [
     'admin_approved' => 'موافقة الادمن',
     'icon' => 'الايقونه',
     'pages' => ' الصفحات',
+    'Please write the conditions that suit you'=>'من فضلك قم بكتابة الشروط التي تناسبك',
+
+    'To amend or write other conditions'=>'لتعديل او كتابة شروط اخرى',
     'addss' => 'اضف مدن جديدة',
     'Choose the category that suits you' => 'اختر التصنيف المناسب لك',
 

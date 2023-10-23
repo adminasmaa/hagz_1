@@ -16,7 +16,7 @@ class PermissionSeeder extends Seeder
     public function run()
     {
         $models = ['users','settings','roles',' message','contacts','countries','cities','questions','problems','mediators','advertising','categories','areas',
-        'commissions','notifications'
+        'commissions','notifications','terms','policies'
         ];
 
 

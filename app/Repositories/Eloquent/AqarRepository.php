@@ -88,6 +88,17 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
 
         }
 
+        if ($request->hasFile('images')) {
+            $images = $request->file('images');
+            foreach ($images as $key => $files) {
+                $destinationPath = 'images/places/';
+                $file_name = $_FILES['images']['name'][$key];
+                $files->move($destinationPath, $file_name);
+                $data[] = $_FILES['images']['name'][$key];
+                $aqar->images = implode(',',$data);
+                $aqar->save();
+            }
+        }
 
         if ($request->hasFile('videos')) {
             $thumbnail = $request->file('videos');
@@ -131,6 +142,25 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
 
             UploadImage('images/aqars/', 'main_image', $aqar, $request->file('main_image'));
         }
+
+
+
+        if ($request->hasFile('images')) {
+            $images = $request->file('images');
+            foreach ($images as $key => $files) {
+                $destinationPath = 'images/places/';
+                $file_name = $_FILES['images']['name'][$key];
+                $files->move($destinationPath, $file_name);
+                $data[] = $_FILES['images']['name'][$key];
+                $aqar->images = implode(',',$data);
+                $aqar->save();
+            }
+        }
+
+
+
+
+
 
         if ($request->hasFile('videos')) {
             $thumbnail = $request->file('videos');

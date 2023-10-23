@@ -111,6 +111,11 @@ class Aqar extends Model
         return $this->belongsTo(Country::class, 'country_id');
     }
 
+    public function area()
+    {
+        return $this->belongsTo(Country::class, 'country_id');
+    }
+
     public function city()
     {
         return $this->belongsTo(City::class, 'city_id');

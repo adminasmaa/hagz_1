@@ -399,6 +399,23 @@
                             @endif
 
 
+
+                            <li class="sidebar-list"><a
+                                    class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.terms.index')?'activee':'' }}"
+                                    href="{{route('dashboard.terms.index')}}"><i
+                                        data-feather="file-text"></i><span>@lang('site.terms') </span></a>
+
+                            </li>
+
+
+                            <li class="sidebar-list"><a
+                                    class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.policies.index')?'activee':'' }}"
+                                    href="{{route('dashboard.policies.index')}}"><i
+                                        data-feather="file-text"></i><span>@lang('site.policies') </span></a>
+
+                            </li>
+
+
                             @if (auth()->user()->hasPermission('read_reviewElements'))
                             <li class="sidebar-list"><a
                                     class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.reviewElements.index')?'activee':'' }}"

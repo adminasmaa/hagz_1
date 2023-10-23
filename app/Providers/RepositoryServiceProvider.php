@@ -10,6 +10,7 @@ use App\Repositories\Eloquent\ContactRepository;
 use App\Repositories\Eloquent\CountryRepository;
 
 use App\Repositories\Eloquent\MediatorRepository;
+use App\Repositories\Eloquent\PolicyRepository;
 use App\Repositories\Eloquent\ProblemRepository;
 use App\Repositories\Eloquent\QuestionRepository;
 use App\Repositories\Eloquent\RoleRepository;
@@ -17,6 +18,7 @@ use App\Repositories\Eloquent\RoleRepository;
 use App\Repositories\Eloquent\ServiceAqarRepository;
 use App\Repositories\Eloquent\ServiceRepository;
 use App\Repositories\Eloquent\SettingRepository;
+use App\Repositories\Eloquent\TermRepository;
 use App\Repositories\Eloquent\UserRepository;
 
 use App\Repositories\Eloquent\AreaRepository;
@@ -46,6 +48,7 @@ use App\Repositories\Interfaces\MessageRepositoryInterface;
 use App\Repositories\Interfaces\NotificationRepositoryInterface;
 
 
+use App\Repositories\Interfaces\PolicyRepositoryInterface;
 use App\Repositories\Interfaces\SectionRepositoryInterface;
 use App\Repositories\Interfaces\SliderRepositoryInterface;
 
@@ -61,6 +64,7 @@ use App\Repositories\Interfaces\ServiceRepositoryInterface;
 use App\Repositories\Interfaces\SettingRepositoryInterface;
 
 
+use App\Repositories\Interfaces\TermRepositoryInterface;
 use App\Repositories\Interfaces\UserRepositoryInterface;
 
 use Illuminate\Support\ServiceProvider;
@@ -102,6 +106,8 @@ class RepositoryServiceProvider extends ServiceProvider
 
         $this->app->bind(AdsStatusRepositoryInterface::class, AdsStatusRepository::class);
         $this->app->bind(SliderRepositoryInterface::class, SliderRepository::class);
+        $this->app->bind(TermRepositoryInterface::class, TermRepository::class);
+        $this->app->bind(PolicyRepositoryInterface::class, PolicyRepository::class);
 
     }
 

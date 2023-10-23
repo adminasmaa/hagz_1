@@ -12,6 +12,8 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
         Route::get('/showAds', 'App\Http\Controllers\Frontend\invest\AdController@show')->name('showAds')->middleware([invest::class]);
         Route::post('/AjaxAddAds', 'App\Http\Controllers\Frontend\invest\AdController@store')->name('AjaxAddAds')->middleware([invest::class]);
 
+        Route::get('/term', 'App\Http\Controllers\Frontend\invest\TermController@index')->name('term')->middleware([invest::class]);
+        Route::post('/addterm', 'App\Http\Controllers\Frontend\invest\TermController@addterm')->name('addterm')->middleware([invest::class]);
 
 
 

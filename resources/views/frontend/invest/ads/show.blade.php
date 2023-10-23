@@ -228,6 +228,24 @@
                         </div>
                     </div>
                 @endforeach
+
+                    @unless (count($aqars))
+{{--                @if($aqars = null)--}}
+                    <div class="row">
+                        <div class="col-12 mb-5">
+                            <div class="card-empty d-md-flex align-items-center">
+                                <div class="card-empty-txt">  @lang('site.notaqars')</div>
+                                <div>
+                                    <img
+                                        src="{{FRONTASSETS}}/assets/images/investor/empty-ic.svg"
+                                        alt="empty icon"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @endunless
+{{--                @endif--}}
             </div>
         </section>
     </main>

@@ -6,11 +6,25 @@ return [
     'link' => 'Link',
     'map' => 'Map',
 
+    'notaqars'=>'There are no ads',
+
+    'Pictures containing a logo or phone number will not be accepted'=>'Pictures Containing a Logo Or Phone Number Will Not Be Accepted',
+
+'The customer will be shown the existing reservation conditions at the time of his reservation'=>'The customer will be shown the existing reservation conditions at the time of his reservation',
+
+    'Which cancellation and return policy suits you?'=>'Which cancellation and return policy suits you?',
+    'terms'=>'Cancellation policy terms',
+
+    'policies'=>'Cancellation and returns policy',
+
     'Add an advertisement' => 'Add an advertisement',
 
     'Mandatory' => 'Mandatory',
     'optional' => 'optional',
+    'Please write the conditions that suit you'=>'Please write the conditions that suit you',
 
+
+    'To amend or write other conditions'=>'To amend or write other conditions',
 
     'commissiondetails' => '(Cher client, plus le pourcentage de commission sera élevé Annonce dans introduction)',
 

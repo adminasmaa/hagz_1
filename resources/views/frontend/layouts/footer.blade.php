@@ -355,6 +355,58 @@
 </script>
 
 
+<script>
+    var imgUploads = document.getElementById("upload-imgs"),
+        imgPreviews = document.getElementById("img-previews"),
+        imgUploadForms = document.getElementById("form-upload"),
+        totalFiles,
+        previewTitle,
+        previewTitleText,
+        img;
+
+    imgUploads.addEventListener("change", previewImgss, true);
+
+    function previewImgss(event) {
+        totalFiles = imgUploads.files.length;
+
+        if (!!totalFiles) {
+            imgPreviews.classList.remove("img-thumbs-hidden");
+        }
+
+        for (var i = 0; i < totalFiles; i++) {
+            wrapper = document.createElement("div");
+            wrapper.classList.add("wrapper-thumb");
+            removeBtn = document.createElement("span");
+            nodeRemove = document.createTextNode("x");
+            removeBtn.classList.add("remove-btn");
+            removeBtn.appendChild(nodeRemove);
+            img = document.createElement("img");
+            img.src = URL.createObjectURL(event.target.files[i]);
+            img.classList.add("img-preview-thumb");
+            wrapper.appendChild(img);
+            wrapper.appendChild(removeBtn);
+            imgPreviews.appendChild(wrapper);
+
+            $(".remove-btn").click(function () {
+                $(this).parent(".wrapper-thumb").remove();
+            });
+        }
+    }
+
+    document.getElementById("imgInp").onchange = function () {
+        let imgURL = (frame.src = URL.createObjectURL(event.target.files[0]));
+        document.querySelector("img-upload").src = imgURL;
+    };
+
+    /*video */
+    document.getElementById("videoUpload").onchange = function (event) {
+        let file = event.target.files[0];
+        let blobURL = URL.createObjectURL(file);
+        document.querySelector("video").style.display = "block";
+        document.querySelector("video").src = blobURL;
+    };
+</script>
+
 
 </body>
 </html>

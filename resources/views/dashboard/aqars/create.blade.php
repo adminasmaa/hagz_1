@@ -55,11 +55,11 @@
                                 <center>
                                     <div class="col-sm-8">
                                         <div class="card">
-{{--                                            <div class="card-header">--}}
-{{--                                                <h5 class="text-danger">@lang('site.alert')</h5>--}}
-{{--                                                <h6 class="text-warning">@lang('site.If you have a problem adding your ad, please call us')</h6>--}}
-{{--                                                <h6 class="text-info">0707078888</h6>--}}
-{{--                                            </div>--}}
+                                            {{--                                            <div class="card-header">--}}
+                                            {{--                                                <h5 class="text-danger">@lang('site.alert')</h5>--}}
+                                            {{--                                                <h6 class="text-warning">@lang('site.If you have a problem adding your ad, please call us')</h6>--}}
+                                            {{--                                                <h6 class="text-info">0707078888</h6>--}}
+                                            {{--                                            </div>--}}
                                             <div class="card-body">
 
                                                 <div class="col-sm-12">
@@ -102,6 +102,7 @@
                                                                 <option value="{{$city->id}}">{{$city->name_ar ?? ''}}</option>
 
 
+
                                                             @endforeach -->
 
                                                         </select>
@@ -111,8 +112,9 @@
                                                         <label for="individuals" class="lbl-search"
                                                         > @lang('site.Individuals')
                                                         </label>
-                                                        <div class="box-search" id="individuals" >
-                                                            <select class="js-example-placeholder-multiple col-sm-12" name="individual">
+                                                        <div class="box-search" id="individuals">
+                                                            <select class="js-example-placeholder-multiple col-sm-12"
+                                                                    name="individual">
                                                                 <option disabled selected>@lang('site.select')</option>
                                                                 <option value="families">@lang('site.families')</option>
                                                                 <option value="youths">@lang('site.youths')</option>
@@ -140,19 +142,19 @@
                                                     </ul>
                                                 </div>
 
-{{--                                                <div class="col-sm-12" id="cityarea">--}}
-{{--                                                    <h5 class="border-bottom">@lang('site.areas')</h5>--}}
-{{--                                                </div>--}}
-{{--                                                <div class="col">--}}
-{{--                                                    <ul class="mt-4 areas-list" id="area_id">--}}
-{{--                                                        <!-- @foreach($Area as $item)--}}
-{{--                                                            <li class="form-check radio radio-primary" >--}}
+                                                {{--                                                <div class="col-sm-12" id="cityarea">--}}
+                                                {{--                                                    <h5 class="border-bottom">@lang('site.areas')</h5>--}}
+                                                {{--                                                </div>--}}
+                                                {{--                                                <div class="col">--}}
+                                                {{--                                                    <ul class="mt-4 areas-list" id="area_id">--}}
+                                                {{--                                                        <!-- @foreach($Area as $item)--}}
+                                                {{--                                                            <li class="form-check radio radio-primary" >--}}
 
-{{--                                                            </li>--}}
+                                                {{--                                                            </li>--}}
 
-{{--                                                        @endforeach -->--}}
-{{--                                                    </ul>--}}
-{{--                                                </div>--}}
+                                                {{--                                                        @endforeach -->--}}
+                                                {{--                                                    </ul>--}}
+                                                {{--                                                </div>--}}
                                                 <br>
                                                 <div class="row m-t-10">
                                                     <!--<div class="col-md-6">-->
@@ -174,6 +176,20 @@
                                                         <label>@lang('site.total_area')</label>
                                                         <input type="text" name="total_area" class="form-control"
                                                                value="{{old('total_area')}}">
+                                                    </div>
+
+
+                                                    <div class="col-md-6 form-group col-12 p-2 ">
+                                                        <label>@lang('site.Insurance_amount')</label>
+                                                        <input type="text" name="Insurance_amount" class="form-control"
+                                                               value="{{old('Insurance_amount')}}">
+                                                    </div>
+
+
+                                                    <div class="col-md-6 form-group col-12 p-2 ">
+                                                        <label>@lang('site.amount_deposit')</label>
+                                                        <input type="text" name="amount_deposit" class="form-control"
+                                                               value="{{old('amount_deposit')}}">
                                                     </div>
 
                                                 </div>
@@ -251,20 +267,20 @@
 
                                                     </div>
                                                     <br>
-{{--                                                    <div class="col-md-6 form-group">--}}
-{{--                                                        <label class="form-label">@lang('site.ads_status')</label>--}}
-{{--                                                        <select class="form-control btn-square" name="ads_status_id"--}}
-{{--                                                                id="ads_status_id">--}}
-{{--                                                            <option selected value="0">@lang('site.select')</option>--}}
-{{--                                                            @foreach($adsStatus as $ads_status)--}}
+                                                    {{--                                                    <div class="col-md-6 form-group">--}}
+                                                    {{--                                                        <label class="form-label">@lang('site.ads_status')</label>--}}
+                                                    {{--                                                        <select class="form-control btn-square" name="ads_status_id"--}}
+                                                    {{--                                                                id="ads_status_id">--}}
+                                                    {{--                                                            <option selected value="0">@lang('site.select')</option>--}}
+                                                    {{--                                                            @foreach($adsStatus as $ads_status)--}}
 
-{{--                                                                <option--}}
-{{--                                                                    value="{{$ads_status->id}}">{{$ads_status->status_ar ?? ''}}</option>--}}
+                                                    {{--                                                                <option--}}
+                                                    {{--                                                                    value="{{$ads_status->id}}">{{$ads_status->status_ar ?? ''}}</option>--}}
 
-{{--                                                            @endforeach--}}
+                                                    {{--                                                            @endforeach--}}
 
-{{--                                                        </select>--}}
-{{--                                                    </div>--}}
+                                                    {{--                                                        </select>--}}
+                                                    {{--                                                    </div>--}}
 
                                                     <div class="col-md-6 form-group">
                                                         <label>@lang('site.latitude')</label>
@@ -278,7 +294,8 @@
                                                     </div>
                                                     <div class="col-md-6 form-group">
                                                         <label class="form-label">@lang('site.active')</label>
-                                                        <select class="js-example-placeholder-multiple col-sm-12" name="active">
+                                                        <select class="js-example-placeholder-multiple col-sm-12"
+                                                                name="active">
                                                             <option>@lang('site.select')</option>
                                                             <option value="1">@lang('site.active')</option>
                                                             <option value="0">@lang('site.not-active') </option>
@@ -335,11 +352,11 @@
                                                                     <label>@lang('site.policy_place')</label>
                                                                     <textarea class="form-control" cols="5" rows="5"
                                                                               name="policy_place"
-                                                                              id="editor1" >
+                                                                              id="editor1">
                                                                     </textarea>
                                                                 </div>
                                                             </div>
-                                                    </div>
+                                                        </div>
                                 </center>
                             </div>
                     </div>

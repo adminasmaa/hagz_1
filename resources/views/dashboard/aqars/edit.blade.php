@@ -227,6 +227,16 @@
                                                     <input type="text" name="total_area" class="form-control"
                                                            value="{{$aqar->total_area}}">
                                                 </div>
+                                                <div class="col-md-6 form-group col-12 p-2 ">
+                                                    <label>@lang('site.Insurance_amount')</label>
+                                                    <input type="text" name="Insurance_amount" class="form-control"
+                                                           value="{{$aqar->Insurance_amount}}">
+                                                </div>
+                                                <div class="col-md-6 form-group col-12 p-2 ">
+                                                    <label>@lang('site.amount_deposit')</label>
+                                                    <input type="text" name="amount_deposit" class="form-control"
+                                                           value="{{$aqar->amount_deposit}}">
+                                                </div>
 
                                             </div>
                                             <div class="row m-t-10">

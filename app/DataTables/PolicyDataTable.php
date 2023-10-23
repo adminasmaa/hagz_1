@@ -3,7 +3,7 @@
 namespace App\DataTables;
 
 use App\Helpers\DTHelper;
-use App\Models\Aqar;
+use App\Models\Policy;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
@@ -13,9 +13,9 @@ use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
-class AqarDataTable extends DataTable
+class PolicyDataTable extends DataTable
 {
-    private $crudName = 'aqars';
+    private $crudName = 'policies';
 
     private function getRoutes()
     {
@@ -64,21 +64,20 @@ class AqarDataTable extends DataTable
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\Aqar $model
+     * @param \App\Models\Policy $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(Aqar $model): QueryBuilder
+    public function query(Policy $model): QueryBuilder
     {
-        return $model->newQuery()->with(['country','user']);
-
+        return $model->newQuery();
     }
+
 
     public function count()
     {
-        return Aqar::count();
+        return Policy::count();
 
     }
-
 
     /**
      * Optional method if you want to use html builder.
@@ -88,21 +87,21 @@ class AqarDataTable extends DataTable
     public function html(): HtmlBuilder
     {
         return $this->builder()
-            ->setTableId('aqars-table')
+            ->setTableId('policy-table')
             ->addTableClass('cell-border stripe')
             ->columns($this->getColumns())
             ->minifiedAjax()
-           ->dom('Bfrtip')
+            ->dom('Bfrtip')
             ->orderBy(1)
             ->selectStyleSingle()
             ->buttons([
-               // Button::make('create')->text('<i class="fa fa-plus"></i> ' . trans('site.add')),
+                //   Button::make('create')->text('<i class="fa fa-plus"></i> ' . trans('site.add')),
                 Button::make('csv')->text('<i class="fa fa-download"></i> ' . trans('site.export')),
                 Button::make('print')->text('<i class="fa fa-print"></i> ' . trans('site.print')),
-               // Button::make('reset')->text('<i class="fa fa-undo"></i> ' . trans('site.reset')),
-                //Button::make('reload')->text('<i class="fa fa-refresh"></i> ' . trans('site.reload')),
+                //   Button::make('reset')->text('<i class="fa fa-undo"></i> ' . trans('site.reset')),
+                //  Button::make('reload')->text('<i class="fa fa-refresh"></i> ' . trans('site.reload')),
             ])->language([
-                "url" => app()->getLocale() == 'ar' ? "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Arabic.json":"//cdn.datatables.net/plug-ins/1.13.4/i18n/en-GB.json"
+                "url" => app()->getLocale() == 'ar' ? "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Arabic.json" : "//cdn.datatables.net/plug-ins/1.13.4/i18n/en-GB.json"
             ]);
     }
 
@@ -116,10 +115,7 @@ class AqarDataTable extends DataTable
         $lan = app()->getLocale();
         return [
             Column::make('id')->data('DT_RowIndex')->name('id')->title('#'),
-//            Column::make('id')->title(trans('site.id')),
             Column::make('name_'.$lan)->title(trans('site.name')),
-//            Column::make('country.name')->title(trans('site.areas')),
-            Column::make('user.firstname')->title(trans('site.user')),
             Column::make('created_at')->title(trans('site.created_at')),
             Column::computed('action')
                 ->exportable(true)
@@ -136,6 +132,6 @@ class AqarDataTable extends DataTable
      */
     protected function filename(): string
     {
-        return 'aqars_' . date('YmdHis');
+        return 'Policy_' . date('YmdHis');
     }
 }

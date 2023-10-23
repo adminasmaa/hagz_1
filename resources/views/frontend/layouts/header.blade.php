@@ -319,8 +319,8 @@
                                 <li class="nav-link">
                                     <a href="javascript:void(0)" class="nav-link"> @lang('site.commissions') </a>
                                 </li>
-                                <li class="nav-link">
-                                    <a href="javascript:void(0)"
+                                <li class="nav-link {{($current_route=='invest.term')?'active':'' }}">
+                                    <a href="{{route('invest.term')}}"
                                        class="nav-link">   @lang('site.Reservation and cancellation conditions') </a>
                                 </li>
 
@@ -641,8 +641,8 @@
                 <li class="nav-item">
                     <a href="javascript:void(0)" class="nav-link"> @lang('site.commissions') </a>
                 </li>
-                <li class="nav-item">
-                    <a href="javascript:void(0)"
+                <li class="nav-item {{($current_route=='invest.term')?'active':'' }}">
+                    <a href="{{route('invest.term')}}"
                        class="nav-link">   @lang('site.Reservation and cancellation conditions') </a>
                 </li>
 
