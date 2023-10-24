@@ -787,6 +787,8 @@ p {
   font-size: 20px;
   line-height: 150%;
   color: var(--m-second);
+  height: 100%;
+  width: 100%;
 }
 
 .main-btn:hover {
@@ -799,6 +801,11 @@ p {
   font-size: 20px;
   line-height: 150%;
   color: var(--m-second);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .main-btn:hover a,

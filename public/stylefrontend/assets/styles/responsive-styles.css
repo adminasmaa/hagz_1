@@ -864,6 +864,27 @@
   .investor_7agz_card {
     padding: 24px 16px;
   }
+
+  .commission-section .tabs-nav-details {
+    height: 50px;
+  }
+
+  .booking-days {
+    font-size: 18px;
+    line-height: 30px;
+  }
+  .modal-custom .modal-dialog.small-modal .modal-content {
+    width: 70%;
+  }
+  .confirm-payment-icon {
+    height: 250px;
+  }
+  .confirm-pay-content {
+    width: 90% !important;
+  }
+  .txt-footer-table {
+    font-size: 16px;
+  }
 }
 @media (max-width: 768px) {
   .tabs-in-mobile {
@@ -956,6 +977,88 @@
     color: var(--m-second);
   }
   /* investor */
+
+  .modal-custom .modal-dialog.small-modal .modal-content {
+    width: 80%;
+  }
+
+  .payment-modal-header {
+    width: 100%;
+  }
+  .payment-modal-header h3 {
+    font-size: 36px;
+    line-height: 50px;
+  }
+
+  .tabs-in-mobile.commission li {
+    padding-inline: 8px;
+    width: 50%;
+  }
+  .table label {
+    font-size: 14px;
+  }
+
+  .commissions-table .table-sm > :not(caption) > * > *,
+  .prices-table .table-sm > :not(caption) > * > * {
+    padding: 10px 10px 10px 0;
+  }
+  .commissions-table th {
+    width: 50%;
+  }
+  .table-txt {
+    font-size: 14px !important;
+  }
+  .commissions-table .th-txt,
+  .prices-table .th-txt {
+    font-size: 16px;
+  }
+  .commissions-table .table label:before {
+    width: 22px;
+    height: 22px;
+  }
+  .commissions-table .table input:checked + label:after {
+    top: 4px;
+    right: 8px;
+    width: 6px;
+    height: 12px;
+  }
+  .commissions-table .table input:checked + label:after {
+    top: 4px;
+    right: 8px;
+    width: 6px;
+    height: 12px;
+  }
+  .commission-section .tabs-in-mobile {
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid var(--m-light-gray);
+    border-bottom: 0;
+    height: 80px;
+  }
+  /* .commission-section .tabs-in-mobile li:nth-child(1) {
+  width: 100%;
+} */
+  /* .commission-section .tabs-in-mobile li {
+  width: 40%;
+} */
+  .commission-section .tabs-in-mobile {
+    height: 50px;
+  }
+  .commission-section .tabs-in-mobile li:nth-child(3) {
+    border-left: none;
+  }
+  .commission-section .tabs-in-mobile li:nth-child(4),
+  .commission-section .tabs-in-mobile li:nth-child(5) {
+    border-top: 1px solid var(--m-light-gray);
+    width: 50%;
+  }
+  .commission-section .tabs-in-mobile .tab-active:nth-child(3) {
+    border-radius: 10px 0 0 0;
+  }
+  .commission-section .tabs-in-mobile .tab-active:last-of-type {
+    border-radius: 0;
+  }
+
   .investor-hagz-booking .tabs-in-mobile li:nth-child(3) {
     border-left: none;
   }
@@ -1021,10 +1124,10 @@
   .login-page .custom-checkbox-item {
     font-size: 14px;
   }
-  .main-btn a,
+  /* .main-btn a,
   .main-btn button {
     font-size: 14px;
-  }
+  } */
   .iti--separate-dial-code input[type="tel"] {
     padding-right: 32px;
   }
@@ -1275,6 +1378,24 @@
     font-size: 14px;
   }
   /* investor */
+  .ui-datepicker {
+    width: 100%;
+  }
+  .calendar {
+    padding-right: 32px !important;
+  }
+  .iti--separate-dial-code input[type="tel"] {
+    padding-right: 20px;
+  }
+  .table-txt,
+  .table-number {
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    line-height: 20px !important;
+  }
+  .prices-table .first-col-35 {
+    width: 40%;
+  }
   .provide-card h4 {
     font-size: 16px;
     line-height: 24px;
@@ -1365,7 +1486,7 @@
   }
   .hagz-input {
     padding-right: 10px;
-    font-size: 12px;
+    font-size: 14px;
   }
   .danger-txt {
     font-size: 14px;
@@ -1475,6 +1596,28 @@
     top: 40%;
   }
   /* investor */
+  .confirm-payment-icon {
+    height: 190px;
+  }
+  .txt-footer-table {
+    font-size: 14px;
+  }
+  .payment-modal-header h3 {
+    font-size: 26px;
+    line-height: 32px;
+  }
+
+  .commissions-table .th-txt,
+  .prices-table .th-txt {
+    font-size: 14px;
+    line-height: 24px;
+  }
+  .commission-section .tabs-details .tab-link {
+    font-size: 12px;
+  }
+  .commissions-table i {
+    display: none;
+  }
   .investor-hagz-booking .tabs-in-mobile li {
     padding-inline: 0;
     width: 33.333%;
@@ -1540,10 +1683,7 @@
   .farm-data-img img {
     width: 20px;
   }
-  .table-txt {
-    font-size: 12px;
-    line-height: 20px;
-  }
+
   .weekly-system-prices,
   .badge-ads-details,
   .details-txt,
@@ -1574,6 +1714,29 @@
   }
   .details-btn {
     width: 100%;
+  }
+  /* investor */
+  /* investor */
+  .txt-footer-table {
+    font-size: 12px;
+  }
+  .commission-section .tabs-in-mobile {
+    height: 80px;
+  }
+  .tabs-nav-details.commission {
+    border-radius: 10px;
+  }
+  .tabs-in-mobile.commission li {
+    border-left: 0;
+    padding-inline: 5px;
+    width: 100%;
+  }
+  .tabs-in-mobile.commission .tab-active:first-of-type {
+    border-radius: 10px 10px 0 0;
+  }
+  .tabs-in-mobile.commission .tab-active:last-of-type,
+  .tabs-in-mobile.commission li:last-of-type {
+    border-radius: 0 0 10px 10px;
   }
 }
 @media (max-width: 340px) {
