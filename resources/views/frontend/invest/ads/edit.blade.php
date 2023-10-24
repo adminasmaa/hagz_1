@@ -16,7 +16,7 @@
 
                         <li class="breadcrumb-item text-light-main" aria-current="page">
 
-                            @lang('site.Add an advertisement')
+                            @lang('site.update an advertisement')
 
                         </li>
                     </ol>
@@ -25,18 +25,18 @@
         </section>
         <!-- add-ads-page -->
 
-        <form action="{{ route('invest.AjaxAddAds') }}" method="post" enctype="multipart/form-data"
-              id="" class="form-main">
+        <form action="{{ route('invest.updateads', $aqar->id) }}" method="post"
+              enctype="multipart/form-data" id="" class="form-main">
 
             {{ csrf_field() }}
-            {{ method_field('post') }}
+            {{ method_field('put') }}
             <section class="py-4 add-ads-page">
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
                             <div class="investor_7agz_card">
                                 <div
-                                    class="static-header-page round-border d-lg-flex justify-content-between align-items-center py-5 px-sm-5 px-4"
+                                        class="static-header-page round-border d-lg-flex justify-content-between align-items-center py-5 px-sm-5 px-4"
                                 >
                                     <div class="d-flex">
                                         <div class="help-ic">
@@ -46,10 +46,10 @@
                                             <div class="help-txt">
 
 
-                                                @lang('site.If you have a problem adding your ad, please call us')
+                                                @lang('site.If you have a problem update your ad, please call us')
                                             </div>
                                             <div
-                                                class="main-btn d-flex align-items-center justify-content-center"
+                                                    class="main-btn d-flex align-items-center justify-content-center"
                                             >
                                                 <a href="#">
                                                     <span><i class="fas fa-phone"></i></span>
@@ -60,13 +60,15 @@
                                     </div>
                                     <div class="static-image">
                                         <img
-                                            src="{{FRONTASSETS}}/assets/images/investor/add-ads.png"
-                                            alt="Add Ads image"
+                                                src="{{FRONTASSETS}}/assets/images/investor/add-ads.png"
+                                                alt="Add Ads image"
                                         />
                                     </div>
+
+
                                 </div>
                                 <div class="my-5">
-                                    <h2> @lang('site.Add an advertisement')</h2>
+                                    <h2> @lang('site.update an advertisement')</h2>
                                     <div class="investor_7agz_card my-4">
                                         <div class="row">
                                             <div class="col-lg-5 mb-3">
@@ -79,7 +81,8 @@
 
                                                     @foreach($categories as $category)
                                                         <option
-                                                            value="{{$category->id}}"> {{$category->name ?? ''}}</option>
+                                                                value="{{$category->id}}"
+                                                                @if($aqar->category_id==$category->id) selected @endif> {{$category->name ?? ''}}</option>
 
                                                     @endforeach
                                                 </select>
@@ -93,7 +96,8 @@
                                                     <option disabled selected> @lang('site.select')</option>
                                                     @foreach($countries as $country)
                                                         <option
-                                                            value="{{$country->id}}"> {{$country->name ?? ''}}</option>
+                                                                value="{{$country->id}}"
+                                                                @if($aqar->country_id==$country->id) selected @endif> {{$country->name ?? ''}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -103,13 +107,13 @@
                                                     <span>(@lang('site.optional') )</span>
                                                 </label>
                                                 <input
-                                                    type="text"
-                                                    id="farmname"
-                                                    class="form-control hagz-input"
-                                                    name="name_ar"
-                                                    placeholder="  {{trans('site.name')}}  "
-
-                                                    required
+                                                        type="text"
+                                                        id="farmname"
+                                                        class="form-control hagz-input"
+                                                        name="name_ar"
+                                                        placeholder="  {{trans('site.name')}}  "
+                                                        value="{{$aqar->name_ar ?? ''}}"
+                                                        required
                                                 />
                                                 <div class="text-danger pt-2">
                                                     ({{trans('site.The name appears to the customer after booking')}})
@@ -122,14 +126,14 @@
                                                 </label>
 
                                                 <input
-                                                    type="number"
-                                                    id="area"
-                                                    class="form-control hagz-input"
-                                                    placeholder="1  "
-                                                    min="1"
-                                                    name="total_area"
-
-                                                    required
+                                                        type="number"
+                                                        id="area"
+                                                        class="form-control hagz-input"
+                                                        placeholder="1  "
+                                                        min="1"
+                                                        name="total_area"
+                                                        value="{{$aqar->total_area ?? ''}}"
+                                                        required
                                                 />
                                             </div>
 
@@ -146,11 +150,11 @@
                                             <div class="col-lg-5 col-12">
                                                 <div class="d-flex align-items-center mb-lg-0 mb-3">
                                                     <input
-                                                        type="radio"
-                                                        name="price"
-                                                        id="price1"
-                                                        value="1"
-                                                        checked
+                                                            type="radio"
+                                                            name="price"
+                                                            id="price1"
+                                                            value="1"
+                                                            checked
                                                     />
                                                     <label for="price1" class="online-lbl custom-radio">
                                                         @lang('site.Price depends on the day')
@@ -160,14 +164,14 @@
                                             <div class="col-lg-5 col-12">
                                                 <div class="d-flex align-items-center">
                                                     <input
-                                                        type="radio"
-                                                        name="price"
-                                                        id="price2"
-                                                        value="2"
+                                                            type="radio"
+                                                            name="price"
+                                                            id="price2"
+                                                            value="2"
                                                     />
                                                     <label
-                                                        for="price2"
-                                                        class="online-lbl custom-radio"
+                                                            for="price2"
+                                                            class="online-lbl custom-radio"
                                                     >
 
                                                         @lang('site.Price depends on the week')
@@ -190,12 +194,13 @@
 
 
                                                 <input
-                                                    type="number"
-                                                    id="normalDay"
-                                                    class="form-control hagz-input"
-                                                    placeholder="1  "
-                                                    min="1"
-                                                    name="fixed_price"
+                                                        type="number"
+                                                        id="normalDay"
+                                                        class="form-control hagz-input"
+                                                        placeholder="1  "
+                                                        min="1"
+                                                        name="fixed_price"
+                                                        value="{{$aqar->fixed_price ?? ''}}"
                                                 />
                                             </div>
 
@@ -210,33 +215,77 @@
                                                 <table class="price-list" id="tb_price">
 
 
-                                                    <tr>
-                                                        <td>
-                                                            <div class="row">
-                                                                <div class="col-md-4 form-group col-12">
-                                                                    <label>@lang('site.personnumber')</label>
-                                                                    <input type="number" name="person_num[]"
-                                                                           class="form-control"/>
+                                                    @if($aqar->changed_price)
+                                                    @for ($x = 0; $x <= count($aqar->changed_price->price)-1; $x++)
+                                                        <tr>
+                                                            <td>
+                                                                <div class="row">
+                                                                    <div class="col-md-4 form-group col-12">
+                                                                        <label>@lang('site.personnumber')</label>
+                                                                        <input type="number" name="person_num[]"
+                                                                               class="form-control"
+                                                                               value="{{$aqar->changed_price->person_num[$x]}}" />
+                                                                    </div>
+                                                                    <div class="col-md-4 form-group col-12">
+                                                                        <label>@lang('site.fixed_price')</label>
+                                                                        <input type="number"  step=".1" name="price[]"
+                                                                               class="form-control"
+                                                                               value="{{$aqar->changed_price->price[$x]}}" />
+                                                                    </div>
+                                                                    @if($x==0)
+                                                                        <div class="col-md-4 form-group col-12">
+                                                                            <a
+                                                                                class="btn btn-air-primary btn-pill btn-success add-price w-100 m-t-30"><i
+                                                                                    class="fa fa-plus"
+                                                                                    aria-hidden="true"></i></a>
+                                                                        </div>
+                                                                    @endif
+                                                                    @if($x!=0)
+                                                                        <div class="col-md-2 form-group col-12">
+                                                                            <a class="btn btn-air-primary btn-pill btn-danger add-price w-100 m-t-30"
+                                                                               onclick="deletetr(this)"><i
+                                                                                    class="fa fa-trash"></i></a>
+                                                                        </div>
+                                                                    @endif
                                                                 </div>
-                                                                <div class="col-md-4 form-group col-12">
-                                                                    <label>@lang('site.fixed_price')</label>
-                                                                    <input type="number" step=".1"
-                                                                           name="price[]"
-                                                                           class="form-control">
-                                                                </div>
-                                                                <div class="col-md-4 form-group col-12">
-                                                                    <a
-                                                                        class="btn btn-air-primary btn-pill btn-success add-price w-100 m-t-30"><i
-                                                                            class="fa fa-plus"
-                                                                            aria-hidden="true"></i></a>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
+                                                            </td>
+                                                        </tr>
+                                                    @endfor
+                                                    @else
 
 
+                                                        <tr>
+                                                            <td>
+                                                                <div class="row">
+                                                                    <div class="col-md-4 form-group col-12">
+                                                                        <label>@lang('site.personnumber')</label>
+                                                                        <input type="number" name="person_num[]"
+                                                                               class="form-control"/>
+                                                                    </div>
+                                                                    <div class="col-md-4 form-group col-12">
+                                                                        <label>@lang('site.fixed_price')</label>
+                                                                        <input type="number" step=".1"
+                                                                               name="price[]"
+                                                                               class="form-control">
+                                                                    </div>
+                                                                    <div class="col-md-4 form-group col-12">
+                                                                        <a
+                                                                            class="btn btn-air-primary btn-pill btn-success add-price w-100 m-t-30"><i
+                                                                                class="fa fa-plus"
+                                                                                aria-hidden="true"></i></a>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+
+
+
+
+
+                                                    @endif
 
                                                 </table>
+
 
 
                                             </div>
@@ -285,10 +334,12 @@
                                             <div class="col-lg-5 col-6">
                                                 <div class="d-flex align-items-center">
                                                     <input
-                                                        type="radio"
-                                                        name="rental_period"
-                                                        id="day"
-                                                        value="day"
+                                                            type="radio"
+                                                            name="rental_period"
+                                                            id="day"
+                                                            value="day"
+
+                                                            @if($aqar->rental_period=='day') checked @endif
                                                     />
                                                     <label for="day" class="online-lbl custom-radio mb-4">
 
@@ -299,14 +350,16 @@
                                             <div class="col-lg-5 col-6">
                                                 <div class="d-flex align-items-center">
                                                     <input
-                                                        type="radio"
-                                                        name="rental_period"
-                                                        id="twoDay"
-                                                        value="twoDay"
+                                                            type="radio"
+                                                            name="rental_period"
+                                                            id="twoDay"
+                                                            value="twoDay"
+
+                                                            @if($aqar->rental_period=='twoDay') checked @endif
                                                     />
                                                     <label
-                                                        for="twoDay"
-                                                        class="online-lbl custom-radio mb-4"
+                                                            for="twoDay"
+                                                            class="online-lbl custom-radio mb-4"
                                                     >
 
                                                         @lang('site.twoDay')
@@ -317,14 +370,16 @@
                                             <div class="col-lg-5 col-6">
                                                 <div class="d-flex align-items-center">
                                                     <input
-                                                        type="radio"
-                                                        name="rental_period"
-                                                        id="threeDay"
-                                                        value="threeDay"
+                                                            type="radio"
+                                                            name="rental_period"
+                                                            id="threeDay"
+                                                            value="threeDay"
+
+                                                            @if($aqar->rental_period=='threeDay') checked @endif
                                                     />
                                                     <label
-                                                        for="threeDay"
-                                                        class="online-lbl custom-radio mb-4"
+                                                            for="threeDay"
+                                                            class="online-lbl custom-radio mb-4"
                                                     >
 
                                                         @lang('site.threeDay')
@@ -335,14 +390,15 @@
                                             <div class="col-lg-5 col-6">
                                                 <div class="d-flex align-items-center">
                                                     <input
-                                                        type="radio"
-                                                        name="rental_period"
-                                                        id="fourDays"
-                                                        value="fourDays"
+                                                            type="radio"
+                                                            name="rental_period"
+                                                            id="fourDays"
+                                                            value="fourDays"
+                                                            @if($aqar->rental_period=='fourDays') checked @endif
                                                     />
                                                     <label
-                                                        for="fourDays"
-                                                        class="online-lbl custom-radio mb-4"
+                                                            for="fourDays"
+                                                            class="online-lbl custom-radio mb-4"
                                                     >
 
                                                         @lang('site.fourDays')
@@ -364,12 +420,14 @@
 
 
                                                 <input
-                                                    type="number"
-                                                    name="Insurance_amount"
-                                                    id="insuranceAmount"
-                                                    class="form-control hagz-input"
-                                                    placeholder="1  "
-                                                    min="1"
+                                                        type="number"
+                                                        name="Insurance_amount"
+                                                        id="insuranceAmount"
+                                                        class="form-control hagz-input"
+                                                        placeholder="1  "
+                                                        min="1"
+
+                                                        value="{{$aqar->Insurance_amount ?? ''}}"
                                                 />
                                             </div>
 
@@ -390,12 +448,13 @@
 
 
                                                 <input
-                                                    type="number"
-                                                    id="deposit"
-                                                    name="amount_deposit"
-                                                    class="form-control hagz-input"
-                                                    placeholder="1  "
-                                                    min="1"
+                                                        type="number"
+                                                        id="deposit"
+                                                        name="amount_deposit"
+                                                        class="form-control hagz-input"
+                                                        placeholder="1  "
+                                                        min="1"
+                                                        value="{{$aqar->amount_deposit ?? ''}}"
                                                 />
                                             </div>
 
@@ -419,13 +478,13 @@
                                                 </label>
 
                                                 <input
-                                                    type="time"
-                                                    id="entryHour"
-                                                    name="time_from"
-                                                    class="form-control hagz-input time-txt-left"
-                                                    placeholder="9:12pm  "
-
-                                                    required
+                                                        type="time"
+                                                        id="entryHour"
+                                                        name="time_from"
+                                                        class="form-control hagz-input time-txt-left"
+                                                        placeholder="9:12pm  "
+                                                        value="{{$aqar->time_from ?? ''}}"
+                                                        required
                                                 />
                                             </div>
                                             <div class="col-lg-10 mb-4">
@@ -436,13 +495,13 @@
                                                 </label>
 
                                                 <input
-                                                    type="time"
-                                                    name="time_to"
-                                                    id="CheckoutHour"
-                                                    class="form-control hagz-input time-txt-left"
-                                                    placeholder="9:12pm  "
-
-                                                    required
+                                                        type="time"
+                                                        name="time_to"
+                                                        id="CheckoutHour"
+                                                        class="form-control hagz-input time-txt-left"
+                                                        placeholder="9:12pm  "
+                                                        value="{{$aqar->time_to ?? ''}}"
+                                                        required
                                                 />
                                             </div>
                                             <div class="col-lg-10 mb-3">
@@ -451,13 +510,15 @@
                                                     <span>( @lang('site.Mandatory')  )</span>
                                                 </label>
                                                 <select
-                                                    name="individual"
-                                                    class="select2"
-                                                    id="specifiedPlace"
+                                                        name="individual"
+                                                        class="select2"
+                                                        id="specifiedPlace"
                                                 >
-                                                    <option disabled selected> @lang('site.select')</option>
-                                                    <option value="families"> @lang('site.families')</option>
-                                                    <option value="youths"> @lang('site.youths')</option>
+                                                    <option disabled> @lang('site.select')</option>
+                                                    <option value="families"
+                                                            @if($aqar->individual=='families') selected @endif > @lang('site.families')</option>
+                                                    <option value="youths"
+                                                            @if($aqar->individual=='youths') selected @endif > @lang('site.youths')</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -485,20 +546,26 @@
                                                         <div>drag and drop or browse for upload image</div>
                                                     </div>
                                                     <input
-                                                        type="file"
-                                                        name="main_image"
-                                                        data-max_length="20"
-                                                        class="form-control upload__inputfile"
-                                                        id="imgInp"
+                                                            type="file"
+                                                            name="main_image"
+                                                            data-max_length="20"
+                                                            class="form-control upload__inputfile"
+                                                            id="imgInp"
 
                                                     />
                                                 </label>
 
+
+                                                <img src="{{asset('images/aqars/'.$aqar->main_image)}}" data-bs-toggle="modal"
+                                                     data-bs-target="#exampleModalss" width="100px" height="100px"
+                                                     class="d-block"
+                                                     onerror="this.src='{{asset('images/aqars/default.jpg')}}'">
+
                                                 <img
-                                                    id="frame"
-                                                    src=""
-                                                    width="150px"
-                                                    class="img-upload"
+                                                        id="frame"
+                                                        src=""
+                                                        width="150px"
+                                                        class="img-upload"
                                                 />
                                             </div>
                                         </div>
@@ -526,18 +593,30 @@
                                                         <div>drag and drop or browse for upload image</div>
                                                     </div>
                                                     <input
-                                                        type="file"
-                                                        name="images[]"
-                                                        class="form-control upload__inputfile"
-                                                        multiple
-                                                        id="upload-imgs"
+                                                            type="file"
+                                                            name="images[]"
+                                                            class="form-control upload__inputfile"
+                                                            multiple
+                                                            id="upload-imgs"
 
                                                     />
                                                 </label>
+                                                @if($aqar->images)
+                                                    @foreach ((explode(',',$aqar->images)) as $img)
+                                                        <div class="wrapper-thumb">
+                                                            <img id="frame" src="{{asset('images/aqars/'.$img)}}"
+                                                                 alt=""
+                                                                 onerror="this.src='{{asset('images/aqars/default.jpg')}}'"
+                                                                 width="200px" class="img-preview-thumb" /><span
+                                                                class="remove-btn">x</span>
+                                                        </div>
+                                                    @endforeach
+                                                @endif
+
 
                                                 <div
-                                                    class="img-thumbs img-thumbs-hidden"
-                                                    id="img-previews"
+                                                        class="img-thumbs img-thumbs-hidden"
+                                                        id="img-previews"
                                                 ></div>
                                             </div>
                                         </div>
@@ -566,23 +645,29 @@
                                                     </div>
 
                                                     <input
-                                                        type="file"
-                                                        id="videoUpload"
-                                                        class="form-control upload__inputfile"
-                                                        name="videos"
+                                                            type="file"
+                                                            id="videoUpload"
+                                                            class="form-control upload__inputfile"
+                                                            name="videos"
 
                                                     />
                                                 </label>
 
 
                                                 <video
-                                                    width="250"
-                                                    height="250"
-                                                    style="display: none;border-radius: 5px;"
-                                                    controls
-                                                    class="video-upload"
-                                                    autoplay
+                                                        width="250"
+                                                        height="250"
+                                                        style="display: none;border-radius: 5px;"
+                                                        controls
+                                                        class="video-upload"
+                                                        autoplay
                                                 >
+                                                    Your browser does not support the video tag.
+                                                </video>
+
+                                                <video width="250" height="200"
+                                                       src="{{asset('images/aqars/videos/'.$aqar->videos)}}"
+                                                       controls class="video-upload" autoplay>
                                                     Your browser does not support the video tag.
                                                 </video>
                                             </div>
@@ -606,12 +691,13 @@
                                                 </label>
 
                                                 <input
-                                                    type="number"
-                                                    id="allowedPerson"
-                                                    name="personnumber"
-                                                    class="form-control hagz-input"
-                                                    placeholder="1  "
-                                                    min="1"
+                                                        type="number"
+                                                        id="allowedPerson"
+                                                        name="personnumber"
+                                                        class="form-control hagz-input"
+                                                        placeholder="1  "
+                                                        min="1"
+                                                        value="{{$aqar->personnumber ?? ''}}"
                                                 />
                                             </div>
 
@@ -629,7 +715,11 @@
                                                 <div class="form-group">
                                                 <textarea name="details" class="form-control txtarea-7agz p-3 mt-2"
                                                           placeholder="{{trans('site.Please write specifications')}}  "
-                                                          rows="6"  required></textarea>
+                                                          rows="6" required>
+
+
+                                                      {{$aqar->details ?? ''}}
+                                                </textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -641,8 +731,8 @@
                                     <div class="col-12">
                                         <div class="d-flex justify-content-center mt-md-5 mt-3">
                                             <div
-                                                class="main-btn py-4 d-flex justify-content-center align-items-center add-ads-btn">
-                                                <button type="submit">  @lang('site.Add an advertisement')</button>
+                                                    class="main-btn py-4 d-flex justify-content-center align-items-center add-ads-btn">
+                                                <button type="submit">  @lang('site.update an advertisement')</button>
                                             </div>
                                         </div>
                                         <div class="danger-txt text-center pt-3">

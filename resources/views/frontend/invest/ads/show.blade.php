@@ -180,7 +180,7 @@
 
 
                                                 <li class="liItem-booking-edit">
-                                                    <a href="#">
+                                                    <a href="{{route('invest.editads',$aquar->id)}}">
                                                         <i class="fas fa-edit"></i>
                                                         @lang('site.update')
                                                     </a>

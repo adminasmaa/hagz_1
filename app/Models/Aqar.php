@@ -73,7 +73,8 @@ class Aqar extends Model
         'individual',
         'total_area',
         'Insurance_amount',
-        'amount_deposit'
+        'amount_deposit',
+        'rental_period'
     ];
 
     // relations

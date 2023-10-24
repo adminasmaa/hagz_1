@@ -270,7 +270,7 @@
                                                                         />
                                                                     </div>
                                                                     <div class="text-second">
-                                                                        {{$aquar->fixed_price?? 0}}
+                                                                    @lang('site.total_area'):    {{$aquar->total_area?? 0}}
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -470,7 +470,7 @@
                                                                             />
                                                                         </div>
                                                                         <div class="text-second">
-                                                                            {{$aquar->fixed_price?? 0}}
+                                                                            @lang('site.total_area'):    {{$aquar->total_area?? 0}}
                                                                         </div>
                                                                     </div>
 
@@ -667,7 +667,7 @@
                                                                             />
                                                                         </div>
                                                                         <div class="text-second">
-                                                                            {{$aquar->fixed_price?? 0}}
+                                                                            @lang('site.total_area'):    {{$aquar->total_area?? 0}}
                                                                         </div>
                                                                     </div>
 
@@ -864,7 +864,7 @@
                                                                             />
                                                                         </div>
                                                                         <div class="text-second">
-                                                                            {{$aquar->fixed_price?? 0}}
+                                                                            @lang('site.total_area'):    {{$aquar->total_area?? 0}}
                                                                         </div>
                                                                     </div>
 

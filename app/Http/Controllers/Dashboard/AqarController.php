@@ -21,10 +21,10 @@ class AqarController extends Controller
 
 
     protected $AqarRepository;
- 
+
     public function __construct()
     {
-        $this->AqarRepository=new AqarRepository();
+        $this->AqarRepository = new AqarRepository();
     }
 
     public function index(AqarDataTable $AqarDataTable)
@@ -54,13 +54,13 @@ class AqarController extends Controller
 
     public function store(Request $request)
     {
-        
-      
+
+
         $data['person_num'] = $request['person_num'];
         // $data['day_num'] = $request['day_num'];
         $data['price'] = $request['price'];
-      
-        $request['changed_price']=json_encode($data)!=null?json_encode($data, JSON_NUMERIC_CHECK):json_encode([]);
+
+        $request['changed_price'] = json_encode($data) != null ? json_encode($data, JSON_NUMERIC_CHECK) : json_encode([]);
 
         return $this->AqarRepository->store($request);
 
@@ -89,12 +89,12 @@ class AqarController extends Controller
 
     public function update(Request $request, $id)
     {
-       
+
         $Aqar = Aqar::find($id);
         $data['person_num'] = $request['person_num'];
         // $data['day_num'] = $request['day_num'];
         $data['price'] = $request['price'];
-        $request['changed_price']=json_encode($data)!=null?json_encode($data, JSON_NUMERIC_CHECK):json_encode([]);
+        $request['changed_price'] = json_encode($data) != null ? json_encode($data, JSON_NUMERIC_CHECK) : json_encode([]);
         return $this->AqarRepository->update($Aqar, $request);
 
 
@@ -109,7 +109,7 @@ class AqarController extends Controller
 
     public function destroy($id)
     {
-        $Aqar =Aqar::find($id);
+        $Aqar = Aqar::find($id);
 
         return $this->AqarRepository->destroy($Aqar);
 
@@ -118,24 +118,29 @@ class AqarController extends Controller
 
 
     public function getsetting($id)
-    { 
-       $details = AqarService::setEagerLoads([])->join('aqar_setting', 'aqar_setting.detail_id', '=', 'aqar_details.id')
-       ->where('category_id',$id)->where('display',1)->with('subservices')->get(); 
-       $arr=[]; 
-       return view('dashboard.aqars.details', compact('details','arr'));
+    {
+
+//        return $id;
+
+        $details = AqarService::setEagerLoads([])->join('aqar_setting', 'aqar_setting.detail_id', '=', 'aqar_details.id')
+            ->where('category_id', $id)->where('display', 1)->with('subservices')->get();
+        $arr = [];
+
+//        return $details;
+        return view('dashboard.aqars.details', compact('details', 'arr'));
     }
 
-    public function getsetting1($id,$aqar_id)
-    { 
-       $details = AqarService::setEagerLoads([])->join('aqar_setting', 'aqar_setting.detail_id', '=', 'aqar_details.id')
-       ->where('category_id',$id)->where('display',1)->with('subservices')->get();
-       $aqar = Aqar::with('aqarSubSection')->find($aqar_id);
-       $arr=[];
-       foreach($aqar->aqarSubSection as $item){
-        array_push($arr,$item->sub_section_id);
-       }
-      // return $arr;
-       return view('dashboard.aqars.details', compact('details','aqar','arr'));
+    public function getsetting1($id, $aqar_id)
+    {
+        $details = AqarService::setEagerLoads([])->join('aqar_setting', 'aqar_setting.detail_id', '=', 'aqar_details.id')
+            ->where('category_id', $id)->where('display', 1)->with('subservices')->get();
+        $aqar = Aqar::with('aqarSubSection')->find($aqar_id);
+        $arr = [];
+        foreach ($aqar->aqarSubSection as $item) {
+            array_push($arr, $item->sub_section_id);
+        }
+        // return $arr;
+        return view('dashboard.aqars.details', compact('details', 'aqar', 'arr'));
     }
 
 
@@ -143,10 +148,10 @@ class AqarController extends Controller
     {
 
 
-        $roomnumbers = Aqar::distinct()->join('aqar_sections', 'aqars.id', '=', 'aqar_sections.aqar_id')->join('aqar_details', 'aqar_details.id', '=', 'aqar_sections.sub_section_id')->where('aqars.category_id', $id)->where('aqar_sections.section_id', '=', 6)->groupBy('aqars.id')->select( \DB::raw('SUM(aqar_details.name_ar) as total'))
-        ->get()
-        ->pluck('total', 'aqar_details.name_ar')
-        ->toArray();
+        $roomnumbers = Aqar::distinct()->join('aqar_sections', 'aqars.id', '=', 'aqar_sections.aqar_id')->join('aqar_details', 'aqar_details.id', '=', 'aqar_sections.sub_section_id')->where('aqars.category_id', $id)->where('aqar_sections.section_id', '=', 6)->groupBy('aqars.id')->select(\DB::raw('SUM(aqar_details.name_ar) as total'))
+            ->get()
+            ->pluck('total', 'aqar_details.name_ar')
+            ->toArray();
         return Response::json($roomnumbers);
 
 

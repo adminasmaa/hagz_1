@@ -228,7 +228,7 @@
                             <div class="farm-data-img">
                                 <img src="{{FRONTASSETS}}/assets/images/area-ic.svg" alt="families icon"/>
                             </div>
-                            <div class="text-second"> @lang('site.price') {{$aqar->fixed_price}}</div>
+                            <div class="text-second">     @lang('site.total_area'):    {{$aqar->total_area?? 0}}</div>
                         </div>
                     </div>
                 </div>

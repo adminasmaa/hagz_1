@@ -7,16 +7,26 @@ return [
     'favorite' => 'المفضله',
     'Log in' => '
 قم بتسجيل الدخول',
-'The customer will be shown the existing reservation conditions at the time of his reservation'=>' سوف يظهر للعميل شروط الحجز الموجوده وقت ماتم حجزه',
+    'The customer will be shown the existing reservation conditions at the time of his reservation' => ' سوف يظهر للعميل شروط الحجز الموجوده وقت ماتم حجزه',
+
+    'day' => 'يوم',
+
+    'twoDay' => 'يومين',
+
+    'threeDay' => '3 ايام',
+
+    'fourDays' => ' 4 ايام',
 
 
-    'notaqars'=>'لا يوجد اعلانات',
-    'terms'=>' شروط الحجز الالغاء ',
+    'Minimum rental period' => 'أقل مدة ايجار',
 
-    'Pictures containing a logo or phone number will not be accepted'=>'لن يتم قبول الصور التي تحتوي على شعار أو رقم هاتف',
+    'notaqars' => 'لا يوجد اعلانات',
+    'terms' => ' شروط الحجز الالغاء ',
 
-'Which cancellation and return policy suits you?'=>'أى سياسة إلغاء وإسترجاع تتناسب معك ؟',
-    'policies'=>'سياسة الإلغاء والاسترجاع',
+    'Pictures containing a logo or phone number will not be accepted' => 'لن يتم قبول الصور التي تحتوي على شعار أو رقم هاتف',
+
+    'Which cancellation and return policy suits you?' => 'أى سياسة إلغاء وإسترجاع تتناسب معك ؟',
+    'policies' => 'سياسة الإلغاء والاسترجاع',
     'Mandatory' => 'اجبارى',
 
     'Insurance_amount' => 'مبلغ التأمين',
@@ -264,7 +274,19 @@ return [
     'A video containing a logo or phone number will not be accepted' => 'لايتم قبول فيديو به شعار أو رقم تليفون',
     'Determine the time' => 'تحديد الوقت',
 
+    'update an advertisement'=>'تحديث إعلان',
+
+    'If you have a problem update your ad, please call us'=>'إذا كان لديك مشكلة في تحديث إعلانك، يرجى الاتصال بنا',
+
+
     'Kuwaiti Dinar' => 'دينار كويتى',
+    'Regular day price'=>'سعر اليوم العادى',
+
+    'Set the price'=>'حدد السعر',
+
+    'Price depends on the day'=>'السعر حسب اليوم',
+
+    'Price depends on the week'=>'السعر حسب الاسبوع',
 
     'Choose the appropriate video' => 'اخترالفيديو المناسب',
 
@@ -616,9 +638,9 @@ return [
     'admin_approved' => 'موافقة الادمن',
     'icon' => 'الايقونه',
     'pages' => ' الصفحات',
-    'Please write the conditions that suit you'=>'من فضلك قم بكتابة الشروط التي تناسبك',
+    'Please write the conditions that suit you' => 'من فضلك قم بكتابة الشروط التي تناسبك',
 
-    'To amend or write other conditions'=>'لتعديل او كتابة شروط اخرى',
+    'To amend or write other conditions' => 'لتعديل او كتابة شروط اخرى',
     'addss' => 'اضف مدن جديدة',
     'Choose the category that suits you' => 'اختر التصنيف المناسب لك',
 
@@ -736,13 +758,13 @@ return [
     'personnumber' => 'عدد الايام',
     'total_area' => 'المساحه',
     'Farm name' => 'اسم المزرعة',
-    'prices'=>'الاسعار',
+    'prices' => 'الاسعار',
     'The name appears to the customer after booking' => 'يظهر الاسم للعميل بعد الحجز',
     'Advertisement category' => 'فئة الاعلان',
 
-    'Pause'=>'ايقاف مؤقت',
+    'Pause' => 'ايقاف مؤقت',
 
-    'Enter the advertisement number'=>'ادخل رقم الاعلان',
+    'Enter the advertisement number' => 'ادخل رقم الاعلان',
 
     'space' => 'المساحة',
     'services_aqars' => 'خدمات العقارات',
