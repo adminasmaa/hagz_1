@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('commissions', function (Blueprint $table) {
             $table->increments('id');
-            $table->boolean('status')->default (0);
-            $table->float('price')->nullable();
-
-            $table->foreignId('user_id')->required( )->references('id')->on('users')->onDelete('cascade');
-
+            $table->string('value')->nullable();
+            $table->enum('type', ['paid', 'nopaid'])->nullable();
+            $table->foreignId('user_id')->nullable( )->references('id')->on('users')->onDelete('cascade');
+            $table->integer('aqar_id')->nullable( );
+            $table->integer('booking_id')->nullable( );
             $table->timestamps();
             $table->softDeletes();
         });

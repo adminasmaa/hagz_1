@@ -22,7 +22,7 @@ return [
 
     'notaqars' => 'لا يوجد اعلانات',
     'terms' => ' شروط الحجز الالغاء ',
-
+'Add an external reservation'=>'اضافة حجز خارجى',
     'Pictures containing a logo or phone number will not be accepted' => 'لن يتم قبول الصور التي تحتوي على شعار أو رقم هاتف',
 
     'Which cancellation and return policy suits you?' => 'أى سياسة إلغاء وإسترجاع تتناسب معك ؟',
@@ -104,6 +104,11 @@ return [
 
     'Individuals' => 'الافراد',
     'youths' => 'شباب',
+
+    'date of arrival'=>'تاريخ الوصول',
+
+    'Departure Date'=>'تاريخ المغادرة',
+    'Total amount'=>'المبلغ الإجمالي',
 
     'Contact the farm owner' => 'اتصال بمالك المزرعة',
     'Arrival dates' => 'مواعيد الوصول',
@@ -241,6 +246,26 @@ return [
     'amount' => 'كميات',
     'date' => 'تاريخ الحجز',
     'cancle_reason' => ' الغاء الحجز',
+
+    'Reservations canceled'=>'حجوزات تم الغائها',
+
+    'Show results'=>'عرض النتائج',
+
+    'No Favourite'=>'لا يوجد مفضله',
+
+
+    'nopaid'=>'غير مدفوع',
+
+    'archives'=>'الارشيف',
+    'External reservations'=>'حجوزات خارجية',
+
+    'Application reservations'=>'حجوزات التطبيق',
+
+    'Search by customer'=>'البحث باسم العميل / رقم الهاتف / رقم الاعلان',
+
+    'All reservations'=>'كل الحجوزات',
+
+    'Booking destination:'=>'جهة الحجز:',
 
     'The customer cancels' => 'عندما يقوم العميل بالإلغاء قبل يوم الحجز 4 أيام يسترجع له العربون أو يأجل الحجز.عندما يقوم العميل بالإلغاء خلال ال 4 أيام التي تسبق الحجز لا يسترجع له العربون أو يأجل الحجز',
 
@@ -698,6 +723,8 @@ return [
     'time_from' => 'ساعة الدخول',
     'time_to' => 'ساعة الخروج',
 
+    'external'=>'خارجى',
+
     'My ads' => 'اعلاناتى',
     'specified place' => 'المكان المخصص',
 
@@ -756,6 +783,10 @@ return [
     'notify_photo' => ' صورة الملاحظه',
     'place_comments' => ' تعليقات الاماكن ',
     'personnumber' => 'عدد الايام',
+    'No reservations'=>'لا يوجد حجوزات',
+
+    'addedBooking_successfully'=>'تم اضافه الحجز بنجاح',
+    'counttotalday'=>'عدد ايام الحجز',
     'total_area' => 'المساحه',
     'Farm name' => 'اسم المزرعة',
     'prices' => 'الاسعار',

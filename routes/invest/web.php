@@ -6,8 +6,15 @@ use Illuminate\Support\Facades\URL;
 
 Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedirect', 'localizationRedirect', 'localeViewPath')->group(function () {
     Route::prefix('invest')->middleware([invest::class])->name('invest.')->group(function () {
-
+       //start booking
         Route::get('/booking', 'App\Http\Controllers\Frontend\invest\BookingController@index')->name('booking');
+        Route::get('/mybooking', 'App\Http\Controllers\Frontend\invest\BookingController@mybooking')->name('mybooking');
+
+        Route::get('/addbooking/{id}', 'App\Http\Controllers\Frontend\invest\BookingController@addbooking')->name('addbooking');
+        Route::post('/addbookingAd', 'App\Http\Controllers\Frontend\invest\BookingController@addbookingAd')->name('addbookingAd');
+
+
+        //end booking
 
         // start adverse (ads)
         Route::get('/addAds', 'App\Http\Controllers\Frontend\invest\AdController@index')->name('addAds');
@@ -20,7 +27,6 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
 
         Route::get('/term', 'App\Http\Controllers\Frontend\invest\TermController@index')->name('term');
         Route::post('/addterm', 'App\Http\Controllers\Frontend\invest\TermController@addterm')->name('addterm');
-
 
 
     }); //end of dashboard routes

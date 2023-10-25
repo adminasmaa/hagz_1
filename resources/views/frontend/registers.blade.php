@@ -301,9 +301,9 @@
                                             <div class="position-relative">
                                                 <select class="select2 comision" name="comision">
                                                     <option>   @lang('site.Choisissez votre commission')</option>
-                                                    @foreach(\App\Models\Commission::where('status','=',1)->get() as $com)
-                                                    <option value="{{$com->price}}">{{$com->price}} %</option>
-                                                    @endforeach
+                                                    @for ($x = 0; $x <= 20; $x++)
+                                                    <option value="{{$x}}">{{$x}} %</option>
+                                                    @endfor
                                                 </select>
                                                 <span class="icon-placeholder">
                             <i class="fas fa-wallet"></i>

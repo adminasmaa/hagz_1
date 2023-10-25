@@ -59,18 +59,21 @@
                                     <!--<div class="col-md-6">-->
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
-                                        <label>@lang('site.commission')<span class="text-danger">*</span></label>
-                                        <input type="number"  step=".1" name="price" class="form-control"
-                                               value="{{old('price')}}"
-                                               required>
+                                        <label class="form-label">@lang('site.commission')</label>
+                                        <select class="js-example-placeholder-multiple col-sm-12" name="value">
+                                            <option>   @lang('site.Choisissez votre commission')</option>
+                                            @for ($x = 0; $x <= 20; $x++)
+                                                <option value="{{$x}}">{{$x}} %</option>
+                                            @endfor
+                                        </select>
                                     </div>
 
                                     <div class="col-md-6 form-group">
-                                            <label class="form-label">@lang('site.active')</label>
-                                            <select class="js-example-placeholder-multiple col-sm-12" name="active">
+                                            <label class="form-label">@lang('site.type')</label>
+                                            <select class="js-example-placeholder-multiple col-sm-12" name="type">
                                                 <option>@lang('site.select')</option>
-                                                <option value="1">@lang('site.active')</option>
-                                                <option value="0">@lang('site.not-active') </option>
+                                                <option value="paid">@lang('site.paid')</option>
+                                                <option value="nopaid">@lang('site.nopaid') </option>
                                             </select>
                                     </div>
                                 </div>
@@ -83,6 +86,18 @@
                                         @foreach($users as $user)
 
                                             <option value="{{$user->id}}">{{$user->firstname . $user->lastname ?? ''}}</option>
+
+                                        @endforeach
+
+                                    </select>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label class="form-label">@lang('site.aquars')</label><span class="text-danger">*</span>
+                                    <select class="js-example-placeholder-multiple col-sm-12" name="aqar_id">
+                                        <option selected>@lang('site.select')</option>
+                                        @foreach(\App\Models\Aqar::get() as $aqar)
+
+                                            <option value="{{$aqar->id}}">{{$aqar->name ?? ''}}</option>
 
                                         @endforeach
 

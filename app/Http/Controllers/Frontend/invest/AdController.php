@@ -74,6 +74,8 @@ class AdController extends Controller
         $request_data['description'] = $request['details'];
         $request_data['user_id'] = Auth::id();
 
+        $request_data['comision'] = Auth::user()->comision ?? 0;
+
         $aqar = Aqar::create($request_data);
 
         if ($request->hasFile('main_image')) {
@@ -143,6 +145,8 @@ class AdController extends Controller
         $request_data['name_en'] = $request['name_ar'];
         $request_data['description'] = $request['details'];
         $request_data['user_id'] = Auth::id();
+
+        $request_data['comision'] = Auth::user()->comision ?? 0;
 
 
         $aqar = Aqar::find($id);

@@ -6,6 +6,43 @@ return [
     'link' => 'Link',
     'map' => 'Map',
 
+    'All reservations'=>'All reservations',
+
+    'Show results'=>'Show results',
+
+    'Application reservations'=>'Application reservations',
+
+    'External reservations'=>'External reservations',
+
+    'Reservations canceled'=>'Reservations canceled',
+
+    'archives'=>'Archives',
+
+    'No Favourite'=>'No Favourite',
+
+    'nopaid'=>'Not Paid',
+
+
+    'Search by customer'=>'Search by customer name / phone number / advertisement number',
+
+    'date of arrival'=>'date of arrival',
+
+    'Departure Date'=>'Departure Date',
+
+    'Total amount'=>'Total amount',
+
+    'No reservations'=>'No reservations',
+
+    'external'=>'External',
+
+    'Booking destination:'=>'Booking destination:',
+
+    'counttotalday'=>'Number of days of reservation',
+
+    'addedBooking_successfully'=>'Added Booking Successfully',
+
+    'Add an external reservation'=>'Add an external reservation',
+
     'Set the price'=>'Set the price',
 'Regular day price'=>'Regular day price',
     'If you have a problem update your ad, please call us'=>'If you have a problem update your ad, please call us',

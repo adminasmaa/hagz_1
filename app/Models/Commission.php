@@ -5,23 +5,33 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use App\Models\User;   //belongsTo
+use App\Models\User;
+
+//belongsTo
 
 class Commission extends Model
 {
-    use HasFactory,SoftDeletes;
-    public $guarded = ['id'];
+    use HasFactory, SoftDeletes;
+
 
     protected $table = 'commissions';
+    protected $guarded = [];
 
-    protected $fillable = [
-        'price', // nullable
-        'status', // default (0)
-        'user_id', //unsigned
-    ];
     // relations
-    public function user(){
-        return $this->belongsTo(User::class,'user_id');
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+
+    public function aqar()
+    {
+        return $this->belongsTo(Aqar::class, 'aqar_id');
+    }
+
+    public function booking()
+    {
+        return $this->belongsTo(Booking::class, 'booking_id');
     }
     // relations
 

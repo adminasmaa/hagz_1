@@ -58,22 +58,21 @@
 
                                 <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.commission')<span class="text-danger">*</span></label>
-                                        <input type="float" name="price" class="form-control"
-                                               value="{{$commission->price}}"
-                                            >
-                                    </div>
-                                <div class="col-md-6 form-group">
-                                    <label class="form-label">@lang('site.status')</label><span class="text-danger">*</span>
-                                    <select class="js-example-placeholder-multiple col-sm-12" name="status">
-                                            <option selected>@lang('site.select')</option>
-                                        <option value="1"
-                                                @if($commission->status=='1') selected @endif>@lang('site.active')
-                                        </option>
-                                        <option value="0"
-                                                @if($commission->status=='0') selected @endif>@lang('site.not-active')
-                                        </option>
+                                    <select class="js-example-placeholder-multiple col-sm-12" name="value">
+                                        <option>   @lang('site.Choisissez votre commission')</option>
+                                        @for ($x = 0; $x <= 20; $x++)
+                                            <option value="{{$x}}" @if($commission->value==$x) selected @endif>{{$x}} %</option>
+                                        @endfor
                                     </select>
                                     </div>
+                                <div class="col-md-6 form-group">
+                                    <label class="form-label">@lang('site.type')</label>
+                                    <select class="js-example-placeholder-multiple col-sm-12" name="type">
+                                        <option>@lang('site.select')</option>
+                                        <option value="paid" @if($commission->type=='paid') selected @endif>@lang('site.paid')</option>
+                                        <option value="nopaid" @if($commission->type=='nopaid') selected @endif>@lang('site.nopaid') </option>
+                                    </select>
+                                </div>
                                 </div>
                                 <div class="row">
 
@@ -83,13 +82,26 @@
                                         <option selected>@lang('site.select')</option>
                                         @foreach($users as $user)
 
-                                            <option value="{{$user->id}}"@if($commission->user_id==$user->id) selected @endif>{{$user->firstname . $user->lastname ?? ''}}</option>
+                                            <option value="{{$user->id}}" @if($commission->user_id==$user->id) selected @endif>{{$user->firstname . $user->lastname ?? ''}}</option>
 
                                         @endforeach
 
                                     </select>
                                 </div>
 
+
+                                    <div class="col-md-6 form-group">
+                                        <label class="form-label">@lang('site.aquars')</label><span class="text-danger">*</span>
+                                        <select class="js-example-placeholder-multiple col-sm-12" name="aqar_id">
+                                            <option selected>@lang('site.select')</option>
+                                            @foreach(\App\Models\Aqar::get() as $aqar)
+
+                                                <option value="{{$aqar->id}}"  @if($commission->aqar_id==$aqar->id) selected @endif>{{$aqar->name ?? ''}}</option>
+
+                                            @endforeach
+
+                                        </select>
+                                    </div>
 
 
                             <br>

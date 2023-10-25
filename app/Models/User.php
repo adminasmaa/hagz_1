@@ -81,6 +81,12 @@ class User extends Authenticatable
     public function aqars(){
         return $this->HasMany(Aqar::class);
     }
+   public function bookings(){
+        return $this->HasMany(Booking::class);
+    }
+   public function commissions(){
+        return $this->HasMany(Commission::class);
+    }
 
 
     public function country(){

@@ -280,6 +280,13 @@
 
 @endif
 
+
+
+<!--datepicker-->
+<script src="{{FRONTASSETS}}/assets/js/datepicker/js/datepicker.min.js"></script>
+<script src="{{FRONTASSETS}}/assets/js/customdate.js"></script>
+
+
 <script>
 
 

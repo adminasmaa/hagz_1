@@ -167,12 +167,12 @@
                                         <div class="w-md-40">
                                             <ul class="list-menu flex-center list-unstyled p-0">
                                                 <li class="liItem-booking-out">
-                                                    <a href="#">
+                                                    <a href="{{route('invest.addbooking',$aquar->id)}}">
                                                         <i class="fas fa-file-plus"></i>
-                                                        اضافة حجز خارجى</a>
+                                                        @lang('site.Add an external reservation')</a>
                                                 </li>
                                                 <li class="liItem-booking">
-                                                    <a href="#">
+                                                    <a href="{{route('invest.booking')}}">
                                                         <i class="far fa-book-open"></i>
                                                         @lang('site.bookings')
                                                     </a>

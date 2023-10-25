@@ -153,7 +153,8 @@
                                                             </a>
                                                         </li>
                                                         <li>
-                                                            <a href="#" class="d-flex align-items-center">
+                                                            <a href="{{route('invest.mybooking')}}"
+                                                               class="d-flex align-items-center">
                                                                 <div class="profile-ic">
                                                                     <i class="far fa-book-open"></i>
                                                                 </div>
@@ -298,56 +299,55 @@
 
                     @if(!empty(auth()->user()) && auth()->user()->account_type='invest' )
 
+                        <ul
+                            class="navbar-nav d-flex align-items-center flex-lg-row position-relative"
+                        >
+                            <li class="nav-link {{($current_route=='Home')?'active':'' }}">
+                                <a href="{{route('Home')}}" class="home-link"> @lang('site.home') </a>
+                            </li>
+
+                            <li class="nav-link {{((in_array($current_route,
+                                ['invest.addAds','invest.showAds','invest.editads']))?'active':'' )}}">
+                                <a href="{{route('invest.showAds')}}" class="nav-link"> @lang('site.aquars') </a>
+                            </li>
 
 
+                            <li class="nav-link {{((in_array($current_route,
+                                ['invest.booking','invest.mybooking']))?'active':'' )}}">
+                                <a href="{{route('invest.booking')}}" class="nav-link"> @lang('site.bookings') </a>
+                            </li>
+                            <li class="nav-link">
+                                <a href="javascript:void(0)" class="nav-link"> @lang('site.commissions') </a>
+                            </li>
+                            <li class="nav-link {{($current_route=='invest.term')?'active':'' }}">
+                                <a href="{{route('invest.term')}}"
+                                   class="nav-link">   @lang('site.Reservation and cancellation conditions') </a>
+                            </li>
 
 
+                        </ul>
 
-                            <ul
-                                class="navbar-nav d-flex align-items-center flex-lg-row position-relative"
-                            >
-                                <li class="nav-link {{($current_route=='Home')?'active':'' }}">
-                                    <a href="{{route('Home')}}" class="home-link"> @lang('site.home') </a>
+                    @else
+
+                        <ul
+                            class="navbar-nav d-flex align-items-center flex-lg-row position-relative"
+
+
+                        >
+                            <li class="nav-link {{($current_route=='Home')?'active':'' }}">
+                                <a href="{{route('Home')}}" class="home-link"> @lang('site.home') </a>
+                            </li>
+
+                            @foreach($categories as $catt)
+                                <li class="nav-link {{($current_route=='aquars')?'active':'' }}">
+
+                                    <a href="{{route('aquars',$catt->id)}}"> {{$catt->name ?? ''}} </a>
                                 </li>
+                            @endforeach
 
-                                <li class="nav-link">
-                                    <a href="javascript:void(0)" class="nav-link"> @lang('site.aquars') </a>
-                                </li>
-                                <li class="nav-link {{($current_route=='invest.booking')?'active':'' }}">
-                                    <a href="{{route('invest.booking')}}" class="nav-link"> @lang('site.bookings') </a>
-                                </li>
-                                <li class="nav-link">
-                                    <a href="javascript:void(0)" class="nav-link"> @lang('site.commissions') </a>
-                                </li>
-                                <li class="nav-link {{($current_route=='invest.term')?'active':'' }}">
-                                    <a href="{{route('invest.term')}}"
-                                       class="nav-link">   @lang('site.Reservation and cancellation conditions') </a>
-                                </li>
+                        </ul>
 
-
-                            </ul>
-
-                        @else
-
-                            <ul
-                                class="navbar-nav d-flex align-items-center flex-lg-row position-relative"
-
-
-                            >
-                                <li class="nav-link {{($current_route=='Home')?'active':'' }}">
-                                    <a href="{{route('Home')}}" class="home-link"> @lang('site.home') </a>
-                                </li>
-
-                                @foreach($categories as $catt)
-                                    <li class="nav-link {{($current_route=='aquars')?'active':'' }}">
-
-                                        <a href="{{route('aquars',$catt->id)}}"> {{$catt->name ?? ''}} </a>
-                                    </li>
-                                @endforeach
-
-                            </ul>
-
-                        @endif
+                    @endif
                 </div>
 
                 <div class="col-4">
@@ -624,7 +624,6 @@
     <nav class="navbar side-menu-nav">
         @if(!empty(auth()->user()) && auth()->user()->account_type='invest' )
 
-
             <ul
                 class="main-menu d-flex flex-column flex-lg-row align-items-lg-center list-unstyled p-0 m-0"
             >
@@ -632,10 +631,14 @@
                     <a href="{{route('Home')}}" class="home-link"> @lang('site.home') </a>
                 </li>
 
-                <li class="nav-item">
-                    <a href="javascript:void(0)" class="nav-link"> @lang('site.aquars') </a>
+
+                <li class="nav-item {{((in_array($current_route,
+                                ['invest.addAds','invest.showAds','invest.editads']))?'active':'' )}}">
+                    <a href="{{route('invest.showAds')}}" class="nav-link"> @lang('site.aquars') </a>
                 </li>
-                <li class="nav-item {{($current_route=='invest.booking')?'active':'' }}">
+
+                <li class="nav-item {{((in_array($current_route,
+                                ['invest.booking','invest.mybooking']))?'active':'' )}}">
                     <a href="{{route('invest.booking')}}" class="nav-link"> @lang('site.bookings') </a>
                 </li>
                 <li class="nav-item">
@@ -721,7 +724,7 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#" class="d-flex align-items-center">
+                                            <a href="{{route('invest.mybooking')}}" class="d-flex align-items-center">
                                                 <div class="profile-ic">
                                                     <i class="far fa-book-open"></i>
                                                 </div>

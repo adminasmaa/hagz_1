@@ -36,13 +36,13 @@
                                     />
                                     <div class="pt-md-4 pt-2">
                                         <h3 class="mb-0">@lang('site.aquars')</h3>
-                                        <p class="mb-0">10</p>
+                                        <p class="mb-0">{{auth()->user()->aqars->count() ?? 0}}</p>
                                     </div>
                                 </div>
                             </a>
                         </div>
                         <div class="col-lg-4 col-sm-6 col-12">
-                            <a href="{{route('invest.booking')}}">
+                            <a href="{{route('invest.mybooking')}}">
                                 <div class="booking_card mb-lg-5 mb-4 text-center py-sm-5 py-4">
                                     <img
                                         src="{{FRONTASSETS}}/assets/images/investor/booking_ic2.png"
@@ -50,7 +50,7 @@
                                     />
                                     <div class="pt-md-4 pt-2">
                                         <h3 class="mb-0">@lang('site.bookings')</h3>
-                                        <p class="mb-0">10</p>
+                                        <p class="mb-0">{{auth()->user()->bookings->count() ?? 0}}</p>
                                     </div>
                                 </div>
                             </a>
@@ -64,7 +64,7 @@
                                     />
                                     <div class="pt-md-4 pt-2">
                                         <h3 class="mb-0">@lang('site.commissions')</h3>
-                                        <p class="mb-0">10</p>
+                                        <p class="mb-0">{{auth()->user()->commissions->count() ?? 0}}</p>
                                     </div>
                                 </div>
                             </a>
