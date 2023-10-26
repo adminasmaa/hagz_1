@@ -172,7 +172,7 @@
                                                         @lang('site.Add an external reservation')</a>
                                                 </li>
                                                 <li class="liItem-booking">
-                                                    <a href="{{route('invest.booking')}}">
+                                                    <a href="{{route('invest.mybooking')}}">
                                                         <i class="far fa-book-open"></i>
                                                         @lang('site.bookings')
                                                     </a>
@@ -192,15 +192,19 @@
                                                     </a>
                                                 </li>
                                                 <li class="liItem-booking-see">
-                                                    <a href="#">
+                                                    <a href="{{route('detailAqar',$aquar->id)}}">
                                                         <i class="far fa-eye"></i>
                                                         @lang('site.view')
                                                     </a>
                                                 </li>
                                                 <li class="liItem-booking-stop">
-                                                    <a href="#">
+                                                    <a href="{{route('invest.updatestatus',$aquar->id)}}">
                                                         <i class="far fa-stopwatch"></i>
+                                                        @if($aquar->active==1)
                                                         @lang('site.Pause')
+                                                        @else
+                                                        @lang('site.active')
+                                                        @endif
                                                     </a>
                                                 </li>
                                             </ul>

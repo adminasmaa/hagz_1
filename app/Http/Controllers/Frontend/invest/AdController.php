@@ -24,6 +24,21 @@ class AdController extends Controller
     }
 
 
+    public function updatestatus($id)
+    {
+
+        $aqar = Aqar::find($id);
+        $status = ($aqar->active == 0) ? 1 : 0;
+        $aqar->active = $status;
+        $aqar->save();
+
+        Alert::success('Success', __('site.updated_status_successfully'));
+
+
+        return back();
+
+    }
+
     public function show(Request $request)
     {
 
@@ -32,7 +47,8 @@ class AdController extends Controller
 
         if (!empty($request->search)) {
 
-            $aqars = Aqar::where('user_id', '=', $user)->where('id', 'LIKE', '%' . $request->search . '%')
+            $aqars = Aqar::where('user_id', '=', $user)
+                ->orWhere('id', 'LIKE', '%' . $request->search . '%')
                 ->orWhere('name_ar', 'LIKE', '%' . $request->search . '%')
                 ->paginate(10);
 
@@ -54,6 +70,15 @@ class AdController extends Controller
         $aqar = Aqar::with('aqarSection')->find($id);
         $aqar['changed_price'] = json_decode($aqar['changed_price']);
         return view('frontend.invest.ads.edit', compact('aqar'));
+
+    }
+
+    public function detailsads($id)
+    {
+
+        $aqar = Aqar::with('aqarSection')->find($id);
+        $aqar['changed_price'] = json_decode($aqar['changed_price']);
+        return view('frontend.invest.ads.details', compact('aqar'));
 
     }
 

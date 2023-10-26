@@ -100,6 +100,8 @@ return [
     'conditionBooking' => "ما هي شروط حجزي؟ ",
     'allownumber' => 'العدد المسموح بيه',
 
+
+    'Confirm payment'=>'تأكيد الدفع',
     'families' => 'عائلات',
 
     'Individuals' => 'الافراد',
@@ -352,6 +354,10 @@ return [
     'variants' => 'المتغيرات',
     'add_new_option' => 'إضافة متغير جديد',
 
+    'No commissions'=>'لا يوجد عمولات',
+
+    'confirmpayment_successfully'=>'تم  تاكيد الدفع بنجاح',
+
     'imagess' => 'صور اضافية',
     'commission' => 'العمولة',
     'desc_en' => 'الوصف بالانجليزية',
@@ -362,6 +368,8 @@ return [
     'Cancel' => 'إلغاء',
     'copy' => 'نسخ',
 
+
+'updated_status_successfully'=>' تم تغير الحاله بنجاح',
     'cost' => 'التكلفة',
     'selected' => 'اختيار',
     'position' => 'وضع',
@@ -493,7 +501,7 @@ return [
     'add' => 'اضافة جديد',
     'create' => 'اضافة',
     'viewAny' => 'مشاهدة الكل',
-    'view' => ' اعلي مشاهدة  ',
+    'view' => '  مشاهدة  ',
     'read' => 'قراءة',
     'edit' => 'تعديل',
     'update' => 'تحديث',
@@ -684,6 +692,7 @@ return [
     'paid' => 'مدفوع',
     'not_paid' => 'غير مدفوع',
     'payment_type' => 'طريقة الدفع',
+    'Paids'=>'دفع',
     'quantity' => 'الكمية',
     'id' => 'الرقم التسلسلي',
     'mediators' => 'الوسطاء',
@@ -709,14 +718,22 @@ return [
     'place' => 'الاماكن ',
     'car' => ' السيارات',
     'commissions' => ' العمولات',
+
+    'Unpaid commissions'=>'عمولات غير مدفوعة',    'Paid commissions'=>'عمولات  مدفوعة',
+
     'text' => 'نص',
     // notifications
     ///////////////Aquar
     'accepted' => 'قبول',
     'reject' => 'رفض',
     'booking_id' => 'رقم الحجز',
+    'Reservation amount'=>'مبلغ الحجز',
+
+    'You will pay a commission amount'=>'سوف تقوم بدفع عموله وقدرها',
+
     'type' => 'النوع',
     'aquars' => 'الاعلانات',
+    'aquar' => 'الاعلان',
     'required' => 'المطلوب',
     'aquarcategories' => 'فئات العقارات',
     'aqars' => 'الاعلانات',

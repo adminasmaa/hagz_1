@@ -87,6 +87,36 @@ class BookingController extends Controller
 
     }
 
+    public function confirmpayment(Request $request)
+    {
+
+
+        $commission = Commission::find($request->id);
+
+        $commission->update([
+            'type' => 'paid'
+        ]);
+
+        Alert::success('Success', __('site.confirmpayment_successfully'));
+
+        return back();
+
+    }
+
+
+    public function commissions()
+    {
+
+
+        $commisionpaids = Commission::where('type', '=', 'paid')->where('user_id', '=', Auth::id())->get();
+        $paidcount = Commission::where('type', '=', 'paid')->where('user_id', '=', Auth::id())->count();
+        $commisionunpaids = Commission::where('type', '=', 'nopaid')->where('user_id', '=', Auth::id())->get();
+        $unpaidscount = Commission::where('type', '=', 'nopaid')->where('user_id', '=', Auth::id())->count();
+
+        return view('frontend.invest.booking.commissions', compact('commisionunpaids', 'commisionpaids', 'paidcount', 'unpaidscount'));
+
+    }
+
     public function diffInDays($date1, $date2)
     {
         $diff = strtotime($date2) - strtotime($date1);
@@ -129,17 +159,17 @@ class BookingController extends Controller
         $commission = Commission::create([
 
             'type' => 'nopaid',
-            'value'=>$comision,
-            'user_id'=>Auth::id(),
-            'aqar_id'=>$request['aqar_id'],
-            'booking_id'=>$booking->id
+            'value' => $comision,
+            'user_id' => Auth::id(),
+            'aqar_id' => $request['aqar_id'],
+            'booking_id' => $booking->id
         ]);
 
 
         if ($booking) {
             Alert::success('Success', __('site.addedBooking_successfully'));
 
-            return back();
+            return redirect(route('invest.mybooking'));
 
         }
 

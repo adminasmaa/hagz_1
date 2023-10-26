@@ -9,6 +9,8 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
        //start booking
         Route::get('/booking', 'App\Http\Controllers\Frontend\invest\BookingController@index')->name('booking');
         Route::get('/mybooking', 'App\Http\Controllers\Frontend\invest\BookingController@mybooking')->name('mybooking');
+        Route::get('/commissions', 'App\Http\Controllers\Frontend\invest\BookingController@commissions')->name('commissions');
+        Route::post('/confirmpayment', 'App\Http\Controllers\Frontend\invest\BookingController@confirmpayment')->name('confirmpayment');
 
         Route::get('/addbooking/{id}', 'App\Http\Controllers\Frontend\invest\BookingController@addbooking')->name('addbooking');
         Route::post('/addbookingAd', 'App\Http\Controllers\Frontend\invest\BookingController@addbookingAd')->name('addbookingAd');
@@ -21,6 +23,8 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
         Route::get('/showAds', 'App\Http\Controllers\Frontend\invest\AdController@show')->name('showAds');
         Route::post('/AjaxAddAds', 'App\Http\Controllers\Frontend\invest\AdController@store')->name('AjaxAddAds');
         Route::get('/editads/{id}', 'App\Http\Controllers\Frontend\invest\AdController@edit')->name('editads');
+        Route::get('/detailsads/{id}', 'App\Http\Controllers\Frontend\invest\AdController@detailsads')->name('detailsads');
+        Route::get('/updatestatus/{id}', 'App\Http\Controllers\Frontend\invest\AdController@updatestatus')->name('updatestatus');
         Route::put('/updateads/{id}', 'App\Http\Controllers\Frontend\invest\AdController@update')->name('updateads');
 
         //end adverse (ads)

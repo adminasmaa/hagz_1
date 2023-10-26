@@ -334,16 +334,20 @@
                                                                     </a>
                                                                 </li>
                                                                 <li class="liItem-booking-see">
-                                                                    <a href="#" class="liItem-link">
+                                                                    <a href="{{route('detailAqar',$book->aqar_id)}}" class="liItem-link">
                                                                         <i class="far fa-eye"></i>
                                                                         @lang('site.view')
                                                                     </a>
                                                                 </li>
                                                                 <li class="liItem-booking-stop">
-                                                                    <button type="button" class="liItem-link">
+                                                                    <a href="{{route('invest.updatestatus',$book->aqar_id)}}" class="liItem-link">
                                                                         <i class="far fa-stopwatch"></i>
-                                                                        @lang('site.Pause')
-                                                                    </button>
+                                                                        @if($book->aqar->active==1)
+                                                                            @lang('site.Pause')
+                                                                        @else
+                                                                            @lang('site.active')
+                                                                        @endif
+                                                                    </a>
                                                                 </li>
                                                             </ul>
                                                         </div>

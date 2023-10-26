@@ -316,8 +316,8 @@
                                 ['invest.booking','invest.mybooking']))?'active':'' )}}">
                                 <a href="{{route('invest.booking')}}" class="nav-link"> @lang('site.bookings') </a>
                             </li>
-                            <li class="nav-link">
-                                <a href="javascript:void(0)" class="nav-link"> @lang('site.commissions') </a>
+                            <li class="nav-link {{($current_route=='invest.commissions')?'active':'' }}">
+                                <a href="{{route('invest.commissions')}}" class="nav-link"> @lang('site.commissions') </a>
                             </li>
                             <li class="nav-link {{($current_route=='invest.term')?'active':'' }}">
                                 <a href="{{route('invest.term')}}"
@@ -641,8 +641,8 @@
                                 ['invest.booking','invest.mybooking']))?'active':'' )}}">
                     <a href="{{route('invest.booking')}}" class="nav-link"> @lang('site.bookings') </a>
                 </li>
-                <li class="nav-item">
-                    <a href="javascript:void(0)" class="nav-link"> @lang('site.commissions') </a>
+                <li class="nav-item {{($current_route=='invest.commissions')?'active':'' }}">
+                    <a href="{{route('invest.commissions')}}" class="nav-link"> @lang('site.commissions') </a>
                 </li>
                 <li class="nav-item {{($current_route=='invest.term')?'active':'' }}">
                     <a href="{{route('invest.term')}}"

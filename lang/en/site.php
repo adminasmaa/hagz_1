@@ -10,17 +10,34 @@ return [
 
     'Show results'=>'Show results',
 
+'updated_status_successfully'=>'The status has been changed successfully',
+
+    'confirmpayment_successfully'=>'Payment has been confirmed successfully',
+
     'Application reservations'=>'Application reservations',
 
     'External reservations'=>'External reservations',
 
     'Reservations canceled'=>'Reservations canceled',
 
+    'You will pay a commission amount'=>'You will pay a commission amount',
+
+    'Confirm payment'=>'Confirm payment',
+
+    'No commissions'=>'No Commissions',
+
+    'Paids'=>'Paid',
+    'Reservation amount'=>'Reservation Amount',
+
     'archives'=>'Archives',
 
     'No Favourite'=>'No Favourite',
 
     'nopaid'=>'Not Paid',
+
+    'Unpaid commissions'=>'Unpaid Commissions',
+
+    'Paid commissions'=>'Paid Commissions',
 
 
     'Search by customer'=>'Search by customer name / phone number / advertisement number',
