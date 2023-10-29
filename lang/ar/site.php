@@ -812,7 +812,7 @@ return [
 
     'Pause' => 'ايقاف مؤقت',
 
-    'Enter the advertisement number' => 'ادخل رقم الاعلان',
+    'Enter the advertisement number' => '   ادخل رقم الاعلان او الاسم',
 
     'space' => 'المساحة',
     'services_aqars' => 'خدمات العقارات',

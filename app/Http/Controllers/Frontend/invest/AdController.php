@@ -45,20 +45,14 @@ class AdController extends Controller
         $user = Auth::id();
 
 
-        if (!empty($request->search)) {
-
-            $aqars = Aqar::where('user_id', '=', $user)
-                ->orWhere('id', 'LIKE', '%' . $request->search . '%')
-                ->orWhere('name_ar', 'LIKE', '%' . $request->search . '%')
-                ->paginate(10);
-
-        } else {
-            $aqars = Aqar::where('user_id', '=', $user)->paginate(10);
-
-        }
+        $aqars = Aqar::where('user_id', '=', $user)
+            ->when($request->search, function ($query) use ($request) {
+                $query->where('id', 'like', '%' . $request->search . '%')
+                    ->orWhere('name_ar', 'like', '%' . $request->search . '%');
 
 
-//        return $aqars;
+            })->paginate(10);
+
 
         return view('frontend.invest.ads.show', compact('aqars'));
 

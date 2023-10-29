@@ -41,6 +41,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/css/intlTelInput.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+    <link rel="stylesheet" href="{{FRONTASSETS}}/assets/js/datepicker/css/datepicker.min.css">
     @yield('css')
 
     <style>
@@ -153,7 +154,7 @@
                                                             </a>
                                                         </li>
                                                         <li>
-                                                            <a href="{{route('invest.mybooking')}}"
+                                                            <a href="{{route('invest.mybooking','type=1')}}"
                                                                class="d-flex align-items-center">
                                                                 <div class="profile-ic">
                                                                     <i class="far fa-book-open"></i>
@@ -724,7 +725,7 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="{{route('invest.mybooking')}}" class="d-flex align-items-center">
+                                            <a href="{{route('invest.mybooking','type=1')}}" class="d-flex align-items-center">
                                                 <div class="profile-ic">
                                                     <i class="far fa-book-open"></i>
                                                 </div>

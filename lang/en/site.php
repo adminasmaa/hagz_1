@@ -138,7 +138,7 @@ return [
     'Advertisement category' => 'Advertisement category',
     'prices' => 'Prices',
     'Pause' => 'Pause',
-    'Enter the advertisement number' => 'Enter the advertisement number',
+    'Enter the advertisement number' => 'Enter The Advertisement Number Or Name',
 
 
     'Individuals' => 'Individuals',
@@ -417,6 +417,7 @@ return [
     'Notdeleted_successfully' => 'cannot deleted this pages ',
     'distance' => 'distance',
 
+    'client_name'=>'Client Name',
     'ingredients_en' => 'Ingredients English',
     'ingredients_ar' => 'Ingredients Arabic',
 

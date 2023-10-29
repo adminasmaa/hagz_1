@@ -28,7 +28,7 @@ return new class extends Migration
             $table->string('date')->nullable();
             $table->string('price')->nullable();
             $table->string('total_price')->nullable();
-            $table->integer('status')->nullable();
+            $table->string('status')->nullable();
 
             $table->integer('aqar_id')->nullable( )->unsigned();
             $table->foreign('aqar_id')->references('id')->on('aqars');

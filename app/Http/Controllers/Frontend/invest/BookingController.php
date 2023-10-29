@@ -30,22 +30,22 @@ class BookingController extends Controller
 //        return $request;
         $user_id = Auth::id();
 
-        if (!empty($request->search)) {
-
-//return "search";
-            $bookings = Booking::where('user_id', $user_id)
-                ->orWhere('aqar_id', 'LIKE', '%' . $request->search . '%')
-                ->orWhere('name', 'LIKE', '%' . $request->search . '%')
-                ->orWhere('phone', 'LIKE', '%' . $request->search . '%')
-                ->paginate(10);
-
-//            return $bookings;
-
-        } else {
-
-            $bookings = Booking::where('user_id', '=', $user_id)->paginate(10);
-
-        }
+//        if (!empty($request->search)) {
+//
+////return "search";
+//            $bookings = Booking::where('user_id', $user_id)
+//                ->orWhere('aqar_id', 'LIKE', '%' . $request->search . '%')
+//                ->orWhere('name', 'LIKE', '%' . $request->search . '%')
+//                ->orWhere('phone', 'LIKE', '%' . $request->search . '%')
+//                ->paginate(10);
+//
+////            return $bookings;
+//
+//        } else {
+//
+//            $bookings = Booking::where('user_id', '=', $user_id)->paginate(10);
+//
+//        }
 
         if (!empty($request->type)) {
 
@@ -53,20 +53,52 @@ class BookingController extends Controller
             if ($request->type == 2) {
 
 
-                $bookings = Booking::where('user_id', '=', $user_id)->where('type', '=', 'application')->paginate(10);
+                $bookings = Booking::where('user_id', '=', $user_id)->where('type', '=', 'application')
+                    ->when($request->search, function ($query) use ($request) {
+                        $query->where('aqar_id', 'like', '%' . $request->search . '%')
+                            ->orWhere('name', 'like', '%' . $request->search . '%')
+                            ->orWhere('phone', 'like', '%' . $request->search . '%');
+
+                    })->where('type', '=', 'application')
+                    ->paginate(10);
+
 
             } elseif ($request->type == 3) {
 
-                $bookings = Booking::where('user_id', '=', $user_id)->where('type', '=', 'website')->paginate(10);
+
+                $bookings = Booking::where('user_id', '=', $user_id)->where('type', '=', 'website')
+                    ->when($request->search, function ($query) use ($request) {
+                        $query->where('aqar_id', 'like', '%' . $request->search . '%')
+                            ->orWhere('name', 'like', '%' . $request->search . '%')
+                            ->orWhere('phone', 'like', '%' . $request->search . '%');
+
+                    })->where('type', '=', 'website')
+                    ->paginate(10);
+
 
             } elseif ($request->type == 4) {
 
 
-                $bookings = Booking::where('user_id', '=', $user_id)->where('status', '=', 'canceled')->paginate(10);
+                $bookings = Booking::where('user_id', '=', $user_id)->where('status', '=', 'canceled')
+                    ->when($request->search, function ($query) use ($request) {
+                        $query->where('aqar_id', 'like', '%' . $request->search . '%')
+                            ->orWhere('name', 'like', '%' . $request->search . '%')
+                            ->orWhere('phone', 'like', '%' . $request->search . '%');
+
+                    })->where('status', '=', 'canceled')
+                    ->paginate(10);
 
             } else {
 
-                $bookings = Booking::where('user_id', '=', $user_id)->paginate(10);
+
+                $bookings = Booking::where('user_id', '=', $user_id)
+                    ->when($request->search, function ($query) use ($request) {
+                        $query->where('aqar_id', 'like', '%' . $request->search . '%')
+                            ->orWhere('name', 'like', '%' . $request->search . '%')
+                            ->orWhere('phone', 'like', '%' . $request->search . '%');
+
+                    })
+                    ->paginate(10);
 
             }
         }
@@ -124,6 +156,32 @@ class BookingController extends Controller
     }
 
 
+    public function getdaycount(Request $request)
+    {
+
+
+        $reciept_date = Carbon::createFromFormat('d/m/Y', $request->reciept_date)
+            ->format('d-m-Y');
+
+        $delivery_date = Carbon::createFromFormat('d/m/Y', $request->delivery_date)
+            ->format('d-m-Y');
+
+
+        $aqarprice = Aqar::find($request['aqar_id'])->first()->fixed_price ?? 0;
+
+        $day_count = $this->diffInDays($delivery_date, $reciept_date);
+
+        $total_price = $aqarprice * $day_count;
+
+        $data['days'] = $day_count;
+        $data['price'] = $total_price;
+
+
+        return response()->json(['status' => 200, 'content' => 'success', 'data' => $data]);
+
+
+    }
+
     public function addbookingAd(Request $request)
     {
 
@@ -139,7 +197,7 @@ class BookingController extends Controller
 
         $day_count = $this->diffInDays($delivery_date, $reciept_date);
 
-        $total_price = $aqarprice * $day_count + $comision;
+        $total_price = $aqarprice * $day_count;
 
         $booking = Booking::updateOrCreate(['user_id' => Auth::id(), 'aqar_id' => $request['aqar_id']], [
 

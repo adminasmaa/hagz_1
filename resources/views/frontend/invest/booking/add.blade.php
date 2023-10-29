@@ -47,7 +47,7 @@
                                                 name="reciept_date"
                                                 id="datepicker"
                                                 value=""
-                                                class="form-control hagz-input calendar"
+                                                class="form-control hagz-input calendar recieptdate"
                                                 required
                                             />
                                             <span class="icon-placeholder">
@@ -67,8 +67,9 @@
                                                 name="delivery_date"
                                                 id="datepicker1"
                                                 value=""
-                                                class="form-control hagz-input calendar"
+                                                class="form-control hagz-input calendar deliverydate"
                                                 required
+
                                             />
                                             <span class="icon-placeholder">
                         <i class="fas fa-calendar"></i>
@@ -80,10 +81,14 @@
                                         <div class="booking-days text-center">
 
 
-                                            @lang('site.counttotalday')
+                                            @lang('site.counttotalday'):<span id="days"></span>
+                                        </div>
+                                        <div class="booking-days text-center mb-3">
+                                            {{trans('site.Total amount')}}:<span id="total"></span>
                                         </div>
                                     </div>
-                                    <input type="hidden" name="aqar_id" value="{{$aqar->id}}">
+                                    <input type="hidden" name="aqar_id" value="{{$aqar->id}}" class="aqar_id">
+                                    <input type="hidden" name="price" id="price" value="{{$aqar->fixed_price}}">
                                     <div class="col-lg-5 mb-4">
                                         <label for="totalAmount" class="pb-2 hagz-lbl">
                                             {{trans('site.Total amount')}}
@@ -155,50 +160,37 @@
             <!-- /section -->
         </form>
         <!-- Modal payment -->
-        <div
-            class="modal fade modal-custom modal-height-mobile"
-            id="paymentModal"
-            tabindex="-1"
-            aria-labelledby="paymentModalLabel"
-            aria-hidden="true"
-        >
-            <div class="modal-dialog small-modal">
-                <div class="modal-content">
-                    <button
-                        type="button"
-                        class="close-modal d-flex justify-content-center align-items-center"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                    >
-                        <i class="fal fa-times"></i>
-                    </button>
-                    <div
-                        class="modal-body mt-5 modal-payment-body d-md-flex justify-content-between"
-                    >
-                        <div
-                            class="payment-modal-header d-flex justify-content-center align-items-center"
-                        >
-                            <h3 class="mb-md-5 mb-3">
-                                تم اضافة الحجز <br/>
-                                بنجاح
-                            </h3>
-                        </div>
-                        <div class="static-image">
-                            <img
-                                src="{{FRONTASSETS}}/assets/images/investor/bg-payment.png"
-                                alt="payment image"
-                            />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
     </main>
 
 @endsection
 
 @section('scripts')
 
+{{--    <script>--}}
+{{--        function getcountday()--}}
+
+{{--        {--}}
+{{--            var start = $('.recieptdate').val();--}}
+{{--            var end = $('.deliverydate').val();--}}
+
+{{--            var start = new Date(start);--}}
+{{--            var end = new Date(end);--}}
+
+{{--            var diffDate = (end - start) / (1000 * 60 * 60 * 24);--}}
+{{--            var days = Math.round(diffDate);--}}
+
+{{--            $("#days").text(days);--}}
+{{--            var price = $('#price').val();--}}
+
+{{--            var total=price*days;--}}
+
+{{--            $("#total").text(total);--}}
+
+
+
+{{--        }--}}
+{{--    </script>--}}
 
     <script>
 
@@ -247,5 +239,47 @@
     </script>
 
 
+
+    <script>
+
+
+
+        jQuery('.deliverydate').change(function (e) {
+            // console.log("daaaa");
+            e.preventDefault();
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+
+            jQuery.ajax({
+                headers: {'X-CSRF-TOKEN': $('meta[name="csrf_token"]').attr('content')},
+
+                url: "{{ route('invest.getdaycount') }}",
+                method: 'get',
+                data: {
+                    _token: '{{ csrf_token() }}',
+                    reciept_date: jQuery('.recieptdate').val(),
+                    delivery_date: jQuery('.deliverydate').val(),
+                    aqar_id: jQuery('.aqar_id').val(),
+                },
+                success: function (result) {
+                    console.log(result);
+                    $("#days").text(result.data.days);
+                    $("#total").text(result.data.price);
+
+                },
+                error: function (result) {
+                    console.log(result.responseJSON);
+
+
+
+                }
+            });
+        });
+
+    </script>
 
 @endsection

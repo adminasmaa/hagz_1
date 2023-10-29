@@ -31,17 +31,17 @@
                 <div class="row farm-details" id="slideshow">
                     <div class="col-lg-7">
                         <div id="slides">
-                            @if(!empty($aquar->images))
-                                @foreach(explode(',',$aquar->images) as $key=>$img)
+
+                            @if($aqar->images)
+                                @foreach ((explode(',',$aqar->images)) as $key=>$img)
                                     <div class="slide show" data-slide="{{$key}}">
-                                        <img
-
-                                            src="{{asset('images/aqars/'.$img)}}"
-
-                                            onerror="this.src='{{FRONTASSETS}}/assets/images/farm-image.png'"
-                                            alt="farm image"/>
+                                        <img src="{{asset('images/aqars/'.$img)}}"
+                                             alt=""
+                                             onerror="this.src='{{asset('images/aqars/default.jpg')}}'"
+                                        />
                                     </div>
                                 @endforeach
+
                             @else
                                 <div class="slide show" data-slide="1">
                                     <img src="{{FRONTASSETS}}/assets/images/farm-img-1.svg" alt="farm image"/>
@@ -62,15 +62,14 @@
                             </div>
                         </div>
                         <div id="gallery" class="d-flex flex-wrap">
-                            @if(!empty($aquar->images))
-                                @foreach(explode(',',$aquar->images) as $k=>$imgg)
+
+                            @if($aqar->images)
+                                @foreach ((explode(',',$aqar->images)) as $k=>$img)
                                     <div class="thumbnail active" data-slide="{{$k}}">
-                                        <img
-
-                                            src="{{asset('images/aqars/'.$imgg)}}"
-
-                                            onerror="this.src='{{FRONTASSETS}}/assets/images/farm-image.png'"
-                                            alt="farm image"/>
+                                        <img id="frame" src="{{asset('images/aqars/'.$img)}}"
+                                             alt=""
+                                             onerror="this.src='{{asset('images/aqars/default.jpg')}}'"
+                                        />
                                     </div>
                                 @endforeach
 
@@ -228,7 +227,7 @@
                             <div class="farm-data-img">
                                 <img src="{{FRONTASSETS}}/assets/images/area-ic.svg" alt="families icon"/>
                             </div>
-                            <div class="text-second">     @lang('site.total_area'):    {{$aqar->total_area?? 0}}</div>
+                            <div class="text-second">     @lang('site.total_area'): {{$aqar->total_area?? 0}}</div>
                         </div>
                     </div>
                 </div>
@@ -257,7 +256,7 @@
                                         href="#tab-3"
                                         class="tab-link d-flex align-items-center justify-content-center"
                                     >
-                                           {{trans('site.map')}}
+                                        {{trans('site.map')}}
 
 
                                     </a>
@@ -294,17 +293,17 @@
                                     >
 
 {{--                                        --}}
-{{--                                        --}}
-{{--                                        <i class="fas fa-car"></i--}}
-{{--                                        >--}}
-{{--                                    --}}
+                                        {{--                                        --}}
+                                        {{--                                        <i class="fas fa-car"></i--}}
+                                        {{--                                        >--}}
+                                        {{--                                    --}}
 
 
 
                                                                   <img
                                                                       src="{{asset('images/services_aqars/'.$section->icon)}}"
 
-
+                                                                      width="50px" height="50px"
                                                                       onerror="this.src='{{FRONTASSETS}}/assets/images/area-ic.svg'"
                                                                       alt="car"/>
 

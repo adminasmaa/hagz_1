@@ -258,21 +258,22 @@
 <script src="{{FRONTASSETS}}/assets/vendor/bootstrap/js/bootstrap.js"></script>
 <!-- JQuery-->
 <script src="{{FRONTASSETS}}/assets/js/jquery.min.js"></script>
-
+<!--datepicker-->
+<script src="{{FRONTASSETS}}/assets/js/datepicker/js/datepicker.min.js"></script>
 <!-- Owl Carousel -->
 <script src="{{FRONTASSETS}}/assets/js/OwlCarousel/js/owl.carousel.min.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/intlTelInput.min.js"></script>
 <!--select 2-->
 <script src="{{FRONTASSETS}}/assets/js/select2/js/select2.min.js"></script>
 <script src="{{FRONTASSETS}}/assets/js/dist/jquery-ui.js"></script>
+
+
+
 <!-- Main JS -->
-<script src="{{FRONTASSETS}}/assets/js/script.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/intlTelInput.min.js"></script>
-
-
 @if(app()->getLocale()=='ar')
 <!-- Main JS ar-->
+<script src="{{FRONTASSETS}}/assets/js/customdate.js"></script>
+
 <script src="{{FRONTASSETS}}/assets/js/script.js"></script>
 @else
 <!-- Main JS en-->
@@ -281,10 +282,6 @@
 @endif
 
 
-
-<!--datepicker-->
-<script src="{{FRONTASSETS}}/assets/js/datepicker/js/datepicker.min.js"></script>
-<script src="{{FRONTASSETS}}/assets/js/customdate.js"></script>
 
 
 <script>
