@@ -167,12 +167,12 @@
                                         <div class="w-md-40">
                                             <ul class="list-menu flex-center list-unstyled p-0">
                                                 <li class="liItem-booking-out">
-                                                    <a href="{{route('invest.addbooking',$aquar->id)}}">
+                                                    <a href="{{route('invest.addbooking',$aquar->id)}}" class="liItem-link">
                                                         <i class="fas fa-file-plus"></i>
                                                         @lang('site.Add an external reservation')</a>
                                                 </li>
                                                 <li class="liItem-booking">
-                                                    <a href="{{route('invest.mybooking')}}">
+                                                    <a href="{{route('invest.mybooking')}}"  class="liItem-link">
                                                         <i class="far fa-book-open"></i>
                                                         @lang('site.bookings')
                                                     </a>
@@ -180,25 +180,25 @@
 
 
                                                 <li class="liItem-booking-edit">
-                                                    <a href="{{route('invest.editads',$aquar->id)}}">
+                                                    <a href="{{route('invest.editads',$aquar->id)}}" class="liItem-link">
                                                         <i class="fas fa-edit"></i>
                                                         @lang('site.update')
                                                     </a>
                                                 </li>
                                                 <li class="liItem-booking-prices">
-                                                    <a href="#">
+                                                    <a href="#" class="liItem-link">
                                                         <i class="fas fa-tags"></i>
                                                         @lang('site.prices')
                                                     </a>
                                                 </li>
                                                 <li class="liItem-booking-see">
-                                                    <a href="{{route('detailAqar',$aquar->id)}}">
+                                                    <a href="{{route('detailAqar',$aquar->id)}}" class="liItem-link">
                                                         <i class="far fa-eye"></i>
                                                         @lang('site.view')
                                                     </a>
                                                 </li>
                                                 <li class="liItem-booking-stop">
-                                                    <a href="{{route('invest.updatestatus',$aquar->id)}}">
+                                                    <a href="{{route('invest.updatestatus',$aquar->id)}}" class="liItem-link">
                                                         <i class="far fa-stopwatch"></i>
                                                         @if($aquar->active==1)
                                                         @lang('site.Pause')

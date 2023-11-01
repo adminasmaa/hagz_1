@@ -63,7 +63,9 @@ class BookingController extends Controller
                     ->paginate(10);
 
 
-            } elseif ($request->type == 3) {
+            }
+
+            elseif ($request->type == 3) {
 
 
                 $bookings = Booking::where('user_id', '=', $user_id)->where('type', '=', 'website')
@@ -76,7 +78,9 @@ class BookingController extends Controller
                     ->paginate(10);
 
 
-            } elseif ($request->type == 4) {
+            }
+
+            elseif ($request->type == 4) {
 
 
                 $bookings = Booking::where('user_id', '=', $user_id)->where('status', '=', 'canceled')
@@ -88,7 +92,8 @@ class BookingController extends Controller
                     })->where('status', '=', 'canceled')
                     ->paginate(10);
 
-            } else {
+            }
+            else {
 
 
                 $bookings = Booking::where('user_id', '=', $user_id)

@@ -18,6 +18,7 @@ use App\Http\Controllers\Dashboard\ServiceAqarController;
 use App\Http\Controllers\Dashboard\TermController;
 use App\Http\Controllers\Dashboard\MessageController;
 use App\Http\Controllers\Dashboard\NotificationController;
+use App\Http\Controllers\Dashboard\BookingController;
 
 use App\Http\Controllers\Dashboard\CommissionController;
 
@@ -47,7 +48,10 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
         //policies
         Route::resource('policies', PolicyController::class);
 
+      //booking
+        Route::resource('booking', BookingController::class);
 
+        Route::get('/updatestatusbooking/{id}', 'App\Http\Controllers\Dashboard\BookingController@updatestatusbooking')->name('updatestatusbooking');
 
         //roles
         Route::resource('roles', RoleController::class)->except(['show']);
@@ -63,6 +67,9 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
         Route::get('categorycities/{id}', 'App\Http\Controllers\Dashboard\CityController@categorycities')->name('categorycities');
         Route::get('roomnumbers/{id}', 'App\Http\Controllers\Dashboard\AqarController@roomnumbers')->name('roomnumbers');
 
+        Route::get('/updatestatusaqar/{id}', 'App\Http\Controllers\Frontend\invest\AdController@updatestatus')->name('updatestatusaqar');
+
+
         //categories
         Route::resource('categories', CategoryController::class);
 
@@ -75,11 +82,6 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
 
         //contacts
         Route::resource('contacts', ContactController::class);
-
-
-
-
-
 
 
         //services
@@ -100,6 +102,8 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
         //commissions
         Route::resource('commissions', CommissionController::class);
 
+        Route::get('updatestatuscommission/{id}', 'App\Http\Controllers\Dashboard\CommissionController@updatestatuscommission')->name('updatestatuscommission');
+
         //questions
         Route::resource('questions', QuestionController::class);
 
@@ -119,10 +123,8 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
 //        Route::resource('balances', BalanceController::class);
 
 
-
         //deposits
         Route::resource('deposits', SliderController::class);
-
 
 
         Route::resource('aqars', \App\Http\Controllers\Dashboard\AqarController::class);

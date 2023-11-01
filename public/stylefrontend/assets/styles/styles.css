@@ -1131,7 +1131,7 @@ img {
 
 .tabs-nav-details li {
   border-left: 1px solid var(--m-light-gray);
-  padding-inline: 40px;
+  padding-inline: 20px;
 }
 
 .tabs-nav-details .tab-active {
@@ -2932,18 +2932,22 @@ html {
 .list-menu li {
   display: block !important;
   width: 65%;
-  margin-bottom: 8px;
-  text-align: center;
+  margin-bottom: 8px;  
   border-radius: var(--rounded-main);
   background-color: #ffe7b6;
   border: none;
-  padding-block: 10px;
 }
 .list-menu li .liItem-link {
   font-size: 20px;
   font-weight: 400;
   line-height: 26px;
   color: var(--m-second);
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding-block: 10px;
+  padding-right: 18px;
+  text-align: right;
 }
 .list-menu li .liItem-link i {
   padding-left: 7px;
@@ -3459,3 +3463,98 @@ tbody tr:first-child {
 .txt-footer-table {
   font-size: 20px;
 }
+
+.activatiopn-txt{
+  color: var(--m-light-main);
+font-size: 30px;
+font-weight: 700;
+line-height: 48px;
+width: 85%;
+}
+
+
+#activationCode {
+  direction: ltr;
+  justify-content: right;
+}
+#activationCode .code:focus-visible {
+  border: 1px solid var(--m-second) !important;}
+#activationCode .code {
+  text-align: center;
+  width: 65px;
+  height: 65px;
+  border: 1px solid var(--m-light-gray);
+  margin: 0px 10px;
+font-weight: 400;
+color: var(--m-second);
+  font-size: 20px;
+  border-radius: var(--rounded-main);
+}
+#activationCode .code::placeholder{
+font-size: 20px;
+font-weight: 400;
+color: var(--m-light-gray);
+}
+#activationCode .code.active {
+  border: 1px solid var(--m-main);
+}
+.verification_counter{
+  width: 60%;
+font-size: 30px;
+font-weight: 500;
+line-height: 42px;
+color:var(--m-main);
+text-align: center;
+}
+.verification_txt{
+font-size: 16px;
+font-weight: 400;
+line-height: 24px;
+width: 60%;
+  color:var(--m-second);
+text-align: center;
+}
+
+.second-btn {
+  height: 60px;
+  
+  background: var(--m-second);
+  border-radius: var(--rounded-main);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.second-btn button {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 150%;
+  color: var(--m-white);
+  height: 100%;
+  width: 100%;
+}
+
+.activationBtns div{
+  padding-inline: 0px;
+width: 48%;
+}
+/* .main-btn:hover {
+  background-color: var(--m-second);
+  cursor: pointer;
+} */
+.verification-modal .modal-dialog.small-modal .modal-content {
+  width: 30%;
+}
+.verification-content .check-image{
+  width: 150px;
+  height: 150px;
+}
+
+.verification-content h3{
+font-size: 32px;
+line-height: 60px;
+
+}
+.verification_image{
+  text-align: left;
+}
+.investor-verification .investor_7agz_card{  padding-right: 10%;}

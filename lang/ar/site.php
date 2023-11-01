@@ -11,6 +11,10 @@ return [
 
     'day' => 'يوم',
 
+    'waiting'=>'ف انتظار الموافقه',
+
+
+    'canceled'=>'تم الرفض',
     'twoDay' => 'يومين',
 
     'threeDay' => '3 ايام',
@@ -234,7 +238,7 @@ return [
     'Add your ad' => 'اضف اعلانك',
     'What do we provide for you?' => 'ماذا نوفر لك ؟',
 
-    'Welcome to Saeeh' => ' اهلا بك في سائح',
+    'Welcome to Saeeh' => ' اهلا بك في حجز',
     'Book what suits you from our services' => 'قم بحجز ما يناسبك من خدماتنا',
     'Saeeh' => 'حجز',
 
@@ -330,6 +334,7 @@ return [
 
     'national' => 'الجنسية',
     'hours' => 'عدد ساعات العمل اليومية',
+    'total_price'=>'السعر الكلي ',
 
     'others' => 'أخرى',
 
@@ -597,6 +602,8 @@ return [
     'action' => 'الاجراءات',
     'active' => 'نشط',
     'inactive' => 'غير نشط',
+
+
     'activate' => 'تفعيل',
     'activess' => 'مفعل',
     'inactivess' => 'غير مفعل',
@@ -689,8 +696,11 @@ return [
 
     'details' => 'التفاصيل',
     'payment_status' => 'حالة الحجز',
+
     'paid' => 'مدفوع',
     'not_paid' => 'غير مدفوع',
+
+
     'payment_type' => 'طريقة الدفع',
     'Paids'=>'دفع',
     'quantity' => 'الكمية',

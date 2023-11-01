@@ -13,7 +13,7 @@ use App\Services\TwoFactorService;
 use DB;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
-
+use Alert;
 class CommissionController extends Controller
 {
 
@@ -118,5 +118,24 @@ class CommissionController extends Controller
 
 
     }//end of destroy
+
+
+
+
+    public function updatestatuscommission($id)
+    {
+
+        $com = Commission::find($id);
+        $status = ($com->type == 'paid') ? 'nopaid' : 'paid';
+        $com->type = $status;
+        $com->save();
+
+        Alert::success('Success', __('site.updated_status_successfully'));
+
+
+        return back();
+
+    }
+
 
 }

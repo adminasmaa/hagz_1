@@ -349,3 +349,13 @@ function closeDropdown() {
 //     // close the dropdown after user leave the list
 //     dropDownList.onmouseleave = closeDropdown;
 // });
+
+$("#activationCode").on("keyup", "input", function () {
+  var $field = $(this);
+  if ($field.val().length === 1) {
+    $field.next().focus();
+    $field.addClass("active");
+  } else {
+    $field.removeClass("active");
+  }
+});

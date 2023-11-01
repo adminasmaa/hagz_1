@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Repositories\Eloquent\AdvertisingRepository;
 
+use App\Repositories\Eloquent\BookingRepository;
 use App\Repositories\Eloquent\CategoryRepository;
 use App\Repositories\Eloquent\CityRepository;
 use App\Repositories\Eloquent\ContactRepository;
@@ -35,6 +36,7 @@ use App\Repositories\Eloquent\AdsStatusRepository;
 
 use App\Repositories\Interfaces\AdsStatusRepositoryInterface;
 use App\Repositories\Interfaces\AdvertisingRepositoryInterface;
+use App\Repositories\Interfaces\BookingRepositoryInterface;
 use App\Repositories\Interfaces\ContactRepositoryInterface;
 
 
@@ -108,6 +110,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(SliderRepositoryInterface::class, SliderRepository::class);
         $this->app->bind(TermRepositoryInterface::class, TermRepository::class);
         $this->app->bind(PolicyRepositoryInterface::class, PolicyRepository::class);
+        $this->app->bind(BookingRepositoryInterface::class, BookingRepository::class);
 
     }
 

@@ -50,6 +50,8 @@ class CommissionsDataTable extends DataTable
                 return (!empty($model->created_at)) ? $model->created_at->diffForHumans() : '';
             })->editColumn('user_id', function ($model) {
                 return (!empty($model->user_id)) ? $model->user->firstname : '';
+            })->editColumn('type', function ($model) {
+                return trans('site.'.$model->type);
             })
             ->addIndexColumn()
             ->addColumn('action', function ($model) {
@@ -58,6 +60,7 @@ class CommissionsDataTable extends DataTable
                 $actions .= DTHelper::dtEditButton(route($this->getRoutes()['update'], $model->id), trans('site.edit'), $this->getPermissions()['update']);
                 $actions .= DTHelper::dtDeleteButton(route($this->getRoutes()['delete'], $model->id), trans('site.delete'), $this->getPermissions()['delete'], $model->id);
                 $actions .= DTHelper::dtShowButton(route($this->getRoutes()['show'], $model->id), trans('site.show'), $this->getPermissions()['delete']);
+                $actions .= DTHelper::dtBlockButton(route('dashboard.updatestatuscommission', $model->id), trans('site.show'), $this->getPermissions()['delete']);
 
                 return $actions;
             });

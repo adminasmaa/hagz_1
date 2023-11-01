@@ -6,69 +6,76 @@ return [
     'link' => 'Link',
     'map' => 'Map',
 
-    'All reservations'=>'All reservations',
+    'total_price' => 'Total Price',
 
-    'Show results'=>'Show results',
+    'waiting' => 'AWaiting',
 
-'updated_status_successfully'=>'The status has been changed successfully',
+    'canceled' => 'Canceled',
+    'accepted' => 'Accepted',
 
-    'confirmpayment_successfully'=>'Payment has been confirmed successfully',
+    'All reservations' => 'All reservations',
 
-    'Application reservations'=>'Application reservations',
+    'Show results' => 'Show results',
 
-    'External reservations'=>'External reservations',
+    'updated_status_successfully' => 'The status has been changed successfully',
 
-    'Reservations canceled'=>'Reservations canceled',
+    'confirmpayment_successfully' => 'Payment has been confirmed successfully',
 
-    'You will pay a commission amount'=>'You will pay a commission amount',
+    'Application reservations' => 'Application reservations',
 
-    'Confirm payment'=>'Confirm payment',
+    'External reservations' => 'External reservations',
 
-    'No commissions'=>'No Commissions',
+    'Reservations canceled' => 'Reservations canceled',
 
-    'Paids'=>'Paid',
-    'Reservation amount'=>'Reservation Amount',
+    'You will pay a commission amount' => 'You will pay a commission amount',
 
-    'archives'=>'Archives',
+    'Confirm payment' => 'Confirm payment',
 
-    'No Favourite'=>'No Favourite',
+    'No commissions' => 'No Commissions',
 
-    'nopaid'=>'Not Paid',
+    'Paids' => 'Paid',
+    'Reservation amount' => 'Reservation Amount',
 
-    'Unpaid commissions'=>'Unpaid Commissions',
+    'archives' => 'Archives',
 
-    'Paid commissions'=>'Paid Commissions',
+    'No Favourite' => 'No Favourite',
+
+    'nopaid' => 'Not Paid',
+
+    'Unpaid commissions' => 'Unpaid Commissions',
+
+    'Paid commissions' => 'Paid Commissions',
 
 
-    'Search by customer'=>'Search by customer name / phone number / advertisement number',
+    'Search by customer' => 'Search by customer name / phone number / advertisement number',
 
-    'date of arrival'=>'date of arrival',
+    'date of arrival' => 'date of arrival',
 
-    'Departure Date'=>'Departure Date',
+    'Departure Date' => 'Departure Date',
 
-    'Total amount'=>'Total amount',
+    'Total amount' => 'Total amount',
 
-    'No reservations'=>'No reservations',
+    'No reservations' => 'No reservations',
 
-    'external'=>'External',
+    'external' => 'External',
 
-    'Booking destination:'=>'Booking destination:',
+    'Booking destination:' => 'Booking destination:',
 
-    'counttotalday'=>'Number of days of reservation',
+    'counttotalday' => 'Number of days of reservation',
 
-    'addedBooking_successfully'=>'Added Booking Successfully',
+    'addedBooking_successfully' => 'Added Booking Successfully',
 
-    'Add an external reservation'=>'Add an external reservation',
+    'Add an external reservation' => 'Add an external reservation',
 
-    'Set the price'=>'Set the price',
-'Regular day price'=>'Regular day price',
-    'If you have a problem update your ad, please call us'=>'If you have a problem update your ad, please call us',
+    'Set the price' => 'Set the price',
+    'Regular day price' => 'Regular day price',
+    'If you have a problem update your ad, please call us' => 'If you have a problem update your ad, please call us',
 
-    'update an advertisement'=>'Update An Advertisement',
+    'update an advertisement' => 'Update An Advertisement',
 
-    'Price depends on the day'=>'Price depends on the day',
+    'Price depends on the day' => 'Price depends on the day',
 
-    'Price depends on the week'=>'Price depends on the week',
+    'Price depends on the week' => 'Price depends on the week',
     'day' => 'Day',
     'twoDay' => 'TwoDay',
     'threeDay' => 'ThreeDay',
@@ -417,7 +424,7 @@ return [
     'Notdeleted_successfully' => 'cannot deleted this pages ',
     'distance' => 'distance',
 
-    'client_name'=>'Client Name',
+    'client_name' => 'Client Name',
     'ingredients_en' => 'Ingredients English',
     'ingredients_ar' => 'Ingredients Arabic',
 

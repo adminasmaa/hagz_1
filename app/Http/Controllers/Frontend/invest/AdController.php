@@ -142,7 +142,7 @@ class AdController extends Controller
         if ($aqar) {
             Alert::success('Success', __('site.added_successfully'));
 
-            return redirect(route('invest.addAds'));
+            return redirect(route('invest.showAds'));
 
         }
 

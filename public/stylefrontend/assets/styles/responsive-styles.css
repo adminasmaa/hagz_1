@@ -44,6 +44,11 @@
   .card-restaurant-body {
     bottom: 5px;
   }
+
+  /* investor */
+  .verification-modal .modal-dialog.small-modal .modal-content {
+    width: 40%;
+}
 }
 
 @media (max-width: 1200px) {
@@ -885,30 +890,83 @@
   .txt-footer-table {
     font-size: 16px;
   }
+  .order-mobile-1 {
+    order: 1;
+  }
+  .order-mobile-0 {
+    order: 0;
+  }
+  .activatiopn-txt {
+    font-size: 24px;
+    line-height: 36px;
+    width: 100%;
+    margin-top: 25px;
+    text-align: center;
+  }
+  .verification_counter {
+    width: 100%;
+    font-size: 26px;
+    line-height: 32px;
+  }
+  .verification_txt {
+    width: 100%;
+  }
+  #activationCode {
+    justify-content: center;
+  }
+  #activationCode .code {
+    width: 50px;
+    height: 50px;
+    margin: 0px 8px;
+    font-weight: 400;
+    font-size: 16px;
+  }
+  .verification_image {
+    text-align: center;
+  }
+
+  .second-btn {
+    height: 50px;
+  }
+  .second-btn button {
+    font-size: 16px;
+  }
+  .verification-content h3 {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  .investor-verification .investor_7agz_card {
+    padding: 24px 16px;
+}
+.tabs-details .tab-link {
+  font-size: 16px;
+  line-height: 40px;
+}
 }
 @media (max-width: 768px) {
+ 
   .tabs-in-mobile {
     display: flex;
     flex-wrap: wrap;
     border: 1px solid var(--m-light-gray);
     border-bottom: 0;
-    height: 80px;
+    height: 85px;
   }
-  .tabs-in-mobile li:nth-child(1) {
+  /* .tabs-in-mobile li:nth-child(1) {
     width: 20%;
-  }
+  } */
   .tabs-in-mobile li {
     width: 40%;
   }
-  .tabs-in-mobile li:nth-child(3) {
+  /* .tabs-in-mobile li:nth-child(3) {
     border-left: none;
-  }
+  } */
   .tabs-in-mobile li:nth-child(4),
   .tabs-in-mobile li:nth-child(5) {
     border-top: 1px solid var(--m-light-gray);
     width: 50%;
   }
-  .tabs-in-mobile .tab-active:nth-child(3) {
+  .tabs-in-mobile .tab-active:nth-child(2) {
     border-radius: 10px 0 0 0;
   }
   .tabs-in-mobile .tab-active:last-of-type {
@@ -1058,14 +1116,23 @@
   .commission-section .tabs-in-mobile .tab-active:last-of-type {
     border-radius: 0;
   }
-
-  .investor-hagz-booking .tabs-in-mobile li:nth-child(3) {
+  .investor-hagz-booking .tabs-in-mobile li:nth-child(1),.investor-hagz-booking .tabs-in-mobile li:nth-child(2){
+    width: 50%;
+  }
+  .investor-hagz-booking .tabs-in-mobile li {
+    padding-inline: 0;
+    width: 33.333%;
+  }
+  .investor-hagz-booking .tabs-in-mobile li:nth-child(2) {
     border-left: none;
   }
-  .investor-hagz-booking .tabs-in-mobile li:nth-child(4),
+  .investor-hagz-booking .tabs-in-mobile li:nth-child(3),.investor-hagz-booking .tabs-in-mobile li:nth-child(4),
   .investor-hagz-booking .tabs-in-mobile li:nth-child(5) {
     border-top: 1px solid var(--m-light-gray);
-    width: 50%;
+    /* width: 50%; */
+  }
+  .investor-hagz-booking .tabs-in-mobile .tab-active:nth-child(2) {
+    border-radius: 10px 0px 0 0;
   }
 
   .card-empty {
@@ -1095,6 +1162,10 @@
   .booking_investor_card_header {
     font-size: 26px;
     line-height: 34px;
+  }
+
+  .investor-hagz-booking .tabs-details .tab-link {
+    font-size: 12px;
   }
 }
 @media (max-width: 578px) {
@@ -1378,6 +1449,28 @@
     font-size: 14px;
   }
   /* investor */
+
+  .verification-content h3 {
+    font-size: 20px;
+    line-height: 28px;
+  }
+  .activatiopn-txt {
+    font-size: 20px;
+    line-height: 28px;
+  }
+  .verification_counter {
+    font-size: 24px;
+    line-height: 24px;
+  }
+  #activationCode .code {
+    width: 45px;
+    height: 45px;
+    margin: 0px 6px;
+  }
+  .verification-content .check-image {
+    width: 100px;
+    height: 100px;
+  }
   .ui-datepicker {
     width: 100%;
   }
@@ -1618,13 +1711,7 @@
   .commissions-table i {
     display: none;
   }
-  .investor-hagz-booking .tabs-in-mobile li {
-    padding-inline: 0;
-    width: 33.333%;
-  }
-  .investor-hagz-booking .tabs-details .tab-link {
-    font-size: 12px;
-  }
+ 
   .investor_q {
     font-size: 18px;
     line-height: 26px;
@@ -1717,6 +1804,9 @@
   }
   /* investor */
   /* investor */
+  .second-btn button {
+    font-size: 14px;
+  }
   .txt-footer-table {
     font-size: 12px;
   }
@@ -1740,6 +1830,9 @@
   }
 }
 @media (max-width: 340px) {
+  .tabs-nav-details li {
+    padding-inline: 7px;
+}
   .ads-radio-list .custom-radio {
     font-size: 14px;
   }

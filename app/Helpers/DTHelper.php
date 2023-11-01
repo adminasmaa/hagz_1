@@ -67,4 +67,16 @@ HTML;
 
         return $html;
     }
+
+    public static function dtBlockButton($link, $title, $permission)
+    {
+
+//        if (auth()->user()->hasPermission($permission)) {
+
+        $html = <<< HTML
+ <a href="$link" class="btn-table"> <i class="fa fa-address-book"></i></a>
+HTML;
+
+        return $html;
+    }
 }
