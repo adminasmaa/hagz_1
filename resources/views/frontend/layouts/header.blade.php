@@ -318,7 +318,8 @@
                                 <a href="{{route('invest.booking')}}" class="nav-link"> @lang('site.bookings') </a>
                             </li>
                             <li class="nav-link {{($current_route=='invest.commissions')?'active':'' }}">
-                                <a href="{{route('invest.commissions')}}" class="nav-link"> @lang('site.commissions') </a>
+                                <a href="{{route('invest.commissions')}}"
+                                   class="nav-link"> @lang('site.commissions') </a>
                             </li>
                             <li class="nav-link {{($current_route=='invest.term')?'active':'' }}">
                                 <a href="{{route('invest.term')}}"
@@ -338,13 +339,27 @@
                             <li class="nav-link {{($current_route=='Home')?'active':'' }}">
                                 <a href="{{route('Home')}}" class="home-link"> @lang('site.home') </a>
                             </li>
+                            @if(!empty(Route::current()->parameters()['id']))
+                                @foreach($categories as $catt)
 
-                            @foreach($categories as $catt)
-                                <li class="nav-link {{($current_route=='aquars')?'active':'' }}">
+                                    <li class="nav-link {{(Route::current()->parameters()['id']==$catt->id)?'active':'' }}">
 
-                                    <a href="{{route('aquars',$catt->id)}}"> {{$catt->name ?? ''}} </a>
-                                </li>
-                            @endforeach
+                                        <a href="{{route('aquars',$catt->id)}}"> {{$catt->name ?? ''}} </a>
+                                    </li>
+
+                                @endforeach
+
+                            @else
+                                @foreach($categories as $catt)
+
+                                    <li class="nav-link">
+
+                                        <a href="{{route('aquars',$catt->id)}}"> {{$catt->name ?? ''}} </a>
+                                    </li>
+
+                                @endforeach
+
+                            @endif
 
                         </ul>
 
@@ -665,6 +680,7 @@
                 @endforeach
 
 
+
                 <li class="nav-item">
                     <a class="nav-link" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#helpModal">
                     <span class="help-icon">
@@ -725,7 +741,8 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="{{route('invest.mybooking','type=1')}}" class="d-flex align-items-center">
+                                            <a href="{{route('invest.mybooking','type=1')}}"
+                                               class="d-flex align-items-center">
                                                 <div class="profile-ic">
                                                     <i class="far fa-book-open"></i>
                                                 </div>
