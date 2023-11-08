@@ -207,13 +207,13 @@
 
                                                     </select>
                                                 </div>
-                                                <div class="col-md-6 form-group">
-                                                    <label class="form-label">@lang('site.city')</label>
-                                                    <select class="js-example-placeholder-multiple col-sm-12" name="city_id" id="city_id">
-                                                        <option selected disabled>@lang('site.select')</option>
-                                                      
-                                                    </select>
-                                                </div>
+{{--                                                <div class="col-md-6 form-group">--}}
+{{--                                                    <label class="form-label">@lang('site.city')</label>--}}
+{{--                                                    <select class="js-example-placeholder-multiple col-sm-12" name="city_id" id="city_id">--}}
+{{--                                                        <option selected disabled>@lang('site.select')</option>--}}
+{{--                                                      --}}
+{{--                                                    </select>--}}
+{{--                                                </div>--}}
                             </div>
 
 
@@ -264,7 +264,7 @@
                 });
             })
         })
-        
+
 
     </script>
 @endsection

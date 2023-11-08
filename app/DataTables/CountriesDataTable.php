@@ -117,7 +117,7 @@ class CountriesDataTable extends DataTable
             Column::make('DT_RowIndex')->data('DT_RowIndex')->name('id')->title('#'),
 
             Column::make('name_'.$lan)->title(trans('site.name')),
-            Column::make('code')->title(trans('site.code')),
+//            Column::make('code')->title(trans('site.code')),
             Column::make('created_at')->title(trans('site.created_at')),
             Column::computed('action')
                 ->exportable(false)

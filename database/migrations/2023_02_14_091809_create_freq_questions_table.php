@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('freq_questions', function (Blueprint $table) {
             $table->id();
             $table->string('question')->nullable();
-            $table->string('answer')->nullable();
+            $table->longText('answer')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

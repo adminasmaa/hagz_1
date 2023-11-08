@@ -151,7 +151,7 @@
                                                 <div class="col-md-6 form-group">
                                                     <label class="form-label">@lang('site.country')</label>
                                                     <select class="js-example-placeholder-multiple col-sm-12" name="country_id" id="country_id">
-                                                        <option selected value="0">@lang('site.select')</option>
+                                                        <option selected disabled>@lang('site.select')</option>
                                                         @foreach($countries as $country)
 
                                                             <option value="{{$country->id}}">{{$country->name_ar ?? ''}}</option>
@@ -160,18 +160,18 @@
 
                                                     </select>
                                                 </div>
-                                                <div class="col-md-6 form-group">
-                                                    <label class="form-label">@lang('site.city')</label>
-                                                    <select class="js-example-placeholder-multiple col-sm-12" name="city_id" id="city_id">
-                                                        <option selected value="0">@lang('site.select')</option>
-                                                        <!-- @foreach($cities as $city)
+{{--                                                <div class="col-md-6 form-group">--}}
+{{--                                                    <label class="form-label">@lang('site.city')</label>--}}
+{{--                                                    <select class="js-example-placeholder-multiple col-sm-12" name="city_id" id="city_id">--}}
+{{--                                                        <option selected disabled>@lang('site.select')</option>--}}
+{{--                                                        <!-- @foreach($cities as $city)--}}
 
-                                                            <option value="{{$city->id}}">{{$city->name_ar ?? ''}}</option>
+{{--                                                            <option value="{{$city->id}}">{{$city->name_ar ?? ''}}</option>--}}
 
-                                                        @endforeach -->
+{{--                                                        @endforeach -->--}}
 
-                                                    </select>
-                                                </div>
+{{--                                                    </select>--}}
+{{--                                                </div>--}}
                                             </div>
 
 
@@ -199,7 +199,7 @@
 @section('scripts')
 
     <script>
-           
+
         $('#country_id').on('change',function(e){
             var country_id = e.target.value;
 
