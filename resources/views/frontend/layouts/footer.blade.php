@@ -38,7 +38,18 @@
                         <h3 class="footer-title"> @lang('site.Important links')</h3>
                         <ul class="list-unstyled links-list">
                             <li class="py-md-2 py-1"><a href="{{route('Home')}}">@lang('site.home')</a></li>
-                            <li class="py-md-2 py-1"><a href="{{route('sitelogin')}}">@lang('site.Become a partner with us')</a></li>
+
+
+                            @if(!empty(auth()->user()))
+
+                                <li class="py-md-2 py-1"><a href="{{route('logout')}}">@lang('site.logout')</a></li>
+
+                            @else
+
+                                <li class="py-md-2 py-1"><a href="{{route('sitelogin')}}">@lang('site.Become a partner with us')</a></li>
+
+                            @endif
+
                             <li class="py-md-2 py-1">
                                 <a href="{{route('faqs')}}"> @lang('site.questions') </a>
                             </li>
