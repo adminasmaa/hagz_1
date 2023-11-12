@@ -15,6 +15,7 @@ class Ads extends Model
 
     protected $fillable = [
         'title', // nullable
+        'type', // nullable
         'start_date', // nullable
         'end_date', // nullable
         'value', // nullable

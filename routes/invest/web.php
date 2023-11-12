@@ -12,6 +12,7 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
         Route::get('/commissions', 'App\Http\Controllers\Frontend\invest\BookingController@commissions')->name('commissions');
         Route::post('/confirmpayment', 'App\Http\Controllers\Frontend\invest\BookingController@confirmpayment')->name('confirmpayment');
 
+        Route::get('/getcountries/{id}', 'App\Http\Controllers\Frontend\invest\BookingController@getcountries')->name('getcountries');
         Route::get('/addbooking/{id}', 'App\Http\Controllers\Frontend\invest\BookingController@addbooking')->name('addbooking');
         Route::get('/getdaycount', 'App\Http\Controllers\Frontend\invest\BookingController@getdaycount')->name('getdaycount');
         Route::post('/addbookingAd', 'App\Http\Controllers\Frontend\invest\BookingController@addbookingAd')->name('addbookingAd');

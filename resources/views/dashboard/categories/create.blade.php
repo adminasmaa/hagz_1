@@ -70,8 +70,9 @@
                                         <label>@lang('site.en.name')<span class="text-danger">*</span></label>
                                         <input type="text" name="name_en" class="form-control"
                                                value="{{old('name_en')}}"
-                                               >
+                                        >
                                     </div>
+                                </div>
 
 
                                 <div class="row">
@@ -94,6 +95,25 @@
                                     </div>
 
 
+                                </div>
+
+                                <div class="row">
+
+
+                                    <div class="col-md-6 form-group col-12 p-2 ">
+                                        <label>@lang('site.countries')<span class="text-danger">*</span></label>
+
+
+                                        <select class="js-example-placeholder-multiple col-sm-12" name="countries[]" multiple>
+                                            <option>   @lang('site.select')</option>
+
+
+                                            @foreach(\App\Models\Country::get() as $country)
+                                                <option value="{{$country->id}}">  {{$country->name ?? ''}}</option>
+
+                                            @endforeach
+                                        </select>
+                                    </div>
                                 </div>
 
 
@@ -121,17 +141,14 @@
                                 <br>
 
 
-
-
-
+                            </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        </form>
-        <!--    </div>-->
-    </div>
+            </form>
+            <!--    </div>-->
+        </div>
     </div><!--</div>-->
 
     </div>

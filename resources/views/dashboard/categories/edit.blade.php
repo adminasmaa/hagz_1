@@ -153,7 +153,7 @@
                         </div>
                             </div>
                                 </div>
-                            </div>
+
                             <!--  End Of Modal -->
 
                             <div class="row">
@@ -171,6 +171,24 @@
                                     >
                                 </div>
 
+                                <div class="row">
+
+
+                                    <div class="col-md-6 form-group col-12 p-2 ">
+                                        <label>@lang('site.countries')<span class="text-danger">*</span></label>
+
+
+                                        <select class="js-example-placeholder-multiple col-sm-12" name="countries[]" multiple>
+                                            <option>   @lang('site.select')</option>
+
+
+                                            @foreach(\App\Models\Country::get() as $country)
+                                                <option value="{{$country->id}}">  {{$country->name ?? ''}}</option>
+
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
 
                                 {{--                                <div class="col-md-6 form-group col-12 p-2 ">--}}
                                 {{--                                    <label class="form-label">@lang('site.category')</label>--}}

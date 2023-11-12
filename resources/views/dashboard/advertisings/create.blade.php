@@ -59,7 +59,7 @@
                                     <!--<div class="col-md-6">-->
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
-                                        <label>@lang('site.title')<span class="text-danger">*</span></label>
+                                        <label>@lang('site.name')<span class="text-danger">*</span></label>
                                         <input type="text" name="title" class="form-control"
                                                value="{{old('title')}}"
                                                required>
@@ -68,7 +68,7 @@
                                         <label>@lang('site.start_date')<span class="text-danger">*</span></label>
                                         <input type="date" name="start_date" class="form-control"
                                                value="{{old('start_date')}}"
-                                               >
+                                        >
                                     </div>
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
@@ -87,7 +87,6 @@
                                     </div>
 
 
-
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.link')<span class="text-danger">*</span></label>
                                         <input type="text" name="ads_link" class="form-control"
@@ -99,8 +98,38 @@
                                 </div>
 
 
-
                                 <div class="row">
+
+
+                                    <div class="col-md-6 form-group col-12 p-2">
+                                        <label class="form-label">@lang('site.type')</label>
+                                        <select class="js-example-placeholder-multiple col-sm-12" name="type">
+                                            <option selected>@lang('site.select')</option>
+
+
+                                            <option value="snap"
+
+
+                                            >@lang('site.Snapchat download')</option>
+                                            <option value="twitter"
+                                            >@lang('site.Twitter campaign')</option>
+                                            <option value="insta"
+                                            >@lang('site.Instagram campaign')</option>
+                                            <option value="google"
+                                            >@lang('site.Google download')</option>
+                                            <option value="App Store campaign"
+                                            >@lang('site.App Store campaign')</option>
+                                            <option value="WhatsApp download"
+                                            >@lang('site.WhatsApp download')</option>
+                                            <option
+                                                value="finstgram"
+                                            >@lang('site.Instagram celebrities campaign')</option>
+                                            <option value="SMS message campaign"
+                                            >@lang('site.SMS message campaign')</option>
+
+
+                                        </select>
+                                    </div>
 
 
                                     <div class="col-md-6 form-group col-12 p-2">
@@ -123,7 +152,8 @@
                                             <option selected>@lang('site.select')</option>
                                             @foreach($users as $user)
 
-                                                <option value="{{$user->id}}">{{$user->firstname . $user->lastname ?? ''}}</option>
+                                                <option
+                                                    value="{{$user->id}}">{{$user->firstname . $user->lastname ?? ''}}</option>
 
                                             @endforeach
 
@@ -150,8 +180,8 @@
 
 
                                     <div class="col-md-6 form-group col-12 p-2">
-                                <label>@lang('site.notes')<span  class="text-danger">*</span></label>
-                                <textarea id="editor1"  cols="15" rows="5" name="notes">
+                                        <label>@lang('site.notes')<span class="text-danger">*</span></label>
+                                        <textarea id="editor1" cols="15" rows="5" name="notes">
 
                                         </textarea>
                                     </div>

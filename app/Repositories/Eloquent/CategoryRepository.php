@@ -39,8 +39,6 @@ class CategoryRepository implements CategoryRepositoryInterfaceAlias
 //        return $citiesrelated;
 
 
-
-
         return view('dashboard.categories.edit', compact('category'));
     }
 
@@ -49,9 +47,6 @@ class CategoryRepository implements CategoryRepositoryInterfaceAlias
         // TODO: Implement show() method.
 
         $category = Category::find($Id);
-
-
-
 
 
         return view('dashboard.categories.show', compact('category'));
@@ -63,12 +58,12 @@ class CategoryRepository implements CategoryRepositoryInterfaceAlias
         // TODO: Implement store() method.
 
 //        return $request;
-        $request_data = $request->except(['image', 'icon']);
+        $request_data = $request->except(['image', 'icon', 'countries']);
 
         // To Make  Active
         $request_data['active'] = 1;
 
-        $request_data['parent_id'] =null;
+        $request_data['parent_id'] = null;
 
 
 //
@@ -77,17 +72,20 @@ class CategoryRepository implements CategoryRepositoryInterfaceAlias
         $category = Category::create($request_data);
 
 
+        if (!empty($request->countries)) {
+            $category->countries()->attach($request->countries);
 
+        }
 
         if ($request->hasFile('image')) {
 
-            UploadImage('images/categories/','image', $category, $request->file('image'));
+            UploadImage('images/categories/', 'image', $category, $request->file('image'));
 
         }
 
         if ($request->hasFile('icon')) {
 
-            UploadImage('images/categories/','icon', $category, $request->file('icon'));
+            UploadImage('images/categories/', 'icon', $category, $request->file('icon'));
 
         }
 
@@ -104,19 +102,23 @@ class CategoryRepository implements CategoryRepositoryInterfaceAlias
         // TODO: Implement update() method.
 
 
-        $request_data = $request->except(['image','icon']);
+        $request_data = $request->except(['image', 'icon','countries']);
         $category->update($request_data);
 
 
         if ($request->hasFile('image')) {
 
-            UploadImage('images/categories/','image', $category, $request->file('image'));
+            UploadImage('images/categories/', 'image', $category, $request->file('image'));
         }
 
+        if (!empty($request->countries)) {
+            $category->countries()->attach($request->countries);
+
+        }
 
         if ($request->hasFile('icon')) {
 
-            UploadImage('images/categories/','icon', $category, $request->file('icon'));
+            UploadImage('images/categories/', 'icon', $category, $request->file('icon'));
         }
 
         if ($category) {

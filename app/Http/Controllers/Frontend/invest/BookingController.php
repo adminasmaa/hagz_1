@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend\invest;
 
 use App\Models\Aqar;
 use App\Models\Booking;
+use App\Models\Category;
 use App\Models\Commission;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -14,6 +15,21 @@ use Alert;
 
 class BookingController extends Controller
 {
+
+
+    public function getcountries($id)
+    {
+
+        $category = Category::find($id);
+
+        $countries = $category->countries;
+
+        return $countries;
+
+//        return response()->json(['status' => 200, 'content' => 'success', 'data' => $categories]);
+
+
+    }
 
     public function index()
     {
@@ -63,9 +79,7 @@ class BookingController extends Controller
                     ->paginate(10);
 
 
-            }
-
-            elseif ($request->type == 3) {
+            } elseif ($request->type == 3) {
 
 
                 $bookings = Booking::where('user_id', '=', $user_id)->where('type', '=', 'website')
@@ -78,9 +92,7 @@ class BookingController extends Controller
                     ->paginate(10);
 
 
-            }
-
-            elseif ($request->type == 4) {
+            } elseif ($request->type == 4) {
 
 
                 $bookings = Booking::where('user_id', '=', $user_id)->where('status', '=', 'canceled')
@@ -92,8 +104,7 @@ class BookingController extends Controller
                     })->where('status', '=', 'canceled')
                     ->paginate(10);
 
-            }
-            else {
+            } else {
 
 
                 $bookings = Booking::where('user_id', '=', $user_id)

@@ -27,7 +27,8 @@ return new class extends Migration {
             $table->integer('space')->nullable();
             $table->time('time_to')->nullable();
             $table->time('time_from')->nullable();
-            $table->string('description')->nullable();
+            $table->longText('description')->nullable();
+            $table->longText('details')->nullable();
             $table->string('comision')->nullable();
             $table->enum('individual', ['families', 'youths'])->nullable();
             $table->string('floor_id')->nullable();
@@ -49,6 +50,15 @@ return new class extends Migration {
             $table->string('conditioning_type_id')->nullable();
             $table->string('another_room_id')->nullable();
             $table->string('floor_number_id')->nullable();
+            $table->string('map_link')->nullable();
+            $table->integer('total_rooms')->nullable();
+            $table->integer('unitnumber')->nullable();
+            $table->integer('ads_status_id ')->nullable();
+            $table->integer('hallnumber')->nullable();
+            $table->integer('bathroomnumber')->nullable();
+            $table->integer('personnumber')->nullable();
+            $table->integer('masterroom')->nullable();
+            $table->integer('normalroom')->nullable();
             $table->integer('ads_id')->nullable()->unsigned();
             $table->foreign('ads_id')->references('id')->on('ads');
             $table->foreignId('category_id')->nullable()->unsigned()->references('id')->on('categories')->onDelete('cascade');

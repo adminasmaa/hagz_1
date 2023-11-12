@@ -8,6 +8,25 @@ return [
 
     'total_price' => 'Total Price',
 
+    'Snapchat download' => 'Snapchat download',
+
+    'Twitter campaign' => 'Twitter campaign',
+
+    'Instagram campaign' => 'Instagram campaign',
+
+    'Google download' => 'Google download',
+
+    'App Store campaign' => 'App Store campaign',
+
+    'Google download' => 'Google download',
+
+    'WhatsApp download' => 'WhatsApp download',
+
+    'Instagram celebrities campaign'=>'Instagram celebrities campaign',
+
+    'SMS message campaign'=>'SMS message campaign',
+
+
     'waiting' => 'AWaiting',
 
     'canceled' => 'Canceled',

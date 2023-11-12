@@ -112,23 +112,23 @@
                                 <!--<div class="col-md-6">-->
 
                                 <div class="col-md-6 form-group col-12 p-2">
-                                    <label>@lang('site.title')<span class="text-danger">*</span></label>
+                                    <label>@lang('site.name')<span class="text-danger">*</span></label>
                                     <input type="text" name="title" class="form-control"
-                                           value="{{ $advertising->title }}"
+                                           value="{{ $advertising->title ?? ''}}"
                                            required>
                                 </div>
 
                                 <div class="col-md-6 form-group col-12 p-2 ">
                                     <label>@lang('site.start_date')<span class="text-danger">*</span></label>
                                     <input type="date" name="start_date" class="form-control"
-                                           value="{{ $advertising->start_date }}"
+                                           value="{{ $advertising->start_date ?? '' }}"
                                     >
                                 </div>
 
                                 <div class="col-md-6 form-group col-12 p-2 ">
                                     <label>@lang('site.end_date')<span class="text-danger">*</span></label>
                                     <input type="date" name="end_date" class="form-control"
-                                           value="{{ $advertising->end_date }}"
+                                           value="{{ $advertising->end_date ?? ''}}"
                                     >
                                 </div>
 
@@ -136,20 +136,49 @@
                                 <div class="col-md-6 form-group col-12 p-2 ">
                                     <label>@lang('site.value')<span class="text-danger">*</span></label>
                                     <input type="number" name="value" class="form-control"
-                                           value="{{ $advertising->value }}"
+                                           value="{{ $advertising->value ?? ''}}"
                                     >
                                 </div>
 
                                 <div class="col-md-6 form-group col-12 p-2 ">
                                     <label>@lang('site.link')<span class="text-danger">*</span></label>
                                     <input type="text" name="ads_link" class="form-control"
-                                           value="{{ $advertising->ads_link }}"
+                                           value="{{ $advertising->ads_link ?? ''}}"
                                            required>
                                 </div>
                             </div>
 
                             <div class="row">
 
+                                <div class="col-md-6 form-group col-12 p-2">
+                                    <label class="form-label">@lang('site.type')</label>
+                                    <select class="js-example-placeholder-multiple col-sm-12" name="type">
+                                        <option selected>@lang('site.select')</option>
+
+
+                                        <option value="snap"
+
+                                                @if($advertising->type=='snap') selected @endif
+                                        >@lang('site.Snapchat download')</option>
+                                        <option value="twitter"
+                                                @if($advertising->type=='twitter') selected @endif>@lang('site.Twitter campaign')</option>
+                                        <option value="insta"
+                                                @if($advertising->type=='insta') selected @endif>@lang('site.Instagram campaign')</option>
+                                        <option value="google"
+                                                @if($advertising->type=='google') selected @endif>@lang('site.Google download')</option>
+                                        <option value="App Store campaign"
+                                                @if($advertising->type=='App Store campaign') selected @endif>@lang('site.App Store campaign')</option>
+                                        <option value="WhatsApp download"
+                                                @if($advertising->type=='WhatsApp download') selected @endif>@lang('site.WhatsApp download')</option>
+                                        <option
+                                            value="finstgram"
+                                            @if($advertising->type=='finstgram') selected @endif >@lang('site.Instagram celebrities campaign')</option>
+                                        <option value="SMS message campaign"
+                                                @if($advertising->type=='SMS message campaign') selected @endif>@lang('site.SMS message campaign')</option>
+
+
+                                    </select>
+                                </div>
 
                                 <div class="col-md-6 form-group col-12 p-2">
                                     <label class="form-label">@lang('site.position')</label>
@@ -216,8 +245,6 @@
                             <br>
 
 
-
-
                         </div>
                     </form>
                 </div>
@@ -227,11 +254,11 @@
     </div>
 
 
-                    </form>
-                </div>
-            </div>
-        </div>
-        <!-- Individual column searching (text inputs) Ends-->
+    </form>
+    </div>
+    </div>
+    </div>
+    <!-- Individual column searching (text inputs) Ends-->
     </div>
     </div>
     <!-- Container-fluid Ends-->

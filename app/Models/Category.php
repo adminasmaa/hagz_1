@@ -6,10 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-use App\Models\Aqar;   //belongsTo
+use App\Models\Aqar;
+
+//belongsTo
 class Category extends Model
 {
-    use HasFactory,SoftDeletes;
+    use HasFactory, SoftDeletes;
 
     protected $fillable = [
         'name_ar',
@@ -23,7 +25,7 @@ class Category extends Model
         'city_id'
     ];
 
-    protected $hidden=['deleted_at','updated_at'];
+    protected $hidden = ['deleted_at', 'updated_at'];
 
     public function getNameAttribute()
     {
@@ -31,16 +33,18 @@ class Category extends Model
     }
 
 
-        public function getDescriptionAttribute()
+    public function getDescriptionAttribute()
     {
         return (app()->getLocale() === 'ar') ? $this->description_ar : $this->description_en;
     }
+
     // relations
 
 
-
-
-
+    public function countries()
+    {
+        return $this->belongsToMany(Country::class, 'categories_countries', 'category_id', 'country_id');
+    }
 
 
 }

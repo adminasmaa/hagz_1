@@ -11,6 +11,21 @@ return [
 
     'day' => 'يوم',
 
+    'Snapchat download'=>'حمله سناب شات',
+    'Twitter campaign'=>'حمله توتير',
+    'Instagram campaign'=>'حمله انستجرام',
+
+    'Google download'=>'حمله جوجل',
+
+    'App Store campaign'=>'حمله اب ستور',
+
+
+    'WhatsApp download'=>'حمله واتساب',
+
+    'Instagram celebrities campaign'=>'حمله مشاهير انستجرام',
+
+    'SMS message campaign'=>'حمله رسايل sms',
+
     'waiting'=>'ف انتظار الموافقه',
 
 
