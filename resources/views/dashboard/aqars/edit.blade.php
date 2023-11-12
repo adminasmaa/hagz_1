@@ -274,7 +274,7 @@
                                                     </label>
                                                     <label for="edo-ani1">
                                                         <input class="radio_animated" type="radio" name="price"
-                                                               {{is_null($aqar->fixed_price) ? 'checked':'' }} data-bs-original-title=""
+                                                               {{!empty($aqar->fixed_price) ? 'checked':'' }} data-bs-original-title=""
                                                                title="" value="2">@lang('site.changed_price')
                                                     </label>
                                                 </div>
@@ -287,7 +287,7 @@
                                                             class="text-danger">*</span></label>
                                                     <input type="number" step=".1" name="fixed_price"
                                                            class="form-control"
-                                                           value="{{$aqar->fixed_price}}">
+                                                           value="{{$aqar->fixed_price  ?? ''}}">
                                                 </div>
 
                                                 <div class="col-md-12 form-group col-12   desc" id="price2"

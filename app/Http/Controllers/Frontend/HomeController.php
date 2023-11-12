@@ -99,6 +99,29 @@ class HomeController extends Controller
         }
 
     }
+    public function checklogininvestor(Request $request)
+    {
+        $validation = Validator::make($request->all(), [
+            'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+
+            'password' => 'required|min:6',
+        ]);
+
+        if ($validation->fails()) {
+            return response()->json(['errors' => $validation->errors()], 422);
+        }
+        if (auth()->attempt(['phone' => $request->phone, 'password' => $request->password])) {
+            $user = Auth::user();
+            Auth::login($user);
+            return response()->json(['status' => true, 'content' => 'success', 'data' => $user]);
+
+        } else {
+
+
+            return response()->json(['status' => true, 'content' => 'error']);
+        }
+
+    }
 
     public function createaccount(Request $request)
     {

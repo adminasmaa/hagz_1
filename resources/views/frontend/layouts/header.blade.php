@@ -303,8 +303,8 @@
                         <ul
                             class="navbar-nav d-flex align-items-center flex-lg-row position-relative"
                         >
-                            <li class="nav-link {{($current_route=='Home')?'active':'' }}">
-                                <a href="{{route('Home')}}" class="home-link"> @lang('site.home') </a>
+                            <li class="nav-link {{($current_route=='invest.booking')?'active':'' }}">
+                                <a href="{{route('invest.booking')}}" class="home-link"> @lang('site.home') </a>
                             </li>
 
                             <li class="nav-link {{((in_array($current_route,
@@ -314,8 +314,8 @@
 
 
                             <li class="nav-link {{((in_array($current_route,
-                                ['invest.booking','invest.mybooking']))?'active':'' )}}">
-                                <a href="{{route('invest.booking')}}" class="nav-link"> @lang('site.bookings') </a>
+                                ['invest.mybooking']))?'active':'' )}}">
+                                <a href="{{route('invest.mybooking','type=1')}}" class="nav-link"> @lang('site.bookings') </a>
                             </li>
                             <li class="nav-link {{($current_route=='invest.commissions')?'active':'' }}">
                                 <a href="{{route('invest.commissions')}}"
@@ -643,8 +643,8 @@
             <ul
                 class="main-menu d-flex flex-column flex-lg-row align-items-lg-center list-unstyled p-0 m-0"
             >
-                <li class="nav-item {{($current_route=='Home')?'active':'' }}">
-                    <a href="{{route('Home')}}" class="home-link"> @lang('site.home') </a>
+                <li class="nav-item {{($current_route=='invest.booking')?'active':'' }}">
+                    <a href="{{route('invest.booking')}}" class="home-link"> @lang('site.home') </a>
                 </li>
 
 
@@ -654,8 +654,8 @@
                 </li>
 
                 <li class="nav-item {{((in_array($current_route,
-                                ['invest.booking','invest.mybooking']))?'active':'' )}}">
-                    <a href="{{route('invest.booking')}}" class="nav-link"> @lang('site.bookings') </a>
+                                ['invest.mybooking']))?'active':'' )}}">
+                    <a href="{{route('invest.mybooking','type=1')}}" class="nav-link"> @lang('site.bookings') </a>
                 </li>
                 <li class="nav-item {{($current_route=='invest.commissions')?'active':'' }}">
                     <a href="{{route('invest.commissions')}}" class="nav-link"> @lang('site.commissions') </a>

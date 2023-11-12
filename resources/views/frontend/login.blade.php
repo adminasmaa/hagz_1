@@ -154,7 +154,7 @@
                                             <div class="position-relative mb-4">
                                                 <input
                                                     type="tel"
-                                                    class="form-control phone3"
+                                                    class="form-control phone4"
                                                     id="phoneee"
                                                     name="phone"
                                                     placeholder="{{trans('site.phone')}}"
@@ -175,7 +175,7 @@
                                                 <input
                                                     id="password-fieldd"
                                                     type="password"
-                                                    class="form-control password3"
+                                                    class="form-control password4"
                                                     name="password"
                                                     placeholder=" {{trans('site.password')}}"
                                                 />
@@ -193,7 +193,7 @@
                                                 >
                                             </div>
                                             <div class="main-btn my-4">
-                                                <button type="button" class="formregisterslogin">  @lang('site.login')</button>
+                                                <button type="button" class="formregisterslogininvestor">  @lang('site.login')</button>
                                             </div>
 
                                             <div
@@ -506,6 +506,73 @@
                         }, 50000)
 
                         window.location.href = '{{route('Home')}}';
+
+                    }
+                    else if (result.content == 'error') {
+                        swal({
+                            title: "Error!",
+                            text: "password or phone number is  incorrect!",
+                            type: "warning",
+                            confirmButtonText: "OK"
+                        });
+                    }
+                },
+                error: function (result) {
+                    console.log(result.responseJSON);
+                    var errors = result.responseJSON;
+                    var errorsList = "";
+                    $.each(errors, function (_, value) {
+                        $.each(value, function (_, fieldErrors) {
+                            fieldErrors.forEach(function (error) {
+                                errorsList += "<li style='color:#e81f1f'>" + error + "</li>";
+                            })
+                        });
+                    });
+                    $('#register_errorslogin').html(errorsList);
+
+
+                }
+            });
+        });
+        jQuery('.formregisterslogininvestor').click(function (e) {
+            // console.log("daaaa");
+            e.preventDefault();
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+
+            jQuery.ajax({
+                headers: {'X-CSRF-TOKEN': $('meta[name="csrf_token"]').attr('content')},
+
+                url: "{{ route('checklogininvestor') }}",
+                method: 'post',
+                data: {
+                    _token: '{{ csrf_token() }}',
+                    phone: jQuery('.phone4').val(),
+                    password: jQuery('.password4').val(),
+
+
+                },
+                success: function (result) {
+                    console.log(result);
+
+                    if (result.content == 'success') {
+
+                        swal({
+                            title: "Success!",
+                            text: "The Login  successfully !",
+                            type: "success",
+                            confirmButtonText: "OK"
+                        });
+
+                        setTimeout(function () {
+                            Swal.close()
+                        }, 50000)
+
+                        window.location.href = '{{route('invest.booking')}}';
 
                     }
                     else if (result.content == 'error') {
