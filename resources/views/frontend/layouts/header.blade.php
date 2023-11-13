@@ -665,6 +665,14 @@
                        class="nav-link">   @lang('site.Reservation and cancellation conditions') </a>
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#helpModal">
+                    <span class="help-icon">
+                       <i class="fas fa-question-circle"></i>
+                     </span>
+                        @lang('site.help') </a>
+                </li>
+
             </ul>
         @else
             <ul
@@ -679,8 +687,6 @@
                     </li>
                 @endforeach
 
-
-
                 <li class="nav-item">
                     <a class="nav-link" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#helpModal">
                     <span class="help-icon">
@@ -688,11 +694,19 @@
                      </span>
                         @lang('site.help') </a>
                 </li>
+            </ul>
+
+                @endif
+
+            <ul
+                class=" d-flex flex-column flex-lg-row align-items-lg-center list-unstyled p-0 m-0 w-100"
+            >
+
 
 
                 @if(!empty(auth()->user()))
                     <!-- WHEN User Login -->
-                    <li>
+                    <li class="nav-item">
                         <div class="accordion accordion-flush" id="accordionFlushProfile">
                             <div
                                 id="flush-headingOne2 d-flex justify-content-center"
@@ -769,7 +783,7 @@
 
                     <!-- without login -->
 
-                    <li>
+                    <li class="nav-item">
                         <a
                             href="{{route('sitelogin')}}"
                             class="btn-outline-7agz btn-space d-flex justify-content-center align-items-center"
@@ -778,8 +792,7 @@
                             <span> @lang('site.login')</span>
                         </a>
                     </li>
-                    <li>
-                        <a
+                    <li class="nav-item">                        <a
                             href="{{route('registers')}}"
                             class="btn-7agz d-flex justify-content-center align-items-center"
                         >
@@ -791,7 +804,7 @@
                 @endif
             </ul>
 
-        @endif
+
     </nav>
     <div
         class="side-menu-close d-flex flex-wrap flex-column align-items-center justify-content-center"

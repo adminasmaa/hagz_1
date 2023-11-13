@@ -32,7 +32,7 @@
                             <div class="col-lg-3 col-6">
                                 <div class="box-search mb-lg-0 mb-3">
                                     <label for="categories" class="lbl-search">@lang('site.categories')</label>
-                                    <select class="select2" id="categories" name="category_id" >
+                                    <select class="select2" id="category_id" name="category_id" >
                                         <option disabled selected>@lang('site.select')</option>
                                         @foreach($categories as $category)
                                             <option value="{{$category->id}}">{{$category->name ?? ''}}</option>
@@ -43,11 +43,11 @@
                             <div class="col-lg-3 col-6">
                                 <label for="regions" class="lbl-search">@lang('site.countries') </label>
                                 <div class="box-search mb-lg-0 mb-3" id="regions">
-                                    <select class="select2" name="country_id">
+                                    <select class="select2" name="country_id" id="country_id">
                                         <option disabled selected>@lang('site.select')</option>
-                                        @foreach($countries as $country)
-                                            <option value="{{$country->id}}"> {{$country->name ?? ''}}</option>
-                                        @endforeach
+{{--                                        @foreach($countries as $country)--}}
+{{--                                            <option value="{{$country->id}}"> {{$country->name ?? ''}}</option>--}}
+{{--                                        @endforeach--}}
 
                                     </select>
                                 </div>
@@ -967,6 +967,26 @@
 
 @section('scripts')
 
+
+    <script>
+
+
+        $('#category_id').on('change',function(e){
+            var categoryId = e.target.value;
+
+
+
+            $.get("{{url('invest/getcountries')}}/"+categoryId, function(data){
+                console.log(data);
+                $('#country_id').empty();
+                $('#country_id').append('<option>  Select Please  </option>');
+                $.each(data, function(key, value){
+                    $('#country_id').append('<option value="'+value.id+'">'+value.name_ar+'</option>')
+
+                });
+            })
+        });
+    </script>
     <script>
 
 
@@ -998,4 +1018,6 @@
     </script>
 
 @endsection
+
+
 

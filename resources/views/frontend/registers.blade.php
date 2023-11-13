@@ -545,7 +545,7 @@
 
                         swal({
                             title: "Success!",
-                            text: "The invest has been successfully Added!",
+                            text: "The investor has been successfully Added!",
                             type: "success",
                             confirmButtonText: "OK"
                         });
@@ -554,7 +554,7 @@
                         Swal.close()
                     }, 10000)
 
-                    window.location.href = '{{route('Home')}}';
+                    window.location.href = '{{route('invest.booking')}}';
 
                 },
                 error: function (result) {
