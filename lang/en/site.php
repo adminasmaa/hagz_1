@@ -6,6 +6,13 @@ return [
     'link' => 'Link',
     'map' => 'Map',
 
+    'resort'=>'Resort',
+    'Private'=>'Private',
+
+    'Chalet_type'=>'Chalet Type',
+
+    'familiesyouths'=>'families and young people',
+
     'total_price' => 'Total Price',
 
     'Snapchat download' => 'Snapchat download',

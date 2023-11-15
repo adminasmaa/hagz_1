@@ -49,13 +49,17 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
         // TODO: Implement edit() method.
 
         $aqar = Aqar::with('aqarSection')->find($Id);
+
+       $images= explode(',',$aqar->images);
+
+
         $aqar['changed_price'] = json_decode($aqar['changed_price']);
         $users = User::get();
         $categories = Category::get();
         $Area = Area::where('active', 1)->get();
         $countries = Country::all();
         $cities = City::all();
-        return view('dashboard.aqars.edit', compact('aqar', 'users', 'categories', 'Area', 'countries', 'cities'));
+        return view('dashboard.aqars.edit', compact('aqar', 'images','users', 'categories', 'Area', 'countries', 'cities'));
     }
 
     public function show($Id)

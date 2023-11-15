@@ -74,7 +74,8 @@ class Aqar extends Model
         'total_area',
         'Insurance_amount',
         'amount_deposit',
-        'rental_period'
+        'rental_period',
+        'Chalet_type'
     ];
 
     // relations

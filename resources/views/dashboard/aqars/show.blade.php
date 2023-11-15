@@ -163,9 +163,26 @@
                                                             <option disabled selected>@lang('site.select')</option>
                                                             <option value="families" @if($aqar->individual=='families')  selected @endif>@lang('site.families')</option>
                                                             <option value="youths" @if($aqar->individual=='youths')  selected @endif>@lang('site.youths')</option>
+                                                            <option value="familiesyouths" @if($aqar->individual=='familiesyouths')  selected @endif>@lang('site.familiesyouths')</option>
                                                         </select>
                                                     </div>
                                                 </div>
+
+                                                <div class="col-md-6 form-group">
+                                                    <label for="individuals" class="lbl-search"
+                                                    > @lang('site.Chalet_type')
+                                                    </label>
+                                                    <div class="box-search" id="individuals">
+                                                        <select class="js-example-placeholder-multiple col-sm-12"
+                                                                name="Chalet_type" readonly="" disabled>
+                                                            <option disabled selected>@lang('site.select')</option>
+                                                            <option value="Private"   @if($aqar->Chalet_type=='Private')  selected @endif>@lang('site.Private')</option>
+                                                            <option value="resort"   @if($aqar->Chalet_type=='resort')  selected @endif> @lang('site.resort')</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+
                                             </div>
                                             <br>
                                             <div class="col-sm-12">

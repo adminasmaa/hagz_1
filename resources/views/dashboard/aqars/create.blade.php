@@ -118,6 +118,21 @@
                                                                 <option disabled selected>@lang('site.select')</option>
                                                                 <option value="families">@lang('site.families')</option>
                                                                 <option value="youths">@lang('site.youths')</option>
+                                                                <option value="familiesyouths">@lang('site.familiesyouths')</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 form-group">
+                                                        <label for="individuals" class="lbl-search"
+                                                        > @lang('site.Chalet_type')
+                                                        </label>
+                                                        <div class="box-search" id="individuals">
+                                                            <select class="js-example-placeholder-multiple col-sm-12"
+                                                                    name="Chalet_type">
+                                                                <option disabled selected>@lang('site.select')</option>
+                                                                <option value="Private">@lang('site.Private')</option>
+                                                                <option value="resort">@lang('site.resort')</option>
                                                             </select>
                                                         </div>
                                                     </div>

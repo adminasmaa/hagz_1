@@ -11,6 +11,12 @@ return [
 
     'day' => 'يوم',
 
+    'Chalet_type'=>'نوع الشاليه',
+
+    'resort'=>'منتجع',
+    'Private'=>'برايفت',
+    'familiesyouths'=>'للعائلات والشباب',
+
     'Snapchat download'=>'حمله سناب شات',
     'Twitter campaign'=>'حمله توتير',
     'Instagram campaign'=>'حمله انستجرام',

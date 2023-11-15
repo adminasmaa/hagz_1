@@ -152,7 +152,9 @@
 
                                                                 <option value="{{$city->id}}" @if($city->id==$aqar->city_id)
                                                                     selected
+
                                                                 @endif>{{$city->name_ar ?? ''}}</option>
+
 
 
                                                             @endforeach -->
@@ -173,9 +175,29 @@
                                                                         @if($aqar->individual=='families')  selected @endif>@lang('site.families')</option>
                                                                 <option value="youths"
                                                                         @if($aqar->individual=='youths')  selected @endif>@lang('site.youths')</option>
+                                                                <option value="familiesyouths"
+                                                                        @if($aqar->individual=='familiesyouths')  selected @endif>@lang('site.familiesyouths')</option>
                                                             </select>
                                                         </div>
                                                     </div>
+
+
+                                                    <div class="col-md-6 form-group">
+                                                        <label for="individuals" class="lbl-search"
+                                                        > @lang('site.Chalet_type')
+                                                        </label>
+                                                        <div class="box-search" id="individuals">
+                                                            <select class="js-example-placeholder-multiple col-sm-12"
+                                                                    name="Chalet_type">
+                                                                <option disabled selected>@lang('site.select')</option>
+                                                                <option value="Private"
+                                                                        @if($aqar->Chalet_type=='Private')  selected @endif>@lang('site.Private')</option>
+                                                                <option value="resort"
+                                                                        @if($aqar->Chalet_type=='resort')  selected @endif> @lang('site.resort')</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
                                                 </div>
 
 
@@ -222,7 +244,7 @@
                                                     <label>@lang('site.name_ar')<span
                                                             class="text-danger">*</span></label>
                                                     <input type="text" name="name_ar" class="form-control"
-                                                           value="{{$aqar->name_ar}}" required>
+                                                           value="{{$aqar->name_ar}}">
                                                 </div>
 
                                                 <div class="col-md-6 form-group col-12 p-2 ">
@@ -332,6 +354,35 @@
                                                                 </tr>
                                                             @endfor
 
+                                                        @else
+
+                                                            <tr>
+                                                                <td>
+                                                                    <div class="row">
+                                                                        <div class="col-md-4 form-group col-12">
+                                                                            <label>@lang('site.personnumber')</label>
+                                                                            <input type="number" name="person_num[]"
+                                                                                   class="form-control"
+                                                                                   value=""/>
+                                                                        </div>
+                                                                        <div class="col-md-4 form-group col-12">
+                                                                            <label>@lang('site.fixed_price')</label>
+                                                                            <input type="number" step=".1"
+                                                                                   name="price[]"
+                                                                                   class="form-control"
+                                                                                   value=""/>
+                                                                        </div>
+
+                                                                        <div class="col-md-4 form-group col-12">
+                                                                            <a
+                                                                                class="btn btn-air-primary btn-pill btn-success add-price w-100 m-t-30"><i
+                                                                                    class="fa fa-plus"
+                                                                                    aria-hidden="true"></i></a>
+                                                                        </div>
+
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
                                                         @endif
                                                     </table>
 
@@ -354,12 +405,12 @@
                                                 <div class="col-md-6 form-group">
                                                     <label>@lang('site.latitude')</label>
                                                     <input type="text" name="latitude" class="form-control"
-                                                           value="{{$aqar->latitude ?? ''}}" required>
+                                                           value="{{$aqar->latitude ?? ''}}">
                                                 </div>
                                                 <div class="col-md-6 form-group">
                                                     <label>@lang('site.longitude')</label>
                                                     <input type="text" name="longitude" class="form-control"
-                                                           value="{{$aqar->longitude ?? ''}}" required>
+                                                           value="{{$aqar->longitude ?? ''}}">
                                                 </div>
                                                 <div class="col-md-6 form-group"><span class="text-danger">*</span>
                                                     <label class="form-label">@lang('site.active')</label>

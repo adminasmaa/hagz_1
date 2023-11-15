@@ -977,7 +977,25 @@
 @section('scripts')
 
     <script>
-   
+        jQuery(document).ready(function () {
+
+            $('#categoriessid').on('change', function (e) {
+                var categoryIdss = e.target.value;
+
+                console.log("categories", categoryId);
+
+                $.get("{{url('invest/getcountries')}}/" + categoryIdss, function (data) {
+                    console.log(data);
+                    $('#countriesid').empty();
+                    $('#countriesid').append('<option>  Select Please  </option>');
+                    $.each(data, function (key, value) {
+                        $('#countriesid').append('<option value="' + value.id + '">' + value.name_ar + '</option>')
+
+                    });
+                })
+            });
+
+        });
         jQuery(document).ready(function () {
             jQuery('.favouritess').click(function (e) {
                 e.preventDefault();

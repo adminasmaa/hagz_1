@@ -226,11 +226,11 @@
 
 
         $('#categories').on('change',function(e){
-            var categoryId = e.target.value;
+            var categoryIddata = e.target.value;
 
 
 
-            $.get("{{url('invest/getcountries')}}/"+categoryId, function(data){
+            $.get("{{url('invest/getcountries')}}/"+categoryIddata, function(data){
                 console.log(data);
                 $('#countries').empty();
                 $('#countries').append('<option>  Select Please  </option>');

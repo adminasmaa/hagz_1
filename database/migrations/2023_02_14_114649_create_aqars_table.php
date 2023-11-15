@@ -16,6 +16,7 @@ return new class extends Migration {
             $table->increments('id');
             $table->string('name_ar')->nullable();
             $table->string('name_en')->nullable();
+            $table->string('Chalet_type')->nullable();
             $table->boolean('status')->nullable()->default(0);
             $table->float('fixed_price')->nullable();
             $table->json('changed_price')->nullable();
